@@ -13,7 +13,5 @@ import io.cucumber.testng.CucumberOptions;
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
                 "pretty"}
 )
-public class Runner extends AbstractTestNGCucumberTests {
-
-
+public class RunnerMehmet extends AbstractTestNGCucumberTests {
 }
