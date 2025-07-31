@@ -1,4 +1,3 @@
 target/
 .idea/
-ExtentReports/
-CapstoneUICucumber.iml
+ExtentReports

@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 import static utilities.Driver.getDriver;
 
@@ -35,9 +36,13 @@ public class ReusableMethods {
         return Driver.getDriver().findElement(by).isDisplayed();
     }
 
-    public static WebElement isVisibleByWebDriverWait(By by) {
+    public static WebElement visibilityOfElementByWebDriverWait(By by) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
         return wait.until(ExpectedConditions.visibilityOf(Driver.getDriver().findElement(by)));
+    }
+    public static List<WebElement> visibilityOfElementsByWebDriverWait(By by) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+        return wait.until(ExpectedConditions.visibilityOfAllElements(Driver.getDriver().findElements(by)));
     }
 
     //ISENABLED METHODS------------------------------------------------------------------------------------------------------
@@ -72,9 +77,9 @@ public class ReusableMethods {
 
     //GET TEXT OF ELEMENT     * Returns trimmed text of a WebElement.
     public static String getTextOfElement(By by) {
-        String text = Driver.getDriver().findElement(by).getText().trim();
-        return text;
+        return Driver.getDriver().findElement(by).getText().trim();
     }
+
 
     //CONVERT ELEMENT TEXT INTO INTEGER    * Extracts and returns an integer from a WebElement's text.  * (e.g. "$1,234" → 1234)
     public static int convertElementTextIntoInteger(WebElement element) {
