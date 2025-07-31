@@ -1,8 +1,47 @@
 @Home
 Feature: Login Feature
 
-  Scenario: Feature Test
+  Background: User goes to homepage
     Given user goes to homepage
     And User clicks login link
-    When user logins as "usernameAzize" with password "passwordAzize"
+
+  @PositiveLogin
+  Scenario: Positive login Test
+    When user enters email "azizetest@gmail.com"
+    And user enters password "yHQ_aWYbs1yJtJm"
+    And user clicks on Login Button
+    Then user validates sign in
+
+
+  @NegativeLogin
+  Scenario: Negative login Test
+    When user enters email "azizetest@gmail.com"
+    And user enters password "invalidPAss"
+    And user clicks on Login Button
+    Then user validates error message "Invalid Credentials"
+
+
+  @NegativeLogin
+  Scenario: Negative login Test
+    When user enters email "invalid@gmail.com"
+    And user enters password "yHQ_aWYbs1yJtJm"
+    And user clicks on Login Button
+    Then user validates error message "Invalid Credentials"
+
+
+  @NegativeLogin
+  Scenario: Negative login Test with empty username
+    And user enters email ""
+    And user enters password ""
+    And user clicks on Login Button
+    Then user validates "username" required message
+
+
+  @NegativeLogin
+  Scenario: Negative login Test with empty password
+    And user enters email "anyEmail"
+    And user enters password ""
+    And user clicks on Login Button
+    Then user validates "password" required message
+
 
