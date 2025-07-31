@@ -7,13 +7,11 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "stepdefinitions",
-        tags = "@Home",
+        tags = "@Fatma",
         plugin = {"html:target/reports/report.html",
                 "rerun:target/failed_tests/failed_scenarios.txt",
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
                 "pretty"}
 )
-public class Runner extends AbstractTestNGCucumberTests {
-
-
+public class RunnerFatma extends AbstractTestNGCucumberTests {
 }

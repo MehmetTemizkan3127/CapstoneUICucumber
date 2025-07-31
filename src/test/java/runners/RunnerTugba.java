@@ -1,6 +1,5 @@
 package runners;
 
-
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
@@ -13,7 +12,6 @@ import io.cucumber.testng.CucumberOptions;
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
                 "pretty"}
 )
-public class Runner extends AbstractTestNGCucumberTests {
 
-
+public class RunnerTugba extends AbstractTestNGCucumberTests {
 }
