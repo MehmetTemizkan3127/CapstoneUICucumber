@@ -14,5 +14,4 @@ Feature:AddNew Remote Unit Page
     And the user clicks the Save button
     And user clicks the Remote Units  menu
     Then the user verifies that the newly added remote unit displayed under Remote Units.
-    Then delete created Remote unit
-    And user closes browser
+    And  user closes browser
