@@ -1,10 +1,12 @@
 package stepdefinitions;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
 import org.testng.Assert;
 import pages.HomePage;
 import pages.LoginPage;
@@ -21,7 +23,7 @@ public class US_10_Remote_Units_StepDefinition {
     RemoteUnitsPage remoteUnitsPage = new RemoteUnitsPage();
     HomePage homePage=new HomePage();
     LoginPage loginPage=new LoginPage();
-   JavascriptUtils javascriptUtils=new JavascriptUtils();
+
 
     @When("user clicks on Login button")
     public void user_clicks_on_login_button() {
@@ -50,12 +52,18 @@ remoteUnitsPage.remoteunitsign.click();
 
     }
 
-    @And("user verify the Remote units page menu")
-    public void userVerifyTheRemoteUnitsPageMenu() {
-       ReusableMethods.waitForSeconds(3);
+    @Then("user verify the Remote units page menu")
+    public void userVerifyTheRemoteUnitsPageMenu() throws InterruptedException {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        ReusableMethods.waitForSeconds(3);
         int expectedSize = 35;
         int actualSize=remoteUnitsPage.displayRemotePagelist.size();
         System.out.println("actualSize = " + actualSize);
         Assert.assertEquals(actualSize,expectedSize);
+    }
+
+    @And("user closes browser")
+    public void userClosesBrowser() {
+Driver.closeDriver();
     }
 }

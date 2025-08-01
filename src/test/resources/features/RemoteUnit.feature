@@ -1,6 +1,6 @@
 @US_0010
 Feature:displayed remote units
-  @Display_Created_Remote_Unit
+  @Display_Remote_Unit_Page
   Scenario: The user displays the created remote unit
     Given user goes to homepage
     When user clicks on Login button
@@ -8,4 +8,5 @@ Feature:displayed remote units
     And the user enters a valid "clave" password in the Password field
     And the user clicks on the Sign in button
     And user clicks the Remote Units  menu
-    And user verify the Remote units page menu
+    Then user verify the Remote units page menu
+    And  user closes browser
