@@ -42,7 +42,7 @@ public class ReusableMethods {
     }
     public static List<WebElement> visibilityOfElementsByWebDriverWait(By by) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
-        return wait.until(ExpectedConditions.visibilityOfAllElements(Driver.getDriver().findElements(by)));
+        return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(by));
     }
 
     //ISENABLED METHODS------------------------------------------------------------------------------------------------------
