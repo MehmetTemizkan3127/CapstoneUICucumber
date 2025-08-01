@@ -1,10 +1,20 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import utilities.Driver;
 
+import javax.swing.text.DateFormatter;
+import java.text.DateFormat;
+import java.text.spi.DateFormatProvider;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import static utilities.ReusableMethods.*;
@@ -19,6 +29,14 @@ public class UsersPage {
 
     private By usersList = By.xpath("//div[@id=\"MainContent\"]//table[@class='table table-hover table-sm ReactDataTable']/tbody/tr");
 
+    private By usersEmailList =By.xpath("//*[@id=\"MainContent\"]//table[@class='table table-hover table-sm ReactDataTable']/tbody/tr/td[3]/div/span");
+
+    private By usersSinceList =By.xpath("//*[@id=\"MainContent\"]//table[@class='table table-hover table-sm ReactDataTable']/tbody/tr/td[4]/div/span");
+
+    private By usersAccessTypeList =By.xpath("//*[@id=\"MainContent\"]//table[@class='table table-hover table-sm ReactDataTable']/tbody/tr/td[5]");
+
+    private By usersStatusList =By.xpath("//*[@id=\"MainContent\"]//table[@class='table table-hover table-sm ReactDataTable']/tbody/tr/td[6]");
+
     private By usersIcon = By.xpath("//div//li[@id='link8']");
 
     private By changeRole = By.xpath("//div[@class='btn-group show']/ul/li[5]/a[@class='dropdown-item ps-5']");
@@ -27,19 +45,11 @@ public class UsersPage {
     //bu method ana sayfaya taşınmalı
     public UsersPage goToUsersPage() {
         clickElement(this.usersIcon);
-        return new UsersPage();
-    }
-    public UsersPage openDropDownMenu(){
-        clickElement(parafIcon);
+        //todo beklemeyi güncelle
+        waitForSeconds(3);
         return this;
     }
-    public void assertUsersPageOpens() {
-
-        Assert.assertTrue(  getTextOfElement(this.pageTitle).contains("All Members")   );
-    }
-
-
-
+    //bu method ana sayfaya taşınmalı
     public UsersPage changeRoleToClaruswayCompany(){
         visibilityOfElementByWebDriverWait(changeRole);
         if( getTextOfElement(changeRole).contains("Clarusway") ){
@@ -47,9 +57,55 @@ public class UsersPage {
         }
         return this;
     }
-
-
+    public UsersPage openDropDownMenu(){
+        clickElement(parafIcon);
+        return this;
+    }
+    public void assertUsersPageOpens() {
+        Assert.assertTrue(  getTextOfElement(this.pageTitle).contains("All Members")   );
+    }
     public void assertVisibilityOfUsersList() {
         Assert.assertFalse(    visibilityOfElementsByWebDriverWait(this.usersList).isEmpty()   );
+    }
+    public void assertVisibilityOfEmailOfEachUser() {
+
+        List <WebElement> usersEmailList = visibilityOfElementsByWebDriverWait(this.usersEmailList);
+        for(WebElement w : usersEmailList){
+            Assert.assertTrue(w.getText().contains("@") & w.getText().contains(".com"), w.getText() + "is not acceptable"  );
+        }
+    }
+    public void assertVisibilityOfSinceOfEachUser() {
+
+        List <WebElement> userSinceList = visibilityOfElementsByWebDriverWait(this.usersSinceList);
+        for(WebElement w : userSinceList){
+            Assert.assertTrue(  isDateFormatValid(w.getText()), w.getText() + "is not acceptable"  );
+        }
+    }
+    public void assertVisibilityOfAccessTypeOfEachUser() {
+        List <WebElement> usersAccessTypeList = visibilityOfElementsByWebDriverWait(this.usersAccessTypeList);
+        for(WebElement w : usersAccessTypeList){
+
+            System.out.println(w.getText());
+            List<String> validAccesType = Arrays.asList("Allowed", "Suspended", "Blocked");
+            Assert.assertTrue(  validAccesType.stream().anyMatch(w.getText()::contains), w.getText() + "is not acceptable"  );
+        }
+    }
+    public void assertVisibilityOfStatusOfEachUser() {
+
+        List <WebElement> usersStatusList = visibilityOfElementsByWebDriverWait(this.usersStatusList);
+        for(WebElement w : usersStatusList){
+            System.out.println(w.getText());
+          //  Assert.assertTrue(  w.getText(), w.getText() + "is not acceptable"  );
+        }
+    }
+
+    public boolean isDateFormatValid(String date){
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        try {
+            LocalDate.parse( date, dateTimeFormatter);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 }
