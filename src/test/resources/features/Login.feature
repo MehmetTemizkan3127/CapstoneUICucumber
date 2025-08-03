@@ -6,7 +6,7 @@ Feature: Login Feature
     And User clicks login link
 
   @PositiveLogin
-  Scenario: Positive login Test
+  Scenario: Successful login with valid credentials
     When user enters email "azizetest@gmail.com"
     And user enters password "yHQ_aWYbs1yJtJm"
     And user clicks on Login Button
@@ -14,7 +14,7 @@ Feature: Login Feature
 
 
   @NegativeLogin
-  Scenario: Negative login Test
+  Scenario: Login attempt with invalid password
     When user enters email "azizetest@gmail.com"
     And user enters password "invalidPAss"
     And user clicks on Login Button
@@ -22,7 +22,7 @@ Feature: Login Feature
 
 
   @NegativeLogin
-  Scenario: Negative login Test
+  Scenario: Login attempt with invalid username
     When user enters email "invalid@gmail.com"
     And user enters password "yHQ_aWYbs1yJtJm"
     And user clicks on Login Button
@@ -43,5 +43,7 @@ Feature: Login Feature
     And user enters password ""
     And user clicks on Login Button
     Then user validates "password" required message
+
+
 
 
