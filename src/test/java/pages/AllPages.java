@@ -35,7 +35,7 @@ public class AllPages {
         return loginPage;
     }
 
-    public UsersPage getUsersPage() {
+    public UsersPage  getUsersPage() {
         if (usersPage == null) {
             usersPage = new UsersPage();
         }
@@ -146,6 +146,7 @@ public class AllPages {
         }
         return profilePage;
     }
+
 
 
 }

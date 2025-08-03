@@ -3,6 +3,8 @@ package utilities;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -99,6 +101,61 @@ public class ReusableMethods {
             System.err.println("Sleep was interrupted");
         }
     }
+
+    //FLUENT WAIT
+    public static List<WebElement> waitForVisibilityofElementsByFleuntWait(By by){
+        Wait<WebDriver> wait = new FluentWait<>(Driver.getDriver())
+                .withTimeout(Duration.ofSeconds(20))
+                .pollingEvery(Duration.ofSeconds(2))
+                .ignoring(NoSuchElementException.class);
+
+        return wait.until(driver -> driver.findElements(by));
+    }
+
+    //REFRESH PAGE METHOD
+    public static void refreshPage(){
+        Driver.getDriver().navigate().refresh();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
 
