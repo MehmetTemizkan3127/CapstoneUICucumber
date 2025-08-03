@@ -43,8 +43,5 @@ NewRemoteUnitPage newAdd=new NewRemoteUnitPage();
     public void the_user_verifies_that_the_newly_added_remote_unit_displayed_under_remote_units() {
 
     }
-    @Then("delete created Remote unit")
-    public void delete_created_remote_unit() {
 
-    }
 }
