@@ -1,4 +1,4 @@
-@Fatma
+@UserDisplayFeature   @Regression
 Feature: User Module Display
 
   Background: User logs in application
@@ -6,11 +6,12 @@ Feature: User Module Display
     And User clicks login link
     And user logins as "username1" with password "password1"
 
+  @UsersPageAssertionScenario
   Scenario: User opens Users Page
     Given User goes to usersPage
     Then verify that  page opened
 
-  @Userlistassertion
+  @UserlistAssertionScenario
   Scenario: User checks visibility of users list
     Given User goes to usersPage
     Then verify userList exists
