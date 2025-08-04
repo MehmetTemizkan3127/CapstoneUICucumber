@@ -1,4 +1,57 @@
 package pages;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import utilities.Driver;
+
+import java.time.Duration;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class PermissionsPage {
+
+    private final By permissionsMenuLink = By.xpath("//a[@href='#/permissions' and contains(., 'Permissions')]");
+    private final By permissionsList = By.xpath("//div[contains(@class, 'd-grid') and contains(@class, 'mb-2')]//button[contains(@class, 'btn-outline-secondary')]");
+
+    public void navigateToPermissionsPage() {
+        WebElement element = Driver.getDriver().findElement(permissionsMenuLink);
+        scrollAndClick(element);
+    }
+
+    // Sol menüde Permissions'a tiklar
+    public void clickLeftMenuOption(String optionName) {
+        String xpath = String.format("//a[contains(normalize-space(), '%s')]", optionName);
+        WebElement menuItem = Driver.getDriver().findElement(By.xpath(xpath));
+        scrollAndClick(menuItem);
+    }
+
+    // Sayfadaki tüm Permissions isimlerini getirir
+    public List<String> getAllPermissions() {
+        List<WebElement> permissions = Driver.getDriver().findElements(permissionsList);
+        return permissions.stream()
+                .map(WebElement::getText)
+                .map(String::trim)
+                .collect(Collectors.toList());
+    }
+
+    // En az bir yetki görünürse true döner
+    public boolean arePermissionsVisible() {
+        return !getAllPermissions().isEmpty();
+    }
+
+    // Scroll edip tıklamaya çalışan ortak method
+    private void scrollAndClick(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+        try {
+            element.click();
+        } catch (org.openqa.selenium.ElementClickInterceptedException e) {
+            js.executeScript("arguments[0].click();", element);  // JS ile zorla tıkla
+        }
+    }
 }
