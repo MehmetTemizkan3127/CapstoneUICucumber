@@ -25,7 +25,7 @@ Feature: User Module Edit
     When User clicks the + button under Roles section
     And User adds a new role from the dropdown
     And User clicks Save button
-    Then Verify that the new role is added for user
+    Then Verify that the new role is added and "New role added for this user successfuly" message seen
 
 
   Scenario: Check that new role is saved correctly
@@ -42,9 +42,25 @@ Feature: User Module Edit
     And User refreshes the profile page
     Then Verify that newly added role does not appear under Add New Roles dropdown list
 
-    @AttemptToDeleteDefaultRole
+  @AttemptToDeleteDefaultRole
   Scenario: User attempts to remove the default role
     Given User goes to usersPage
     And User clicks on first username from the list
-    When User finds and clicks the default role
+    When User finds if there is a default role
     Then Verify that default role cannot be removed
+
+  @EvaluateANewPassword
+  Scenario: Reset Password - Evaluate A New Password
+    Given User goes to usersPage
+    And User clicks on first username from the list
+    When User clicks Reset Password button
+    And User clicks Confirm button
+    Then Verify that "Reset password successfully" message seen
+
+
+  @LoginWithEvaluatedPassword
+  Scenario: Login With Evaluated Password for same user
+    Given User resets password
+    And User logs out
+    And user logins as "username2" with password "password2"
+    Then verify that user logged in succesfully

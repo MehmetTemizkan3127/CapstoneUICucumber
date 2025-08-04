@@ -13,7 +13,7 @@ public class UsersDisplaySD {
         pages
                 .getUsersPage()
                 .openDropDownMenu()
-                .changeRoleToClaruswayCompany()
+              //  .changeRoleToClaruswayCompany()
                 .goToUsersPage();
     }
 

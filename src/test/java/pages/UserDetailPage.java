@@ -1,13 +1,23 @@
 package pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import utilities.ConfigReader;
 import utilities.Driver;
+
+
+import java.util.List;
 
 import static org.testng.Assert.*;
 import static utilities.ReusableMethods.*;
 
 public class UserDetailPage {
+
+    Logger logger = LogManager.getLogger(UserDetailPage.class);
 
     private By pageTitle = By.xpath("//body//div[@class='col']/h4");
     private By addRoleButton = By.xpath("//div[@class='col']/label[@class='form-label text-secondary']/img");
@@ -16,9 +26,17 @@ public class UserDetailPage {
     private By roleWindow_DropDownMenu = By.xpath("//div[@class='modal fade show']//div[@class=' css-1xc3v61-indicatorContainer']");
     private By listOfRolesDropDownMenu = By.xpath("//div[@id='react-select-5-listbox']/div");
     private By roleWindow_saveButton = By.cssSelector("button.btn.btn-info.float-end.text-white");
-    private By roleWindow_NewRoleAddedMessaged = By.xpath("//button[text()='New role added for this user successfuly']");
+    private By roleWindow_NewRoleAddedMessaged = By.xpath("//p[contains(text(), 'New role added for this user')]");
     private By listOfAddedRoles = By.xpath("//div[@class='row mt-3']//div[@class='col row-cols-1']/span");
     private By defaultRole = By.xpath("//div[@class='row mt-3']//div[@class='col row-cols-1']/span[@class='active-roles-box']");
+    private By defaultrole_threeDot = By.xpath("//span[@class='active-roles-box']//div[@class='btn-group dropup']");
+    private By roles_threeDot = By.xpath("//div[@class='btn-group dropup']");
+
+    private By resetPassword = By.id("changePasswordButton");
+    private By confirmResetPassword = By.xpath("//div[@class='modal-body']//button[text()='Confirm']");
+    private By resetPasswordSuccessMessage = By.xpath("//div[@class='callout callout-success']//h5[text()='Reset password successfully']");
+    private By newResetPasswordText  = By.xpath("//div[@class='callout callout-success']//textarea");
+
 
     ///    //div[@class='modal fade show']//div[@class='  css-1xc3v61-indicatorContainer']
 
@@ -43,11 +61,17 @@ public class UserDetailPage {
         WebElement dropdownInput = Driver.getDriver().findElement(By.xpath("//div[contains(@class,'css-13cymwt-control')]"));
         dropdownInput.click();
 
-// Açılan listeden "Warehouse Personnel" öğesini seç
-        WebElement optionToSelect = Driver.getDriver().findElement(By.xpath("//div[@id='react-select-5-listbox']//div[text()='Warehouse Personnel']"));
-        optionToSelect.click();
-        visibilityOfElementsByWebDriverWait(roleWindow_fade);
-        System.out.println(visibilityOfElementByWebDriverWait(listOfRolesDropDownMenu).getText());
+        Actions action = new Actions(Driver.getDriver());
+        action.click(dropdownInput)
+                .keyDown(Keys.ARROW_DOWN)
+                .keyDown(Keys.ARROW_DOWN)
+                .keyDown(Keys.ARROW_DOWN)
+                .keyDown(Keys.ARROW_DOWN)
+                .keyDown(Keys.ENTER)
+                .perform();
+
+
+waitForSeconds(5);
         return this;
     }
 
@@ -56,9 +80,10 @@ public class UserDetailPage {
         return this;
     }
 
-    public void assertNewRoledAddedForUser() {
-        visibilityOfElementByWebDriverWait(this.roleWindow_NewRoleAddedMessaged);
-        assertEquals(   getTextOfElement(roleWindow_NewRoleAddedMessaged),"New role added for this user successfuly");
+    public void assertNewRoledAddedForUser(String expectedResult) {
+        String actualResult = visibilityOfElementByWebDriverWait(this.roleWindow_NewRoleAddedMessaged).getText();
+        assertEquals(   actualResult,expectedResult);
+        logger.info("Assertion done. " + actualResult);
     }
 
     public UserDetailPage refreshUserDetailPage() {
@@ -69,8 +94,61 @@ public class UserDetailPage {
     public void assertNewAddedRoleIsListedUnderRolesSection() {
     }
 
-    public UserDetailPage attemptToDeleteDefaultRole() {
-        clickElement(defaultRole);
+    public UserDetailPage isThereADefaultRole() {
+        try {
+            visibilityOfElementByWebDriverWait(defaultRole);
+        }
+        catch (Exception e){
+            logger.info("There isn't a Default Role");
+        }
+        return this;
+
+
+    }
+
+    public UserDetailPage assertDefaultRoleDoesNotHaveThreeDots() {
+
+        logger.info("DefaultRole is " + getTextOfElement(defaultRole));
+        WebElement defaultRole = visibilityOfElementByWebDriverWait(this.defaultRole);
+        List<WebElement> checkDefaultRole = Driver.getDriver().findElements(defaultrole_threeDot);
+//        String bgColor = defaultRole.getCssValue("background-color");
+//        System.out.println("bgColor = " + bgColor);
+        assertEquals (checkDefaultRole.size(),0);
+        logger.info("Assertion done. Default role cannot be deleted ");
+        return this;
+
+    }
+
+    public UserDetailPage clickResetPasswordButton() {
+        clickElement(resetPassword);
+        logger.info("Clicked Reset Password button");
         return this;
     }
+
+    public UserDetailPage clickConfirmButton() {
+        clickElement(this.confirmResetPassword);
+        logger.info("Clicked Confirm button");
+        return this;
+    }
+
+    public UserDetailPage assertPasswordReset(String expectedResult) {
+        assertEquals(getTextOfElement(this.resetPasswordSuccessMessage),expectedResult);
+        logger.info("Assertion done.  "  + getTextOfElement(this.resetPasswordSuccessMessage));
+        return this;
+    }
+
+
+    public UserDetailPage keepNewPassword() {
+
+        String password = getTextOfElement(this.newResetPasswordText);
+        logger.info("New password created: " + password);
+        ConfigReader.setProperty("password2",password);
+
+        System.out.println("Config e password2 set edildi " + ConfigReader.getProperty("password2"));
+
+        return this;
+
+    }
+
+
 }

@@ -38,6 +38,9 @@ public class ReusableMethods {
         return Driver.getDriver().findElement(by).isDisplayed();
     }
 
+    public static WebElement visibilityOfElement(By by){
+        return Driver.getDriver().findElement(by);
+    }
     public static WebElement visibilityOfElementByWebDriverWait(By by) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
         return wait.until(ExpectedConditions.visibilityOf(Driver.getDriver().findElement(by)));
