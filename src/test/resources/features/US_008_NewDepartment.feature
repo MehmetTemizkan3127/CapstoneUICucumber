@@ -1,6 +1,6 @@
 @NewDepartment
 Feature: New Department Feature
-
+#T****
   Background: User goes to homepage
     Given user goes to homepage
     And User clicks login link
@@ -11,29 +11,108 @@ Feature: New Department Feature
   @TC_008_01
   Scenario: TC_08_01 Adding a new department in the Departments module
     Given Click Add New Department button
-    When Enter a department name
-    And Enter a department Short name
+    When Enter a department name 'Test department name'
+    And Enter a department Short name 'Test department short name'
     And Select a department type - Departmant
-    And Enter a department description
+    And Enter a department description 'Test department description'
     And Select a departmant role
     And Click save button
     Then Verify that the newly created department is displayed in the department list.
 
+  @TC_008_02
+  Scenario: TC_08_02 Testing department creation with an empty name field
+    Given Click Add New Department button
+    When Enter a department name ''
+    And Enter a department Short name 'Test department short name'
+    And Select a department type - Departmant
+    And Enter a department description 'Test department description'
+    And Select a departmant role
+    And Click save button
+    Then Verify that the message 'Please enter a name for department' is displayed
+
+  @TC_008_03
+  Scenario: TC_08_03 Testing department creation with an empty role field
+    Given Click Add New Department button
+    When Enter a department name 'Test department name'
+    And Enter a department Short name 'Test department short name'
+    And Enter a department description 'Test department description'
+    And Select a departmant role
+    And Click save button
+    Then Verify that the message 'Please select a type for department' is displayed
+
+  @TC_008_04
+  Scenario: TC_0008_04 Creating a department with only the name and type fields
+    Given Click Add New Department button
+    When Enter a department name 'Test department name'
+    And Enter a department Short name ''
+    And Select a department type - Departmant
+    And Enter a department description ''
+    And Click save button
+    Then user verifies that the message 'New department successfully created' is displayed
+
+  @TC_008_05 @Error @Regression
+  Scenario: TC_0008_05 Creating a department by entering a space character in the name field
+    Given Click Add New Department button
+    When Enter a department name '     '
+    And Enter a department Short name 'Test department short name'
+    And Select a department type - Departmant
+    And Enter a department description 'Test department description'
+    And Select a departmant role
+    And Click save button
+    Then user verifies that the message 'New department successfully created' is not displayed
+
+  @TC_008_06
+  Scenario: TC_08_06 Verifying that more than one role can be added to a newly created department
+    Given Click Add New Department button
+    When Enter a department name 'Multiple Test'
+    And Enter a department Short name 'Test department short name'
+    And Select a department type - Departmant
+    And Enter a department description 'Test department description'
+    And Select multiple 2 departmant role
+    And Click save button
+    Then Verify that the count of added roles matches the count of created roles
+
+  @TC_008_07
+  Scenario: TC_08_07 Do not select a department as the department type / NEGATIVE TEST
+    Given Click Add New Department button
+    When Enter a department name 'Remote Unit department test'
+    And Enter a department Short name 'Test department short name'
+    And Select a department type - Remote Unit
+    And Enter a department description 'Test department description'
+    And Select a departmant role
+    And Click save button
+    Then Verify that the created department is not displayed in the department list
+
+  @TC_008_08 @Error
+  Scenario: TC_08_08 Verifying that a role added during department creation can be removed
+    Given Click Add New Department button
+    When Enter a department name 'Multiple Test'
+    And Enter a department Short name 'Test department short name'
+    And Select a department type - Departmant
+    And Enter a department description 'Test department description'
+    And Select a departmant role
+    And Remove a selected department role
+    Then Verify that a selected department role is removed
+
+  @TC_008_09
+  Scenario: TC_08_09 Verifying that the same role cannot be selected twice
+    Given Click Add New Department button
+    And Enter a department description 'Test department description'
+    And Select a departmant role twice
+    Then Verify that the same role cannot be selected again
+
+  @TC_008_10
+  Scenario: TC_08_010 Creating a department more than once with the same name and type
+    Given Click Add New Department button
+    And Verify that the department is not created twice with the same name
 
 
+  @TC_008_11
+  Scenario: TC_08_11 Verifying that add new department button is clickable
+    Then User verifies that add new department button is clickable
 
-
-
-
-
-
-
-    @TC_008_11
-    Scenario: TC_08_11 Verifying that add new department button is clickable
-      Then User verifies that add new department button is clickable
-
-    @TC_008_12
-    Scenario: TC_08_12 Verifying that Department Name field is visible
+  @TC_008_12
+  Scenario: TC_08_12 Verifying that Department Name field is visible
     Given Click Add New Department button
     Then Verify that Department Name field is visible
 
@@ -73,8 +152,4 @@ Feature: New Department Feature
     Given Click Add New Department button
     And Click cancel
     Then Verify that edit button is visible
-
-
-
-
 
