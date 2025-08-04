@@ -20,8 +20,11 @@ Feature: Department Feature
   Scenario: TC_007_03 Verifying the number of departments
     And Verify that the number of roles shown on the department card matches the number of roles listed inside the department
 
-
   @TC_007_04 @Smoke @Regression
   Scenario: TC_007_04 Verifying that Departments text visible
     Then User verifies that the departments are displayed
+
+  @deleteDepartment
+  Scenario: TC_007_01 Verifying that all registered departments are displayed
+    Then delete the created department
 
