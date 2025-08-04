@@ -35,9 +35,9 @@ public class UserEditSD {
     @Then("Verify that select a role window is opened")
     public void verifyThatSelectARoleWindowIsOpened() {
         pages
-            .getUserDetailPage()
-            .clickOnRolesList()
-            .assertSelectARoleWindowOpens();
+                .getUserDetailPage()
+                .clickOnRolesList()
+                .assertSelectARoleWindowOpens();
     }
     @And("User adds a new role from the dropdown")
     public void userAddsANewRoleFromTheDropdown() {
@@ -54,11 +54,11 @@ public class UserEditSD {
 
     }
 
-    @Then("Verify that the new role is added for user")
-    public void verifyThatTheNewRoleIsAddedForUser() {
+    @Then("Verify that the new role is added and {string} message seen")
+    public void verifyThatTheNewRoleIsAddedAndMessageSeen(String expectedResult) {
         pages
                 .getUserDetailPage()
-                .assertNewRoledAddedForUser();
+                .assertNewRoledAddedForUser(expectedResult);
     }
 
     @When("User adds a new role for user")
@@ -90,11 +90,76 @@ public class UserEditSD {
     public void verifyThatNewlyAddedRoleDoesNotAppearUnderAddNewRolesDropdownList() {
     }
 
-    @When("User finds and clicks the default role")
-    public void userFindsAndClicksTheDefaultRole() {
+    @When("User finds if there is a default role")
+    public void userFindsIfThereIsADefaultRole() {
         pages
                 .getUserDetailPage()
-                .attemptToDeleteDefaultRole();
+                .isThereADefaultRole();
 
+    }
+
+    @Then("Verify that default role cannot be removed")
+    public void verifyThatDefaultRoleCannotBeRemoved() {
+
+        //span[@class='active-roles-box']//div[@class='btn-group dropup']
+        pages
+                .getUserDetailPage()
+                .assertDefaultRoleDoesNotHaveThreeDots();
+
+    }
+
+    @When("User clicks Reset Password button")
+    public void userClicksResetPasswordButton() {
+        pages
+                .getUserDetailPage()
+                .clickResetPasswordButton();
+    }
+
+    @And("User clicks Confirm button")
+    public void userClicksConfirmButton() {
+        pages
+                .getUserDetailPage()
+                .clickConfirmButton();
+    }
+
+    @Then("Verify that {string} message seen")
+    public void verifyThatMessageSeen(String expectedResult) {
+        pages
+                .getUserDetailPage()
+                .assertPasswordReset(expectedResult);
+    }
+
+    @Then("keep the password")
+    public void keepThePassword() {
+        pages
+                .getUserDetailPage()
+                .keepNewPassword();
+
+    }
+
+    @Given("User resets password")
+    public void userResetsPassword() {
+        pages
+                .getUsersPage()
+                .openDropDownMenu()
+                //  .changeRoleToClaruswayCompany()
+                .goToUsersPage()
+                .openUserDetailPageForFirstUser()
+                .clickResetPasswordButton()
+                .clickConfirmButton()
+                .keepNewPassword();
+
+
+    }
+
+    @And("User logs out")
+    public void userLogsOut() {
+        pages
+                .getUsersPage()
+                .logout();
+    }
+
+    @Then("verify that user logged in succesfully")
+    public void verifyThatUserLoggedInSuccesfully() {
     }
 }
