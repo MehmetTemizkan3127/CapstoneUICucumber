@@ -29,9 +29,8 @@ public class DepartmentsPage {
 
     //METHODS
 
-    public DepartmentsPage clickDepartments() { //Acilir menüdeki departments'a tiklar
-        ReusableMethods.clickElementByJS(departmentsButton);
-        return this;
+    public void clickDepartments() {
+        Driver.getDriver().findElement(By.xpath("//div//ul//li[6]//a[text()='Departments']")).click();
     }
 
     public List<WebElement> departmentsWithAuthorizedRoles() { //Rol sayisi 0'dan büyük olan department cartlarini bir liste ekleyip o listi döndüren method
@@ -119,13 +118,25 @@ public class DepartmentsPage {
     }
 
     //TC_007_04
-
     public boolean isDepartmentsTextDisplayed() {
         return ReusableMethods.isDisplayed(departmentsText);
     }
 
-    //TC_008_12
+    //TC_008_10
+    public boolean twoDepartmentWithSameName(){ //ayni isimle iki departman olusuyor mu diye kontrol eder
 
+        List<WebElement>namesList = getDriver().findElements(allDepartmentNames);
+        for (int i = 0; i < namesList.size() ; i++) {
+            for (int j = namesList.size()-1; j > i ; j--) {
+                if (namesList.get(i).getText().equals(namesList.get(j).getText())){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    //TC_008_12
     public NewDepartmentPage clickAddNewDepartment() {
         ReusableMethods.clickElement(addNewDepartmentButton);
         return new NewDepartmentPage();
@@ -145,6 +156,13 @@ public class DepartmentsPage {
             ReusableMethods.clickElement(pages.getEditDepartmentPage().getConfirmButton());
             ReusableMethods.visibilityOfElementByWebDriverWait(pages.getDepartmentsPage().getDepartmentsText());
         }
-
     }
+
+    public DepartmentDetailPage clickDepartmentWithIndex(int index){ //Istenen departmana indexle tiklar
+        List<WebElement>namesList = getDriver().findElements(allDepartmentNames);
+        namesList.get(index).click();
+        return new DepartmentDetailPage();
+    }
+
+
 }

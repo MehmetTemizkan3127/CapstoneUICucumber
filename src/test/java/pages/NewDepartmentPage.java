@@ -169,6 +169,18 @@ public class NewDepartmentPage {
         return !getDriver().findElements(By.xpath(String.format(selectTypeOrRoleWithText, role))).isEmpty();
     }
 
+    private String sameDepartmentName;
+    public DepartmentsPage getTheFirstDepartmentName(){ //mevcut dep.in ilkinin ismini alir
+        List <WebElement> nameList = getDriver().findElements(pages.getDepartmentsPage().getAllDepartmentNames());
+        sameDepartmentName = nameList.get(0).getText();
+        return new DepartmentsPage();
+    }
+
+    public NewDepartmentPage sendSameNameForDepartments() {
+        ReusableMethods.sendKeys(nameField, sameDepartmentName);
+        return this;
+    }
+
     public boolean isDepartmentNameFieldVisible() {
         return ReusableMethods.isDisplayed(nameField);
     }

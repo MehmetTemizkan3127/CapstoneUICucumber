@@ -1,6 +1,7 @@
 package stepdefinitions;
 
 import io.cucumber.java.en.*;
+import org.openqa.selenium.devtools.v136.page.Page;
 import org.testng.Assert;
 import pages.AllPages;
 import utilities.ReusableMethods;
@@ -109,10 +110,17 @@ public class US_008_NewDepartmentSD {
     }
 
     //TC_008_10
+    @Given("save the first department name")
+    public void save_the_first_department_name() {
+       pages.getNewDepartmentPage().getTheFirstDepartmentName();
+    }
+    @When("create new department with the same name")
+    public void create_new_department_with_the_same_name() {
+        pages.getNewDepartmentPage().sendSameNameForDepartments();
+    }
     @Given("Verify that the department is not created twice with the same name")
     public void verify_that_the_department_is_not_created_twice_with_the_same_name() {
-
-
+        Assert.assertFalse(pages.getDepartmentsPage().twoDepartmentWithSameName());
     }
 
     // TC_008_11
