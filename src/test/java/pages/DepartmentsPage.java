@@ -4,34 +4,32 @@ import lombok.Getter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import utilities.Driver;
+import utilities.JavascriptUtils;
 import utilities.ReusableMethods;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import static utilities.Driver.getDriver;
+
 @Getter
 public class DepartmentsPage {
 
-    //LOCATES **********************************************************************************************************
-    //US07
+    //LOCATES
     private By departmentsButton = By.xpath("//div//ul//li[6]//a[text()='Departments']"); //Profil sayfasinda olmasi gerekirdi bu locate'in
     private By departmentsText = By.xpath("//li//a[text()='Departments']"); //Departments'a tiklayinca departments yazisi
     private By allDepartmentsTitleList = By.xpath("//div[@class='col-9']"); //departman isim/üye sayisi/role kismi list olarak
     private By allDepartmentsList = By.xpath("//div[@class='card-body p-3']"); //departmanlarin hepsi list olarak
     private By allDepartmentNames = By.xpath("//p//div[@class='row']//a"); //Bütün departman kartlarinin isim bölümü(tiklanabilir)
     private By texts = By.xpath("(//div[@class='col-9']/text()[4])");
-
-    //US08
     private By addNewDepartmentButton = By.xpath("//*[@class='btn btn-info float-end text-white']");
 
-    //Object And Varibales *********************************************************************************************
-
+    //Object And Varibales
     AllPages pages = new AllPages();
 
-    //METHODS **********************************************************************************************************
+    //METHODS
 
-    //Allgemein methods
-    public DepartmentsPage clickDepartments(){ //Acilir menüdeki departments'a tiklar
+    public DepartmentsPage clickDepartments() { //Acilir menüdeki departments'a tiklar
         ReusableMethods.clickElementByJS(departmentsButton);
         return this;
     }
@@ -39,7 +37,6 @@ public class DepartmentsPage {
     public List<WebElement> departmentsWithAuthorizedRoles() { //Rol sayisi 0'dan büyük olan department cartlarini bir liste ekleyip o listi döndüren method
         List<WebElement> departmentWithRoleList = new ArrayList<>();
         int roleCount;
-
         for (WebElement w : getDriver().findElements(allDepartmentsTitleList)) {
             String text = w.getText();
             text = text.substring(text.length() - 1); //textin son karakteri bana role sayisini veriyor
@@ -53,13 +50,12 @@ public class DepartmentsPage {
 
     //TC07_01
 
-    public boolean areDepartmentCardsDisplayed(){
-
-        List<WebElement>allDepartmentCards = Driver.getDriver().findElements(allDepartmentsList);
-        for (WebElement w : allDepartmentCards){
-           if (!w.isDisplayed()){
-               return false;
-           }
+    public boolean areDepartmentCardsDisplayed() {
+        List<WebElement> allDepartmentCards = Driver.getDriver().findElements(allDepartmentsList);
+        for (WebElement w : allDepartmentCards) {
+            if (!w.isDisplayed()) {
+                return false;
+            }
         }
         return true;
     }
@@ -74,10 +70,9 @@ public class DepartmentsPage {
             String lastChar = text.substring(text.length() - 1);
             int roleCount = Integer.parseInt(lastChar);
 
-            if (roleCount > 0) { //Bu fora sadece rol sayisi 0'dan büyükse girecek
+            if (roleCount > 0) { //Bu for'a sadece rol sayisi 0'dan büyükse girecek
                 Driver.getDriver().findElements(allDepartmentNames).get(i).click(); // stale element excp. almamak icin locate'i her seferinde aldim
                 ReusableMethods.waitForSeconds(2);
-
                 List<WebElement> allRoles = Driver.getDriver().findElements(pages.getDepartmentDetailPage().getRolesList());
                 for (WebElement role : allRoles) {
                     if (!role.isDisplayed()) {
@@ -109,16 +104,12 @@ public class DepartmentsPage {
 
                 List<WebElement> actualRoles = Driver.getDriver().findElements(pages.getDepartmentDetailPage().getRolesList()); //Kartin icindeki rolleri bir liste atiyorum
                 int actualRoleCount = actualRoles.size();
-
                 System.out.println("Expected role count: " + roleCount + " Actual role count: " + actualRoleCount);
-
                 if (roleCount != actualRoleCount) {
                     return false; // eşitlik yoksa test fail
                 }
-
                 Driver.getDriver().navigate().back();
                 Driver.getDriver().navigate().refresh();
-
                 // refresh sonrasi stale element exception alinca listleri burada yeniden aldim
                 allTitles = Driver.getDriver().findElements(allDepartmentsTitleList);
                 cardNames = Driver.getDriver().findElements(allDepartmentNames);
@@ -127,10 +118,33 @@ public class DepartmentsPage {
         return true;
     }
 
+    //TC_007_04
+
+    public boolean isDepartmentsTextDisplayed() {
+        return ReusableMethods.isDisplayed(departmentsText);
+    }
+
     //TC_008_12
 
-    public NewDepartmentPage clickAddNewDepartment(){
+    public NewDepartmentPage clickAddNewDepartment() {
         ReusableMethods.clickElement(addNewDepartmentButton);
         return new NewDepartmentPage();
+    }
+
+    public void deleteDepartmentWithIndex(int index, int lastIndex) { //Departman isimsiz de olsa verilen indextekini siler
+        for (int i = index; i < lastIndex; i++) {
+            JavascriptUtils.clickElementByJS(getDriver().findElements(allDepartmentNames).get(index));
+            ReusableMethods.waitForSeconds(3);
+            ReusableMethods.clickElement(pages.getDepartmentDetailPage().getEditDepartmentButton());
+            ReusableMethods.waitForSeconds(3);
+            getDriver().navigate().refresh();
+            ReusableMethods.waitForSeconds(3);
+            ReusableMethods.visibilityOfElementByWebDriverWait(pages.getEditDepartmentPage().getDeleteDepartmentButton());
+            ReusableMethods.clickElement(pages.getEditDepartmentPage().getDeleteDepartmentButton());
+            ReusableMethods.visibilityOfElementByWebDriverWait(pages.getEditDepartmentPage().getConfirmButton());
+            ReusableMethods.clickElement(pages.getEditDepartmentPage().getConfirmButton());
+            ReusableMethods.visibilityOfElementByWebDriverWait(pages.getDepartmentsPage().getDepartmentsText());
+        }
+
     }
 }
