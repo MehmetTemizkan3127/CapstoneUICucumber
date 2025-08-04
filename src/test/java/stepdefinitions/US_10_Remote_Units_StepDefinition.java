@@ -19,6 +19,8 @@ import utilities.ReusableMethods;
 
 import java.util.List;
 
+import static utilities.ReusableMethods.waitForSeconds;
+
 public class US_10_Remote_Units_StepDefinition {
     RemoteUnitsPage remoteUnitsPage = new RemoteUnitsPage();
     HomePage homePage=new HomePage();
@@ -28,6 +30,7 @@ public class US_10_Remote_Units_StepDefinition {
     @When("user clicks on Login button")
     public void user_clicks_on_login_button() {
         homePage.login();
+
 
     }
     @When("the user enters a valid {string} username in the username field")
@@ -47,6 +50,7 @@ loginPage.clickSignIn();
     @When("user clicks the Remote Units  menu")
     public void user_clicks_the_remote_units_menu() {
         remoteUnitsPage.dropdown.click();
+        waitForSeconds(3);
 remoteUnitsPage.remoteunitsign.click();
 
 
@@ -55,7 +59,7 @@ remoteUnitsPage.remoteunitsign.click();
     @Then("user verify the Remote units page menu")
     public void userVerifyTheRemoteUnitsPageMenu() throws InterruptedException {
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
-        ReusableMethods.waitForSeconds(3);
+        waitForSeconds(3);
         int expectedSize = 35;
         int actualSize=remoteUnitsPage.displayRemotePagelist.size();
         System.out.println("actualSize = " + actualSize);
