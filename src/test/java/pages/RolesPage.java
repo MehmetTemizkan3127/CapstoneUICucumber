@@ -2,7 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import utilities.Driver;
+import utilities.ReusableMethods;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -10,22 +10,27 @@ import java.util.stream.Collectors;
 public class RolesPage {
 
     private final By collapseMenuIcon = By.cssSelector("svg.icon.icon-xl.fw-bolder[alt='Collapse']");
-    private final By rolesMenuLink = By.xpath("//a[normalize-space()='Roles']");
-    private final By rolesList = By.xpath("//div[contains(@class, 'col-lg-4') and contains(@class, 'd-grid')]//button[contains(@class, 'btn') and contains(@class, 'btn-light')]");
+    private final By rolesMenuLink = By.xpath("//a[contains(., 'Roles')]");
+    private final By rolesList = By.xpath("//button[contains(@class, 'btn') and contains(text(), '')]");
+    //button[contains(@class, 'btn') and contains(@class, 'text-start') and normalize-space(string()) != '']
+    //button[contains(@class, 'btn') and contains(text(), '')]
+    private final By breadcrumbRoleDetail = By.xpath("//li[@class='breadcrumb-item active' and text()='Role Detail']");
+    private final By permissionsLabels = By.xpath("//label[contains(@class, 'btn') and contains(@class, 'btn-outline-secondary')]");
 
     public void collapseMenuIfExpanded() {
-        List<WebElement> collapseIcons = Driver.getDriver().findElements(collapseMenuIcon);
+        List<WebElement> collapseIcons = ReusableMethods.visibilityOfElementsByWebDriverWait(collapseMenuIcon);
         if (!collapseIcons.isEmpty()) {
-            collapseIcons.get(0).click();
+            collapseIcons.getFirst().click();
         }
     }
 
     public void navigateToRolesPage() {
-        Driver.getDriver().findElement(rolesMenuLink).click();
+        ReusableMethods.clickElementByWebDriverWait(rolesMenuLink).click();
+        ReusableMethods.waitForSeconds(1);
     }
 
     public List<String> getAllRoles() {
-        List<WebElement> roles = Driver.getDriver().findElements(rolesList);
+        List<WebElement> roles = ReusableMethods.visibilityOfElementsByWebDriverWait(rolesList);
         return roles.stream()
                 .map(WebElement::getText)
                 .map(String::trim)
@@ -37,4 +42,43 @@ public class RolesPage {
                 .anyMatch(role -> role.equalsIgnoreCase(roleName));
     }
 
+    public boolean isRoleClickable(String roleName) {
+        List<WebElement> roles = ReusableMethods.visibilityOfElementsByWebDriverWait(rolesList);
+        for (WebElement role : roles) {
+            if (role.getText().trim().equalsIgnoreCase(roleName)) {
+                return role.isDisplayed() && role.isEnabled();
+            }
+        }
+        return false;
+    }
+
+    public void clickRoleByName(String roleName) {
+        ReusableMethods.waitForSeconds(2);
+        List<WebElement> roles = ReusableMethods.visibilityOfElementsByWebDriverWait(rolesList);
+        for (WebElement role : roles) {
+            if (role.getText().trim().equalsIgnoreCase(roleName)) {
+                ReusableMethods.waitForSeconds(1); // stabilizasyon için
+                role.click();
+                return;
+            }
+        }
+        throw new RuntimeException("Role not found to click: " + roleName);
+    }
+
+    public boolean isRoleDetailPageVisible() {
+        List<WebElement> breadcrumb = ReusableMethods.visibilityOfElementsByWebDriverWait(breadcrumbRoleDetail);
+        return !breadcrumb.isEmpty() && breadcrumb.getFirst().isDisplayed();
+    }
+
+    public List<String> getAllPermissionsForSelectedRole() {
+        List<WebElement> permissionElements = ReusableMethods.visibilityOfElementsByWebDriverWait(permissionsLabels);
+        return permissionElements.stream()
+                .map(WebElement::getText)
+                .map(String::trim)
+                .collect(Collectors.toList());
+    }
+
+    public boolean arePermissionsDisplayed() {
+        return !getAllPermissionsForSelectedRole().isEmpty();
+    }
 }

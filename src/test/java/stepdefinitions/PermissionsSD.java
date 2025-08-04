@@ -1,0 +1,51 @@
+package stepdefinitions;
+
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.testng.Assert;
+import pages.PermissionsPage;
+
+import java.util.List;
+
+public class PermissionsSD {
+
+    PermissionsPage permissionsPage = new PermissionsPage();
+
+    @When("the user navigates to the Permissions page")
+    public void the_user_navigates_to_the_permissions_page() {
+        permissionsPage.navigateToPermissionsPage();
+    }
+
+    @Then("all permissions should be visible on the Permissions page")
+    public void all_permissions_should_be_visible_on_the_permissions_page() {
+        Assert.assertTrue(permissionsPage.arePermissionsVisible(), "Permissions list is empty or not visible!");
+    }
+
+    @Then("all permissions should be displayed as a list on the Permissions page")
+    public void allPermissionsShouldBeDisplayedAsAListOnThePermissionsPage() {
+        List<String> permissions = permissionsPage.getAllPermissions();
+        System.out.println("Permissions listed on the page:");
+        for (String permission : permissions) {
+            System.out.println("- " + permission);
+        }
+        Assert.assertFalse(permissions.isEmpty(), "No permissions were listed.");
+    }
+
+    @Then("the total number of permissions should be 94")
+    public void the_total_number_of_permissions_should_be_94() {
+        List<String> permissions = permissionsPage.getAllPermissions();
+        int actualSize = permissions.size();
+        System.out.println("Total permissions found: " + actualSize);
+        Assert.assertEquals(actualSize, 94, "Expected exactly 94 permissions, but found " + actualSize);
+    }
+
+    //US20 2-95
+    @Then("the {string} permission is displayed on the Permissions page")
+    public void the_permission_is_displayed_on_the_permissions_page(String permission) {
+        List<String> permissions = permissionsPage.getAllPermissions();
+        Assert.assertTrue(permissions.contains(permission),
+                "Permission '" + permission + "' is NOT displayed on the Permissions page.");
+    }
+
+}
