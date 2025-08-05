@@ -3,13 +3,14 @@ package stepdefinitions;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
+import pages.AllPages;
 import pages.RolesPage;
 
 
 import java.util.List;
 
 public class RolesSD {
-
+    AllPages allPages = new AllPages();
     RolesPage rolesPage = new RolesPage();
     PermissionsSD permissionsSD = new PermissionsSD();
 

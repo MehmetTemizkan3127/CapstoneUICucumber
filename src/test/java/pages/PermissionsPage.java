@@ -6,6 +6,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 import java.time.Duration;
 import java.util.List;
@@ -17,19 +18,14 @@ public class PermissionsPage {
     private final By permissionsList = By.xpath("//div[contains(@class, 'd-grid') and contains(@class, 'mb-2')]//button[contains(@class, 'btn-outline-secondary')]");
 
     public void navigateToPermissionsPage() {
+        ReusableMethods.waitForSeconds(2);
         WebElement element = Driver.getDriver().findElement(permissionsMenuLink);
         scrollAndClick(element);
     }
 
-    // Sol menüde Permissions'a tiklar
-    public void clickLeftMenuOption(String optionName) {
-        String xpath = String.format("//a[contains(normalize-space(), '%s')]", optionName);
-        WebElement menuItem = Driver.getDriver().findElement(By.xpath(xpath));
-        scrollAndClick(menuItem);
-    }
-
     // Sayfadaki tüm Permissions isimlerini getirir
     public List<String> getAllPermissions() {
+        ReusableMethods.waitForSeconds(2);
         List<WebElement> permissions = Driver.getDriver().findElements(permissionsList);
         return permissions.stream()
                 .map(WebElement::getText)
