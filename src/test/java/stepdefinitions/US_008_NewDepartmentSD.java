@@ -44,7 +44,7 @@ public class US_008_NewDepartmentSD {
 
     @Then("Verify that the newly created department is displayed in the department list.")
     public void verify_that_the_newly_created_department_is_displayed_in_the_department_list() {
-        Assert.assertTrue(pages.getNewDepartmentPage().isNewCreatedDepartmentDisplayed());
+        Assert.assertTrue(pages.getDepartmentsPage().isNewCreatedDepartmentDisplayed());
     }
 
     // TC_008_02 - TC_008_03
@@ -84,7 +84,7 @@ public class US_008_NewDepartmentSD {
 
     @Then("Verify that the created department is not displayed in the department list")
     public void verify_that_the_created_department_is_not_displayed_in_the_department_list() {
-        Assert.assertFalse(pages.getNewDepartmentPage().isNewCreatedDepartmentDisplayed());
+        Assert.assertTrue(pages.getDepartmentsPage().VeriyfThatNewCreatedDepartmentNotDisplayed());
     }
 
     // TC_008_08

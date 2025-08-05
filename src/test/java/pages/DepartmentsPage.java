@@ -1,18 +1,24 @@
 package pages;
 
 import lombok.Getter;
+import lombok.Setter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import utilities.Driver;
 import utilities.JavascriptUtils;
 import utilities.ReusableMethods;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
+import static pages.NewDepartmentPage.staticName;
 import static utilities.Driver.getDriver;
 
 @Getter
+@Setter
 public class DepartmentsPage {
 
     //LOCATES
@@ -26,9 +32,9 @@ public class DepartmentsPage {
 
     //Object And Varibales
     AllPages pages = new AllPages();
+    WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
 
     //METHODS
-
     public void clickDepartments() {
         Driver.getDriver().findElement(By.xpath("//div//ul//li[6]//a[text()='Departments']")).click();
     }
@@ -123,12 +129,12 @@ public class DepartmentsPage {
     }
 
     //TC_008_10
-    public boolean twoDepartmentWithSameName(){ //ayni isimle iki departman olusuyor mu diye kontrol eder
+    public boolean twoDepartmentWithSameName() { //ayni isimle iki departman olusuyor mu diye kontrol eder
 
-        List<WebElement>namesList = getDriver().findElements(allDepartmentNames);
-        for (int i = 0; i < namesList.size() ; i++) {
-            for (int j = namesList.size()-1; j > i ; j--) {
-                if (namesList.get(i).getText().equals(namesList.get(j).getText())){
+        List<WebElement> namesList = getDriver().findElements(allDepartmentNames);
+        for (int i = 0; i < namesList.size(); i++) {
+            for (int j = namesList.size() - 1; j > i; j--) {
+                if (namesList.get(i).getText().equals(namesList.get(j).getText())) {
                     return true;
                 }
             }
@@ -142,26 +148,75 @@ public class DepartmentsPage {
         return new NewDepartmentPage();
     }
 
+    public DepartmentDetailPage clickDepartmentWithIndex(int index) { //Istenen departmana indexle tiklar
+        ReusableMethods.visibilityOfElementsByWebDriverWait(allDepartmentNames);
+        List<WebElement> namesList = getDriver().findElements(allDepartmentNames);
+        namesList.get(index).click();
+        return new DepartmentDetailPage();
+    }
+
+    public DepartmentDetailPage clickNewCreatedDepartment() {
+
+        wait.until(ExpectedConditions.visibilityOfAllElements(getDriver().findElements(pages.getDepartmentsPage().getAllDepartmentNames())));
+        List<WebElement> names = getDriver().findElements(pages.getDepartmentsPage().getAllDepartmentNames());
+        for (WebElement nameElement : names) {
+            if (nameElement.getText().equals(staticName)) {
+                nameElement.click();
+                break;
+            }
+        }
+        return new DepartmentDetailPage();
+    }
+
+    public boolean isNewCreatedDepartmentDisplayed() { //Department görünüyorsa true döner
+        boolean flag = false;
+        pages.getDashboardPage().clickDepartments();
+        wait.until(ExpectedConditions.visibilityOfAllElements(getDriver().findElements(By.xpath("//*[@id=\"link5\"]/a")))); //azize hocanin get meth. gelince ekle
+        List<WebElement> names = getDriver().findElements(allDepartmentNames);
+        for (WebElement nameElement : names) {
+            System.out.println("staticName = " + staticName);
+            if (nameElement.getText().equals(NewDepartmentPage.staticName)) {
+                flag = true;
+                break;
+            }
+        }
+        return flag;
+    }
+
+    public boolean VeriyfThatNewCreatedDepartmentNotDisplayed() { //Department görünmüyorsa True döner
+        boolean flag = true;
+        getDriver().findElement(By.xpath("//*[@id=\"link5\"]/a")).click(); //stale element excp aldigim icin
+        wait.until(ExpectedConditions.visibilityOfAllElements(getDriver().findElements(departmentsButton))); //Azize hocadan al burayi get ile
+        List<WebElement> names = getDriver().findElements(By.xpath("//p//div[@class='row']//a"));
+        for (WebElement nameElement : names) {
+            if (nameElement.getText().equals(NewDepartmentPage.staticName)) {
+                flag = false;
+                break;
+            }
+        }
+        return flag;
+    }
+
+    //BU METHOD SONRA SILINECEK
     public void deleteDepartmentWithIndex(int index, int lastIndex) { //Departman isimsiz de olsa verilen indextekini siler
         for (int i = index; i < lastIndex; i++) {
-            JavascriptUtils.clickElementByJS(getDriver().findElements(allDepartmentNames).get(index));
+            JavascriptUtils.clickElementByJS(getDriver().findElements(allDepartmentNames).get(i));
             ReusableMethods.waitForSeconds(3);
             ReusableMethods.clickElement(pages.getDepartmentDetailPage().getEditDepartmentButton());
             ReusableMethods.waitForSeconds(3);
-            getDriver().navigate().refresh();
-            ReusableMethods.waitForSeconds(3);
-            ReusableMethods.visibilityOfElementByWebDriverWait(pages.getEditDepartmentPage().getDeleteDepartmentButton());
-            ReusableMethods.clickElement(pages.getEditDepartmentPage().getDeleteDepartmentButton());
-            ReusableMethods.visibilityOfElementByWebDriverWait(pages.getEditDepartmentPage().getConfirmButton());
-            ReusableMethods.clickElement(pages.getEditDepartmentPage().getConfirmButton());
+            int num = 0;
+            while (num < 5) {
+                getDriver().navigate().refresh();
+                ReusableMethods.waitForSeconds(3);
+                if (!getDriver().findElements(By.xpath("//button[text()='Delete Department']")).isEmpty()) {
+                    break;
+                }
+                num++;
+            }
+            pages.getEditDepartmentPage().clickDeleteButton();
+            pages.getEditDepartmentPage().clickConfirmButton();
             ReusableMethods.visibilityOfElementByWebDriverWait(pages.getDepartmentsPage().getDepartmentsText());
         }
-    }
-
-    public DepartmentDetailPage clickDepartmentWithIndex(int index){ //Istenen departmana indexle tiklar
-        List<WebElement>namesList = getDriver().findElements(allDepartmentNames);
-        namesList.get(index).click();
-        return new DepartmentDetailPage();
     }
 
 

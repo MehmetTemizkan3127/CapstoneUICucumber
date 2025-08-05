@@ -25,32 +25,31 @@ public class DepartmentDetailPage {
     AllPages pages = new AllPages();
 
     //Methods
-    public EditDepartmentPage clickEditDepartmentButton(){
-        ReusableMethods.waitForSeconds(3);
-        wait.until(ExpectedConditions.visibilityOf(getDriver().findElement(editDepartmentButton)));
+    public EditDepartmentPage clickEditDepartmentButton() {
+        ReusableMethods.waitForSeconds(2);
+        wait.until(ExpectedConditions.elementToBeClickable(editDepartmentButton));
         ReusableMethods.clickElementByJS(editDepartmentButton);
-        ReusableMethods.waitForSeconds(3);
+        ReusableMethods.waitForSeconds(2);
         return new EditDepartmentPage();
     }
 
-   public boolean isEditDepartmentButtonVisibleAndClickable(){
-        return ReusableMethods.isDisplayed(editDepartmentButton)& ReusableMethods.isEnabled(editDepartmentButton);
+    public boolean isEditDepartmentButtonVisibleAndClickable() {
+        wait.until(ExpectedConditions.elementToBeClickable(editDepartmentButton));
+        return ReusableMethods.isDisplayed(editDepartmentButton) & ReusableMethods.isEnabled(editDepartmentButton);
     }
-    public boolean isNewUserButtonVisibleAndClickable(){
+
+    public boolean isNewUserButtonVisibleAndClickable() {
         return ReusableMethods.isDisplayed(newUserButton) & ReusableMethods.isEnabled(newUserButton);
     }
 
-    public boolean verifyDepartmentNameAfterClick(){ //Tiklanan kartla acilan kartin ayni oldugunu dogrular
+    public boolean verifyDepartmentNameAfterClick() { //Tiklanan kartla acilan kartin ayni oldugunu dogrular
         List<WebElement> namesList = getDriver().findElements(pages.getDepartmentsPage().getAllDepartmentNames());
-        String actualName = namesList.getFirst().getText();
-        namesList.getFirst().click();
+        String actualName = namesList.get(3).getText();
+        namesList.get(3).click();
         ReusableMethods.visibilityOfElementByWebDriverWait(departmentName);
         String expectedName = getDriver().findElement(departmentName).getText();
         return actualName.equals(expectedName);
     }
-
-
-
 
 
 }

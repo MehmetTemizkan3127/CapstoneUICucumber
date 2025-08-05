@@ -11,7 +11,7 @@ public class US_009_EditDepartmentSD {
 
     @Given("Click on a department that has already been created")
     public void click_on_a_department_that_has_already_been_created() {
-        pages.getDepartmentsPage().clickDepartmentWithIndex(0);
+        pages.getDepartmentsPage().clickDepartmentWithIndex(3);
 
     }
     @When("Click Edit Department button")
@@ -58,5 +58,40 @@ public class US_009_EditDepartmentSD {
         Assert.assertTrue(pages.getDepartmentDetailPage().verifyDepartmentNameAfterClick());
     }
 
+    @Given("Create a new department with the name {string}, short name {string}, type {string}, description {string}, role {string}")
+    public void create_a_new_department_with_the_name_short_name_type_description_role(String name, String shortName, String department, String description, String role) {
+        pages.getNewDepartmentPage().createANewDepartment(name,shortName,department,description,role);
+    }
+
+    @When("Click created department")
+    public void click_created_department() {
+        pages.getDepartmentsPage().clickNewCreatedDepartment();
+    }
+
+    @When("Select a department type -  as a Remote Unit")
+    public void select_a_department_type_as_a_remote_unit() {
+        pages.getEditDepartmentPage().selectDepartmentType("Remote Unit");
+    }
+
+    @Then("Verify that Delete Department button is visible and clickable")
+    public void verify_that_delete_department_button_is_visible_and_clickable() {
+        Assert.assertTrue(pages.getEditDepartmentPage().isDeleteButtonVisibleAndClickable());
+    }
+
+    @When("Click Delete Department button")
+    public void click_delete_department_button() {
+        pages.getEditDepartmentPage().clickDeleteButton();
+    }
+
+    @When("Click Confirm")
+    public void click_confirm() {
+        pages.getEditDepartmentPage().clickConfirmButton();
+
+    }
+
+    @Then("Verify that Change image button is visible and clickable")
+    public void verify_that_change_image_button_is_visible_and_clickable() {
+        Assert.assertTrue(pages.getEditDepartmentPage().isChangeImageButtonVisibleAndClickable());
+    }
 
 }
