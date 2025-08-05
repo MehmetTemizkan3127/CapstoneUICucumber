@@ -17,13 +17,13 @@ public class PermissionsPage {
     private final By permissionsMenuLink = By.xpath("//a[@href='#/permissions' and contains(., 'Permissions')]");
     private final By permissionsList = By.xpath("//div[contains(@class, 'd-grid') and contains(@class, 'mb-2')]//button[contains(@class, 'btn-outline-secondary')]");
 
-    public void navigateToPermissionsPage() {
+    public PermissionsPage navigateToPermissionsPage() {
         ReusableMethods.waitForSeconds(2);
         WebElement element = Driver.getDriver().findElement(permissionsMenuLink);
         scrollAndClick(element);
+        return this;
     }
 
-    // Sayfadaki tüm Permissions isimlerini getirir
     public List<String> getAllPermissions() {
         ReusableMethods.waitForSeconds(2);
         List<WebElement> permissions = Driver.getDriver().findElements(permissionsList);
@@ -33,7 +33,6 @@ public class PermissionsPage {
                 .collect(Collectors.toList());
     }
 
-    // En az bir yetki görünürse true döner
     public boolean arePermissionsVisible() {
         return !getAllPermissions().isEmpty();
     }

@@ -5,7 +5,7 @@ Feature: Listing and visibility of roles on the Roles page
     Given user goes to homepage
     And User clicks login link
     And user logins as "userNameMehmet" with password "passwordMehmet"
-    When user expands the left menu if collapsed
+    When user clicks on maximize icon
     And user clicks the 'Roles' option in the left menu
 
   @us18 @role-listing
