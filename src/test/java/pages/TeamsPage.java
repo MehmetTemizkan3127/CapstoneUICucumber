@@ -1,12 +1,11 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.WebElement;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-import java.time.Duration;
+import java.util.List;
 
 public class TeamsPage {
 
@@ -14,8 +13,24 @@ public class TeamsPage {
   private final By MainTeamsButton = By.xpath("//a[normalize-space()='Teams']");
   private final By MenuWider = By.xpath("//div[@id='divCollapseUncollapse']//*[name()='svg']");
   private final By AddNewTeamButton = By.xpath("//button[@class='btn btn-info float-end text-white']");
-  private final By TeamTittle = By.xpath("//button[@class='btn btn-info float-end text-white']");
+  private final By PageTeamTittle = By.xpath("//button[@class='btn btn-info float-end text-white']");
   private final By SearchByNameInputBox = By.xpath("//input[@id=\"search\"]");
+  private final By ClearFiltersButton = By.xpath("//button[normalize-space()='Clear Filters']");
+  private final By TeamsTitleTexts = By.xpath("//b");
+
+
+public TeamDetailPage TeamsTitleTextsClick(){
+
+  if (Driver.getDriver().findElement(TeamsTitleTexts).getText().equals("mertay")) {
+    ReusableMethods.clickElement(TeamsTitleTexts);
+  }else {
+    System.out.println(STR."\{Driver.getDriver().findElement(TeamsTitleTexts).getText()}this title not equals mertay for this reason try again..");
+  }
+
+return new TeamDetailPage();
+
+}
+
 
  /* public boolean ElementToBeClickable(By locate){
       try {
@@ -70,12 +85,23 @@ public class TeamsPage {
 
   }
 
+  public NewTeamPage AddNewTeamButtonClick(){
+
+    MenuWiderClick();
+    MainTeamsButtonClick();
+
+    ReusableMethods.clickElement(AddNewTeamButton);
+
+    return new NewTeamPage();
+
+  }
+
   public boolean TeamTittleVisibility(){
 
     MenuWiderClick();
     MainTeamsButtonClick();
 
-    return ReusableMethods.isDisplayed(TeamTittle);
+    return ReusableMethods.isDisplayed(PageTeamTittle);
 
   }
 
@@ -96,6 +122,80 @@ public class TeamsPage {
     return ReusableMethods.isDisplayed(SearchByNameInputBox);
 
   }
+
+  public boolean ClearFiltersButtonISAppear(){
+
+    MenuWiderClick();
+    MainTeamsButtonClick();
+
+    return ReusableMethods.isDisplayed(ClearFiltersButton);
+
+  }
+
+  public boolean ClearFiltersButtonISClickable(){
+
+    MenuWiderClick();
+    MainTeamsButtonClick();
+
+    return ReusableMethods.isClickableByWebDriverWait(ClearFiltersButton);
+
+  }
+
+  public TeamsPage TheSearchBoxSendKeys(String arg){
+
+    MenuWiderClick();
+    MainTeamsButtonClick();
+    ReusableMethods.clickElementByJS(SearchByNameInputBox);
+    Driver.getDriver().findElement(SearchByNameInputBox).sendKeys(arg);
+    ReusableMethods.waitForSeconds(2);
+
+    return this;
+
+  }
+
+  public TeamsPage ClearFiltersButtonClick(){
+
+    ReusableMethods.clickElementByJS(ClearFiltersButton);
+
+    return this;
+
+  }
+
+  public String TheSearchBoxGetAttribute(){
+
+   return  Driver.getDriver().findElement(SearchByNameInputBox).getAttribute("value");
+
+  }
+
+  public boolean TheSearchBoxShouldBeClean(){
+
+    MenuWiderClick();
+    MainTeamsButtonClick();
+    TheSearchBoxSendKeys("IT");
+    ClearFiltersButtonClick();
+      return TheSearchBoxGetAttribute().isEmpty();
+
+  }
+
+  public boolean TitlesAreContain1(String arg1){
+    List<WebElement> titles = Driver.getDriver().findElements(TeamsTitleTexts);
+
+    return titles.stream()
+            .map(WebElement::getText)
+            .allMatch(text -> text.contains(arg1));
+  }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
