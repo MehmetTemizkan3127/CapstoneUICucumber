@@ -7,6 +7,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import pages.AllPages;
+import pages.DashboardPage;
 import pages.NewRemoteUnitPage;
 import pages.RemoteUnitsPage;
 import utilities.ConfigReader;
@@ -17,8 +18,9 @@ import static org.testng.AssertJUnit.assertEquals;
 import static utilities.ReusableMethods.waitForSeconds;
 
 public class US_11_NewRemote_Units_StepDefinition {
-    AllPages pages;
-NewRemoteUnitPage newAdd =new NewRemoteUnitPage();
+    RemoteUnitsPage remoteUnitsPage=new RemoteUnitsPage();
+    NewRemoteUnitPage newAdd =new NewRemoteUnitPage();
+
 
 
 
@@ -46,7 +48,8 @@ NewRemoteUnitPage newAdd =new NewRemoteUnitPage();
     }
     @When("the user clicks the Save button")
     public void the_user_clicks_the_save_button() {
-        newAdd.SaveButton.click();
+        waitForSeconds(2);
+        remoteUnitsPage.SaveButton.click();
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
@@ -67,11 +70,15 @@ NewRemoteUnitPage newAdd =new NewRemoteUnitPage();
         waitForSeconds(1);
         newAdd.verifynewremoteunits.click();
         waitForSeconds(1);
-        newAdd.editbutton.click();
-        waitForSeconds(1);
+        //newAdd.editbutton.click();
+        waitForSeconds(2);
         System.out.println("Driver.getDriver().getCurrentUrl() = " + Driver.getDriver().getCurrentUrl());
         Driver.getDriver().navigate().refresh();
         waitForSeconds(3);
+       // newAdd.deletebutton.click();
+      //  waitForSeconds(2);
+       // newAdd.confirmbutton.click();
+
 
     }
 }
