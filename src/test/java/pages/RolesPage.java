@@ -15,16 +15,19 @@ public class RolesPage {
     private final By breadcrumbRoleDetail = By.xpath("//li[@class='breadcrumb-item active' and text()='Role Detail']");
     private final By permissionsLabels = By.xpath("//label[contains(@class, 'btn') and contains(@class, 'btn-outline-secondary')]");
 
-    public void collapseMenuIfExpanded() {
+    /*
+    public RolesPage collapseMenuIfExpanded() {
         List<WebElement> collapseIcons = ReusableMethods.visibilityOfElementsByWebDriverWait(collapseMenuIcon);
         if (!collapseIcons.isEmpty()) {
-            collapseIcons.getFirst().click();
+            collapseIcons.get(0).click();
         }
-    }
+        return this;
+    }*/
 
-    public void navigateToRolesPage() {
+    public RolesPage navigateToRolesPage() {
         ReusableMethods.waitForSeconds(2);
         ReusableMethods.clickElementByWebDriverWait(rolesMenuLink).click();
+        return this;
     }
 
     public List<String> getAllRoles() {
@@ -51,14 +54,14 @@ public class RolesPage {
         return false;
     }
 
-    public void clickRoleByName(String roleName) {
+    public RolesPage clickRoleByName(String roleName) {
         ReusableMethods.waitForSeconds(2);
         List<WebElement> roles = ReusableMethods.visibilityOfElementsByWebDriverWait(rolesList);
         for (WebElement role : roles) {
             if (role.getText().trim().equalsIgnoreCase(roleName)) {
-                ReusableMethods.waitForSeconds(1); // stabilizasyon için
+                ReusableMethods.waitForSeconds(1);
                 role.click();
-                return;
+                return this;
             }
         }
         throw new RuntimeException("Role not found to click: " + roleName);
@@ -66,7 +69,7 @@ public class RolesPage {
 
     public boolean isRoleDetailPageVisible() {
         List<WebElement> breadcrumb = ReusableMethods.visibilityOfElementsByWebDriverWait(breadcrumbRoleDetail);
-        return !breadcrumb.isEmpty() && breadcrumb.getFirst().isDisplayed();
+        return !breadcrumb.isEmpty() && breadcrumb.get(0).isDisplayed();
     }
 
     public List<String> getAllPermissionsForSelectedRole() {
