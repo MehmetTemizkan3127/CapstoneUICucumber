@@ -8,10 +8,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.testng.Assert;
-import pages.HomePage;
-import pages.LoginPage;
-import pages.RemoteUnitsPage;
-import pages.UsersPage;
+import pages.*;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.JavascriptUtils;
@@ -25,6 +22,7 @@ public class US_10_Remote_Units_StepDefinition {
     RemoteUnitsPage remoteUnitsPage = new RemoteUnitsPage();
     HomePage homePage=new HomePage();
     LoginPage loginPage=new LoginPage();
+    DashboardPage dashboardPage = new DashboardPage();
 
 
     @When("user clicks on Login button")
@@ -49,9 +47,11 @@ loginPage.clickSignIn();
     }
     @When("user clicks the Remote Units  menu")
     public void user_clicks_the_remote_units_menu() {
-        remoteUnitsPage.dropdown.click();
+       dashboardPage.clickMaximizeSideBar();
+       //remoteUnitsPage.dropdown.click();
         waitForSeconds(3);
-remoteUnitsPage.remoteunitsign.click();
+        dashboardPage.clickRemoteUnits();
+//remoteUnitsPage.remoteunitsign.click();
 
 
     }
