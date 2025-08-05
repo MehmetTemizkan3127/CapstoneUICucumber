@@ -13,8 +13,10 @@ import utilities.ReusableMethods;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import static utilities.Driver.getDriver;
+
 //T****
 @Getter
 public class NewDepartmentPage {
@@ -43,6 +45,7 @@ public class NewDepartmentPage {
 
     //Object and Variables******************
     private String savedDepartmentName;
+    public static String staticName;
     private int expectedRoleCount = 0;
     final private WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10)); //intelij final önerdi:)
     final private Actions actions = new Actions(getDriver());
@@ -53,6 +56,7 @@ public class NewDepartmentPage {
     public NewDepartmentPage enterDepartmentName(String name) {
         ReusableMethods.sendKeys(nameField, name);
         this.savedDepartmentName = name;
+        staticName = name;
         return this;
     }
 
@@ -66,6 +70,16 @@ public class NewDepartmentPage {
         actions.click(getDriver().findElement(departmentTypeField)).perform();
         ReusableMethods.waitForSeconds(2);
         WebElement typeOption = getDriver().findElement(By.xpath(String.format(selectTypeOrRoleWithText, type)));
+        actions.click(typeOption).perform();
+        return this;
+    }
+
+    public NewDepartmentPage selectDepartmentRemoteUnit() { //belki silerim
+        wait.until(ExpectedConditions.elementToBeClickable(departmentTypeField));
+        // ReusableMethods.visibilityOfElementByWebDriverWait(departmentTypeField);
+        actions.click(getDriver().findElement(departmentTypeField)).perform();
+        ReusableMethods.waitForSeconds(2);
+        WebElement typeOption = getDriver().findElement(selectTypeRemoteUnite);
         actions.click(typeOption).perform();
         return this;
     }
@@ -87,6 +101,20 @@ public class NewDepartmentPage {
 
     public NewDepartmentPage clickSaveButton() {
         ReusableMethods.clickElement(saveButton);
+        return this;
+    }
+
+    public NewDepartmentPage createANewDepartment(String name, String shortName, String type, String description, String role) { //uniq isme sahip dep. olusturur
+        String uniqueName = name + "_" + new Random().nextInt(1000);
+        pages.getDepartmentsPage()
+                .clickAddNewDepartment()
+                .enterDepartmentName(uniqueName)
+                .enterDepartmentShortName(shortName)
+                .selectDepartmentType(type)
+                .enterDepartmentDescription(description)
+                .selectRoles(role)
+                .clickSaveButton();
+        this.savedDepartmentName = uniqueName;
         return this;
     }
 
@@ -123,21 +151,6 @@ public class NewDepartmentPage {
         return this;
     }
 
-
-    public boolean isNewCreatedDepartmentDisplayed() {
-        boolean flag = false;
-        ReusableMethods.clickElement(pages.getDepartmentsPage().getDepartmentsButton());
-        wait.until(ExpectedConditions.visibilityOfAllElements(getDriver().findElements(pages.getDepartmentsPage().getDepartmentsButton())));
-        List<WebElement> names = getDriver().findElements(pages.getDepartmentsPage().getAllDepartmentNames());
-        for (WebElement nameElement : names) {
-            if (nameElement.getText().equals(this.savedDepartmentName)) {
-                flag = true;
-                break;
-            }
-        }
-        return flag;
-    }
-
     public boolean isMessageDisplayed(By by, String message) {
         wait.until(ExpectedConditions.textToBePresentInElement(getDriver().findElement(by), message));
         return getDriver().findElement(by).getText().equals(message);
@@ -167,6 +180,19 @@ public class NewDepartmentPage {
 
     public boolean isSameRoleSelectableAgain(String role) {
         return !getDriver().findElements(By.xpath(String.format(selectTypeOrRoleWithText, role))).isEmpty();
+    }
+
+    private String sameDepartmentName;
+
+    public DepartmentsPage getTheFirstDepartmentName() { //mevcut dep.in ilkinin ismini alir
+        List<WebElement> nameList = getDriver().findElements(pages.getDepartmentsPage().getAllDepartmentNames());
+        sameDepartmentName = nameList.get(0).getText();
+        return new DepartmentsPage();
+    }
+
+    public NewDepartmentPage sendSameNameForDepartments() {
+        ReusableMethods.sendKeys(nameField, sameDepartmentName);
+        return this;
     }
 
     public boolean isDepartmentNameFieldVisible() {
