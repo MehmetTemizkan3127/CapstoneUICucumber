@@ -26,10 +26,10 @@ public class DepartmentDetailPage {
 
     //Methods
     public EditDepartmentPage clickEditDepartmentButton() {
-        ReusableMethods.waitForSeconds(2);
+        ReusableMethods.waitForSeconds(3);
         wait.until(ExpectedConditions.elementToBeClickable(editDepartmentButton));
         ReusableMethods.clickElementByJS(editDepartmentButton);
-        ReusableMethods.waitForSeconds(2);
+        ReusableMethods.waitForSeconds(3);
         return new EditDepartmentPage();
     }
 

@@ -5,13 +5,9 @@ import lombok.Setter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import utilities.Driver;
 import utilities.JavascriptUtils;
 import utilities.ReusableMethods;
-
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,6 +31,13 @@ public class DepartmentsPage {
     private WebDriver driver = Driver.getDriver();
 
     //METHODS
+
+    public DepartmentsPage clickAgainDepartmentsButton(){
+        ReusableMethods.visibilityOfElementByWebDriverWait(departmentsButton); //Burada departments locate'inin getter'i gerekli
+        ReusableMethods.clickElementByJS(departmentsButton);
+        ReusableMethods.waitForSeconds(3);
+        return this;
+    }
 
     public List<WebElement> departmentsWithAuthorizedRoles() { //Rol sayisi 0'dan büyük olan department cartlarini bir liste ekleyip o listi döndüren method
         List<WebElement> departmentWithRoleList = new ArrayList<>();

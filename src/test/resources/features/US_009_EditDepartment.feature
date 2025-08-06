@@ -38,7 +38,7 @@ Feature: Edit Department Feature
     Given Create a new department with the name "A", short name "Type Test", type "Department", description "Test", role "Sales Manager"
     When User clicks department button
     And Click created department
-    When Click Edit Department button
+    And Click Edit Department button
     And refresh page until page loads
     And Update the short name field "Update short name"
     And Select a department type -  as a Remote Unit
