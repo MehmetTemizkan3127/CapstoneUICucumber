@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary">Build Test Report</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Aug 6, 2025 02:15:59 pm</span></a>
+<a href="#"><span class="badge badge-primary">Aug 6, 2025 02:49:01 pm</span></a>
 </li>
 </ul>
 </div>
@@ -66,13 +66,13 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Aug 6, 2025 02:15:59 pm</h3>
+<h3>Aug 6, 2025 02:49:01 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Aug 6, 2025 02:17:04 pm</h3>
+<h3>Aug 6, 2025 02:51:29 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -143,7 +143,7 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'><b>6</b> steps passed</small></div>
+<div><small data-tooltip='100%'><b>14</b> steps passed</small></div>
 <div>
 <small data-tooltip='0%'><b>0</b> steps failed,
 <b>0</b> skipped, <b data-tooltip='%'>0</b> others
@@ -162,7 +162,7 @@
 </div></div>
 <script>
 var timeline = {
-"Department Feature":63.356
+"Edit Department Feature":146.937
 };
 </script>
 <div class="row">
@@ -172,7 +172,7 @@ var timeline = {
 <div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
 <thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
 <tr>
-<td>@deleteDepartment</td>
+<td>@TC_009_05</td>
 <td>1</td>
 <td>0</td>
 <td>0</td>
@@ -180,7 +180,7 @@ var timeline = {
 <td>100%</td>
 </tr>
 <tr>
-<td>@AllDepartments</td>
+<td>@EditDepartment</td>
 <td>1</td>
 <td>0</td>
 <td>0</td>
@@ -221,7 +221,7 @@ warningChild: 0,
 skipChild: 0,
 infoChild: 0,
 grandChildCount: 5,
-passGrandChild: 6,
+passGrandChild: 14,
 failGrandChild: 0,
 warningGrandChild: 0,
 skipGrandChild: 0,
@@ -246,7 +246,7 @@ eventsCount: 5,
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tag"></i></a>
 <ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
-<a class="dropdown-item" href="#">@deleteDepartment</a><a class="dropdown-item" href="#">@AllDepartments</a>
+<a class="dropdown-item" href="#">@TC_009_05</a><a class="dropdown-item" href="#">@EditDepartment</a>
 </ul>
 </li>
 </ul>
@@ -257,9 +257,9 @@ eventsCount: 5,
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">Department Feature</p>
+            <p class="name">Edit Department Feature</p>
             <p class="text-sm">
-              <span>14:16:00</span> / <span>00:01:03:356</span>
+              <span>14:49:03</span> / <span>00:02:26:937</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -267,10 +267,10 @@ eventsCount: 5,
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">Department Feature</h5>
-<span class='badge badge-success'>08.06.2025 14:16:00</span>
-<span class='badge badge-danger'>08.06.2025 14:17:03</span>
-<span class='badge badge-default'>00:01:03:356</span>
+<h5 class="test-status text-pass">Edit Department Feature</h5>
+<span class='badge badge-success'>08.06.2025 14:49:03</span>
+<span class='badge badge-danger'>08.06.2025 14:51:29</span>
+<span class='badge badge-default'>00:02:26:937</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
@@ -282,7 +282,7 @@ eventsCount: 5,
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>Delete Department</div>
+        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>TC_009_05 Verifying that the card with the changed department type is no longer listed among the departments</div>
       </div>
     </div>
         <div class="collapse">
@@ -312,8 +312,48 @@ eventsCount: 5,
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="stepdefinitions.US_007_DepartmentsSD.delete_the_created_department()">
-                <span>Then delete the created department</span>
+              <div class="step pass-bg" title="stepdefinitions.US_009_EditDepartmentSD.create_a_new_department_with_the_name_short_name_type_description_role(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">
+                <span>Given Create a new department with the name "A", short name "Type Test", type "Department", description "Test", role "Sales Manager"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_007_DepartmentsSD.user_clicks_department_button()">
+                <span>When User clicks department button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_009_EditDepartmentSD.click_created_department()">
+                <span>And Click created department</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_009_EditDepartmentSD.click_edit_department_button()">
+                <span>And Click Edit Department button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_009_EditDepartmentSD.refresh_page_until_page_loads()">
+                <span>And refresh page until page loads</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_009_EditDepartmentSD.update_the_short_name_field(java.lang.String)">
+                <span>And Update the short name field "Update short name"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_009_EditDepartmentSD.select_a_department_type_as_a_remote_unit()">
+                <span>And Select a department type -  as a Remote Unit</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_008_NewDepartmentSD.click_save_button()">
+                <span>And Click save button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_008_NewDepartmentSD.verify_that_the_created_department_is_not_displayed_in_the_department_list()">
+                <span>Then Verify that the created department is not displayed in the department list</span>
       <div>
       </div>
               </div>
@@ -345,12 +385,12 @@ eventsCount: 5,
 <span class="meta">
 <span class='badge log pass-bg'>1</span>
 </span>
-<p class="name">@deleteDepartment</p>
+<p class="name">@TC_009_05</p>
 <p class="duration text-sm">1 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>@deleteDepartment</h4>
+<h4>@TC_009_05</h4>
 <span status="pass" class='badge log pass-bg'>1 passed</span>
 </div>
 <table class='table table-sm mt-4'>
@@ -364,11 +404,11 @@ eventsCount: 5,
 <tbody>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>14:16:00 pm</td>
+<td>14:49:03 pm</td>
 <td>
-<a href="#" class="linked" test-id='1' id='2'>Delete Department</a>
+<a href="#" class="linked" test-id='1' id='2'>TC_009_05 Verifying that the card with the changed department type is no longer listed among the departments</a>
 <div class="">
-<span class="badge badge-default">Department Feature.Delete Department</span>
+<span class="badge badge-default">Edit Department Feature.TC_009_05 Verifying that the card with the changed department type is no longer listed among the departments</span>
 </div>
 </td>
 </tr>
@@ -381,12 +421,12 @@ eventsCount: 5,
 <span class="meta">
 <span class='badge log pass-bg'>1</span>
 </span>
-<p class="name">@AllDepartments</p>
+<p class="name">@EditDepartment</p>
 <p class="duration text-sm">1 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>@AllDepartments</h4>
+<h4>@EditDepartment</h4>
 <span status="pass" class='badge log pass-bg'>1 passed</span>
 </div>
 <table class='table table-sm mt-4'>
@@ -400,11 +440,11 @@ eventsCount: 5,
 <tbody>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>14:16:00 pm</td>
+<td>14:49:03 pm</td>
 <td>
-<a href="#" class="linked" test-id='1' id='2'>Delete Department</a>
+<a href="#" class="linked" test-id='1' id='2'>TC_009_05 Verifying that the card with the changed department type is no longer listed among the departments</a>
 <div class="">
-<span class="badge badge-default">Department Feature.Delete Department</span>
+<span class="badge badge-default">Edit Department Feature.TC_009_05 Verifying that the card with the changed department type is no longer listed among the departments</span>
 </div>
 </td>
 </tr>
