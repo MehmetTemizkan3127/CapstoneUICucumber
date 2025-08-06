@@ -50,7 +50,7 @@ loginPage.clickSignIn();
        dashboardPage.clickMaximizeSideBar();
        //remoteUnitsPage.dropdown.click();
         waitForSeconds(3);
-        dashboardPage.clickRemoteUnits();
+        dashboardPage.clickOnMenuItem("Remote Units");
 //remoteUnitsPage.remoteunitsign.click();
 
 

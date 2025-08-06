@@ -5,6 +5,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class DashboardPage {
 
@@ -13,54 +14,34 @@ public class DashboardPage {
     private static final By HOME_PAGE_LINK = By.tagName("h1");
     private static final By SIDEBAR = By.id("Sidebar");
     private static final By COLLAPSE_BUTTON = By.className("btnCollapse");
-    private static final By MY_SUBSCRIPTIONS = By.xpath("//*[@id=\"link1\"]/a");
-    private static final By MY_MEMBERSHIPS = By.xpath("//*[@id=\"link2\"]/a");
-    private static final By CHECK_MY_MEMBERSHIPS = By.xpath("//*[@id=\"MainContent\"]/div/div[1]/div/h3");
-    private static final By COMPANY_GROUP = By.xpath("//*[@id=\"link3\"]/a");
-    private static final By CHECK_COMPANY_GROUP = By.xpath("//*[@id=\"MainContent\"]/div/div[1]/div/h2");
-    private static final By COMPANY = By.xpath("//*[@id=\"link4\"]/a");
-    private static final By CHECK_COMPANY = By.xpath("//*[@id=\"MainContent\"]/div[1]/div/h5");
-    private static final By DEPARTMENTS = By.xpath("//*[@id=\"link5\"]/a");
-    private static final By REMOTE_UNITS = By.xpath("//*[@id=\"link6\"]/a");
-    private static final By TEAMS = By.xpath("//*[@id=\"link7\"]/a");
-    private static final By USERS = By.xpath("//*[@id=\"link8\"]/a");
-    private static final By CHECK_USERS = By.id("search");
-    private static final By ROLES = By.xpath("//*[@id=\"link9\"]/a");
-    private static final By PERMISSION = By.xpath("//*[@id=\"link10\"]/a");
-    private static final By ACCESS_TOKEN = By.xpath("//*[@id=\"link11\"]/a");
-    private static final By CHECK_ACCESS_TOKEN = By.xpath("//*[@id=\"MainContent\"]/div[1]/div/h4");
-    public static final By HEADER = By.xpath("//*[@id=\"MainContent\"]/div/div[1]/div[1]/h3");
+    private static final String MENU_ITEM = "//li[@class=\"list-group-item\"]/a[text()='{placeholder}']";
+    private static final By BREADCRUMB = By.xpath("//li[@class='breadcrumb-item active']");
 
-    //NIOYATECH Logo Button`un görünürlügü test ediliyor.
+
     public void checkLogoIsVisible() {
         WebElement logoButton = Driver.getDriver().findElement(LOGO);
         Assert.assertTrue(logoButton.isDisplayed());
     }
 
-    //NIOYATECH Logo Button`un click özelligi dogrulaniyor.
     public void checkLogoIsClickable() {
         WebElement element = Driver.getDriver().findElement(LOGO);
         Assert.assertTrue(element.isEnabled());
     }
 
-    //NIOYATECH Logo butonuna tiklanir.
     public void clickUserPageButton() {
         WebElement element = Driver.getDriver().findElement(USER_PAGE_LINK);
         element.click();
     }
 
-    //Home page ìn acildigi dogrulanir.
     public void checkHomePage() {
         WebElement h1 = Driver.getDriver().findElement(HOME_PAGE_LINK);
         Assert.assertEquals(h1.getText(), "Welcome to QuaSpareparts.com");
     }
 
-
     public void clickLogo() {
         WebElement element = Driver.getDriver().findElement(LOGO);
         element.click();
     }
-
 
     public void isSideBarVisible() {
         WebElement element = Driver.getDriver().findElement(SIDEBAR);
@@ -68,145 +49,98 @@ public class DashboardPage {
     }
 
     public void clickMinimizeSideBar() {
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        ReusableMethods.waitForSeconds(2);
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         WebElement btnCollapse = Driver.getDriver().findElement(COLLAPSE_BUTTON);
         js.executeScript("arguments[0].click();", btnCollapse);
     }
 
     public void isMinimizedSideBarVisible() throws InterruptedException {
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        ReusableMethods.waitForSeconds(2);
         WebElement element = Driver.getDriver().findElement(SIDEBAR);
         Assert.assertTrue(element.getAttribute("class").contains("minimize"));
     }
 
     public void clickMaximizeSideBar() {
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        ReusableMethods.waitForSeconds(2);
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         WebElement btnCollapse = Driver.getDriver().findElement(COLLAPSE_BUTTON);
         js.executeScript("arguments[0].click();", btnCollapse);
     }
 
     public void isMaximizedSideBarVisible() {
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        ReusableMethods.waitForSeconds(2);
         WebElement element = Driver.getDriver().findElement(SIDEBAR);
         Assert.assertTrue(element.isDisplayed());
         Assert.assertFalse(element.getAttribute("class").contains("minimize"));
     }
 
-    public void clickMySubscriptions() {
-        Driver.getDriver().findElement(MY_SUBSCRIPTIONS).click();
+    //***SIDEBAR Link Click and visibility check ******
+
+    public void clickOnMenuItem(String menuItem) {
+        ReusableMethods.waitForSeconds(2);
+        Driver.getDriver().findElement(By.xpath(MENU_ITEM.replace("{placeholder}", menuItem))).click();
     }
 
-    public void checkMySubscriptions() {
-        WebElement element = Driver.getDriver().findElement(HEADER);
-        Assert.assertEquals(element.getText(), "My Subscriptions");
+    public void checksOnPage(String breadCrumbText) {
+        ReusableMethods.waitForSeconds(2);
+        WebElement element = Driver.getDriver().findElement(BREADCRUMB);
+        Assert.assertEquals(element.getText(), breadCrumbText);
     }
 
-    public void clickMyMemberships() {
-        Driver.getDriver().findElement(MY_MEMBERSHIPS).click();
+    //*************DropDownMenü***********
+    //US003-01
+
+    public void clickProfileImage() {
+        Driver.getDriver().findElement(By.xpath("//div[contains(@class, 'avatar')]/ancestor::button[1]")).click();
+        ReusableMethods.waitForSeconds(1);
     }
 
-    public void checkMyMemberships() {
-        WebElement element = Driver.getDriver().findElement(CHECK_MY_MEMBERSHIPS);
-        Assert.assertEquals(element.getText(), "My Memberships");
+    public void checkDisplayUserEmailAndRole() {
+        String username = Driver.getDriver().findElement(By.id("username")).getText();
+        String defaultRole = Driver.getDriver().findElement(By.className("active-roles-box")).getText();
+        String user = username + " | " + defaultRole;
+        String userInfoOnPopup = Driver.getDriver()
+                .findElement(By.xpath("//*[@id=\"Header\"]/div/div/div/ul/li[1]/span/div/table/tbody/tr/td[2]/span[1]"))
+                .getText();
+        Assert.assertEquals(userInfoOnPopup, user);
     }
 
-    public void clickCompanyGroup() {
-        Driver.getDriver().findElement(COMPANY_GROUP).click();
+    public void checkDisplayUserCompany() {
+        String company = Driver.getDriver().findElement(By.xpath("//label[@for='organizations']/following-sibling::span")).getText();
+        String companyOnHeader = Driver.getDriver().findElement(By.xpath("//*[@id=\"Header\"]/div/div/div/ul/li[1]/span/div/table/tbody/tr/td[2]/span[2]")).getText();
+        Assert.assertEquals(company, companyOnHeader);
     }
 
-    public void checkCompanyGroup() {
-        WebElement element = Driver.getDriver().findElement(CHECK_COMPANY_GROUP);
-        Assert.assertEquals(element.getText(), "Your Company Group");
+
+    public void checkAvatar() {
+        ReusableMethods.waitForSeconds(2);
+        String username = Driver.getDriver().findElement(By.id("username")).getText();
+        String avatar = Driver.getDriver().findElement(By.xpath("//div[contains(@class, 'avatar')]")).getText();
+        Assert.assertEquals(username.toUpperCase().charAt(0), avatar.charAt(0));
     }
 
-    public void clickCompany() {
-        Driver.getDriver().findElement(COMPANY).click();
+    public void checkUsernameAndRole() {
+        String username = Driver.getDriver().findElement(By.id("username")).getText();
+        String defaultRole = Driver.getDriver().findElement(By.className("active-roles-box")).getText();
+        String user = username + " | " + defaultRole;
+        String userInfoOnHeader = Driver.getDriver().findElement(By.xpath("//*[@id=\"Header\"]/div/div/div/button/div/table/tbody/tr/td[2]/span[1]")).getText();
+        Assert.assertEquals(userInfoOnHeader, user);
     }
 
     public void checkCompany() {
-        WebElement element = Driver.getDriver().findElement(CHECK_COMPANY);
-        Assert.assertEquals(element.getText(), "Company Information");
+
+        String company = Driver.getDriver().findElement(By.xpath("//label[@for='organizations']/following-sibling::span")).getText();
+        String companyOnHeader = Driver.getDriver().findElement(By.xpath("//*[@id=\"Header\"]/div/div/div/button/div/table/tbody/tr/td[2]/span[2]")).getText();
+        Assert.assertEquals(company, companyOnHeader);
     }
 
-    public void clickDepartments() {
-        Driver.getDriver().findElement(DEPARTMENTS).click();
-    }
-
-    public void checkDepartments() {
-        WebElement element = Driver.getDriver().findElement(HEADER);
-        Assert.assertEquals(element.getText(), "Departments");
-    }
-
-    public void clickRemoteUnits() {
-        Driver.getDriver().findElement(REMOTE_UNITS).click();
-    }
-
-    public void checkRemoteUnits() {
-        WebElement element = Driver.getDriver().findElement(HEADER);
-        Assert.assertEquals(element.getText(), "Remote Units");
-    }
-
-    public void clickTeams() {
-        Driver.getDriver().findElement(TEAMS).click();
-    }
-
-    public void checkTeams() {
-        WebElement element = Driver.getDriver().findElement(HEADER);
-        Assert.assertEquals(element.getText(), "Teams");
-    }
-
-    public void clickUsers() {
-        Driver.getDriver().findElement(USERS).click();
-    }
-
-    public void checkUsers() {
-        Driver.getDriver().findElement(CHECK_USERS);
-
-    }
-
-    public void clickRoles() {
-        Driver.getDriver().findElement(ROLES).click();
-    }
-
-    public void checkRoles() {
-        WebElement element = Driver.getDriver().findElement(HEADER);
-        Assert.assertEquals(element.getText(), "All Roles");
-    }
-
-    public void clickPermissions() {
-        Driver.getDriver().findElement(PERMISSION).click();
-    }
-
-    public void checkPermissions() {
-        WebElement element = Driver.getDriver().findElement(HEADER);
-        Assert.assertEquals(element.getText(), "All Permissions");
-    }
-
-    public void clickAccessToken() {
-        Driver.getDriver().findElement(ACCESS_TOKEN).click();
-    }
-
-    public void checkAccessToken() {
-        WebElement element = Driver.getDriver().findElement(CHECK_ACCESS_TOKEN);
-        Assert.assertEquals(element.getText(), "Add New Access Token");
+    public void clickOnPopupMenu(String arg0) {
+        Driver.getDriver()
+                .findElement(By
+                        .xpath("//a[@class='dropdown-item'][text()='{placeholder}']"
+                                .replace("{placeholder}", arg0)))
+                .click();
     }
 }
 
