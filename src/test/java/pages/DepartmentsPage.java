@@ -165,7 +165,7 @@ public class DepartmentsPage {
 
     public boolean isNewCreatedDepartmentDisplayed() { //Department görünüyorsa true döner
         boolean flag = false;
-        pages.getDashboardPage().clickDepartments();
+        pages.getDashboardPage().clickOnMenuItem("Departments");
         ReusableMethods.visibilityOfElementsByWebDriverWait(By.xpath("//*[@id=\"link5\"]/a"));
         List<WebElement> names = driver.findElements(allDepartmentNames);
         for (WebElement nameElement : names) {
