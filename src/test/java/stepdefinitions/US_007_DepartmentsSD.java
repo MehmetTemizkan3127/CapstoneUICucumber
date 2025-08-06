@@ -44,14 +44,13 @@ public class US_007_DepartmentsSD {
     //TC_007_04
     @Then("User verifies that the departments are displayed")
     public void user_verifies_that_the_departments_are_displayed() {
-
         Assert.assertTrue(pages.getDepartmentsPage().isDepartmentsTextDisplayed());
     }
 
     //DeleteDepartment //Burasi daha sonra silinecek
     @Then("delete the created department")
     public void delete_the_created_department() {
-        pages.getDepartmentsPage().deleteDepartmentWithIndex(0,1);
+        pages.getDepartmentsPage().deleteDepartmentWithIndex(0,2);
     }
 
 }
