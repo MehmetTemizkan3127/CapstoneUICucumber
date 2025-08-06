@@ -6,7 +6,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "stepdefinitions",
-        tags = "@TC_009_05",
+        tags = "@deleteDepartment",
         plugin = {"html:target/reports/report.html",
                 "rerun:target/failed_tests/failed_scenarios.txt",
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
