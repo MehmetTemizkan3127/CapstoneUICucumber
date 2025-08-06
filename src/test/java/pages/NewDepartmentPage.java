@@ -74,15 +74,6 @@ public class NewDepartmentPage {
         return this;
     }
 
-    public NewDepartmentPage selectDepartmentRemoteUnit() { //belki silerim
-        wait.until(ExpectedConditions.elementToBeClickable(departmentTypeField));
-        // ReusableMethods.visibilityOfElementByWebDriverWait(departmentTypeField);
-        actions.click(getDriver().findElement(departmentTypeField)).perform();
-        ReusableMethods.waitForSeconds(2);
-        WebElement typeOption = getDriver().findElement(selectTypeRemoteUnite);
-        actions.click(typeOption).perform();
-        return this;
-    }
 
     public NewDepartmentPage enterDepartmentDescription(String description) {
         ReusableMethods.sendKeys(descriptionField, description);
@@ -142,7 +133,7 @@ public class NewDepartmentPage {
         return this;
     }
 
-    public NewDepartmentPage selectRolesTwice(String role) {
+    public NewDepartmentPage selectSameRoleTwice(String role) {
         ReusableMethods.visibilityOfElementByWebDriverWait(rolesField);
         actions.click(getDriver().findElement(rolesField)).perform();
         ReusableMethods.waitForSeconds(2);
@@ -167,7 +158,7 @@ public class NewDepartmentPage {
                 break;
             }
         }
-        return rolesList.size() == this.expectedRoleCount + 1;
+        return rolesList.size() == this.expectedRoleCount + 1; // İlk rol zaten otomatik eklendiği için +1 ekleniyor
     }
 
     public boolean isSelectedRoleRemovedSuccessfully() {
