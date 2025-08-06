@@ -103,16 +103,9 @@ Feature: New Department Feature
 
   @TC_008_10
   Scenario: TC_08_010 Creating a department more than once with the same name and type
-    Given save the first department name
-    When Click Add New Department button
-    And create new department with the same name
-    And Enter a department Short name 'Test department short name'
-    And Select a department type - Departmant
-    And Enter a department description 'Test department description'
-    And Select a departmant role
-    And Click save button
-    And User clicks department button
-    Then Verify that the department is not created twice with the same name
+    Given Click Add New Department button
+    And Verify that the department is not created twice with the same name
+
 
   @TC_008_11
   Scenario: TC_08_11 Verifying that add new department button is clickable

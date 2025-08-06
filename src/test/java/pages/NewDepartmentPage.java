@@ -13,10 +13,8 @@ import utilities.ReusableMethods;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import static utilities.Driver.getDriver;
-
 //T****
 @Getter
 public class NewDepartmentPage {
@@ -45,7 +43,6 @@ public class NewDepartmentPage {
 
     //Object and Variables******************
     private String savedDepartmentName;
-    public static String staticName;
     private int expectedRoleCount = 0;
     final private WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10)); //intelij final önerdi:)
     final private Actions actions = new Actions(getDriver());
@@ -56,7 +53,6 @@ public class NewDepartmentPage {
     public NewDepartmentPage enterDepartmentName(String name) {
         ReusableMethods.sendKeys(nameField, name);
         this.savedDepartmentName = name;
-        staticName = name;
         return this;
     }
 
@@ -73,7 +69,6 @@ public class NewDepartmentPage {
         actions.click(typeOption).perform();
         return this;
     }
-
 
     public NewDepartmentPage enterDepartmentDescription(String description) {
         ReusableMethods.sendKeys(descriptionField, description);
@@ -92,20 +87,6 @@ public class NewDepartmentPage {
 
     public NewDepartmentPage clickSaveButton() {
         ReusableMethods.clickElement(saveButton);
-        return this;
-    }
-
-    public NewDepartmentPage createANewDepartment(String name, String shortName, String type, String description, String role) { //uniq isme sahip dep. olusturur
-        String uniqueName = name + "_" + new Random().nextInt(1000);
-        pages.getDepartmentsPage()
-                .clickAddNewDepartment()
-                .enterDepartmentName(uniqueName)
-                .enterDepartmentShortName(shortName)
-                .selectDepartmentType(type)
-                .enterDepartmentDescription(description)
-                .selectRoles(role)
-                .clickSaveButton();
-        this.savedDepartmentName = uniqueName;
         return this;
     }
 
@@ -133,13 +114,28 @@ public class NewDepartmentPage {
         return this;
     }
 
-    public NewDepartmentPage selectSameRoleTwice(String role) {
+    public NewDepartmentPage selectRolesTwice(String role) {
         ReusableMethods.visibilityOfElementByWebDriverWait(rolesField);
         actions.click(getDriver().findElement(rolesField)).perform();
         ReusableMethods.waitForSeconds(2);
         actions.click(getDriver().findElement(By.xpath(String.format(selectTypeOrRoleWithText, role)))).perform();
         ReusableMethods.waitForSeconds(2);
         return this;
+    }
+
+
+    public boolean isNewCreatedDepartmentDisplayed() {
+        boolean flag = false;
+        ReusableMethods.clickElement(pages.getDepartmentsPage().getDepartmentsButton());
+        wait.until(ExpectedConditions.visibilityOfAllElements(getDriver().findElements(pages.getDepartmentsPage().getDepartmentsButton())));
+        List<WebElement> names = getDriver().findElements(pages.getDepartmentsPage().getAllDepartmentNames());
+        for (WebElement nameElement : names) {
+            if (nameElement.getText().equals(this.savedDepartmentName)) {
+                flag = true;
+                break;
+            }
+        }
+        return flag;
     }
 
     public boolean isMessageDisplayed(By by, String message) {
@@ -158,7 +154,7 @@ public class NewDepartmentPage {
                 break;
             }
         }
-        return rolesList.size() == this.expectedRoleCount + 1; // İlk rol zaten otomatik eklendiği için +1 ekleniyor
+        return rolesList.size() == this.expectedRoleCount + 1;
     }
 
     public boolean isSelectedRoleRemovedSuccessfully() {
@@ -171,19 +167,6 @@ public class NewDepartmentPage {
 
     public boolean isSameRoleSelectableAgain(String role) {
         return !getDriver().findElements(By.xpath(String.format(selectTypeOrRoleWithText, role))).isEmpty();
-    }
-
-    private String sameDepartmentName;
-
-    public DepartmentsPage getTheFirstDepartmentName() { //mevcut dep.in ilkinin ismini alir
-        List<WebElement> nameList = getDriver().findElements(pages.getDepartmentsPage().getAllDepartmentNames());
-        sameDepartmentName = nameList.get(0).getText();
-        return new DepartmentsPage();
-    }
-
-    public NewDepartmentPage sendSameNameForDepartments() {
-        ReusableMethods.sendKeys(nameField, sameDepartmentName);
-        return this;
     }
 
     public boolean isDepartmentNameFieldVisible() {

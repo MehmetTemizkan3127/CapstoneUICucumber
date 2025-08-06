@@ -1,22 +1,13 @@
 package stepdefinitions;
 
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import pages.AllPages;
+import utilities.ConfigReader;
 
-public class UsersDisplaySD {
+public class US_015_UsersSD {
 
     AllPages pages = new AllPages();
-
-    @Given("User goes to usersPage")
-    public void userGoesToUsersPage() {
-        pages
-                .getUsersPage()
-                .openDropDownMenu()
-              //  .changeRoleToClaruswayCompany()
-                .goToUsersPage();
-    }
+    public static int index = Integer.parseInt(ConfigReader.getProperty("indexOfUserList"));
 
     @Then("verify that  page opened")
     public void verifyThatPageOpened() {

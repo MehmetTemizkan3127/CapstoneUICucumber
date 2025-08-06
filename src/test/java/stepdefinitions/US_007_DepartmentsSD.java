@@ -12,7 +12,7 @@ public class US_007_DepartmentsSD {
     //TC_007_01
     @Then("User clicks department button")
     public void user_clicks_department_button() {
-        pages.getDashboardPage().clickOnMenuItem("Departments");
+        pages.getDepartmentsPage().clickDepartments();
     }
     @Then("Verify that all departments are displayed")
     public void verify_that_all_departments_are_displayed() {
@@ -38,10 +38,11 @@ public class US_007_DepartmentsSD {
         Assert.assertTrue(pages.getDepartmentsPage().isDepartmentsTextDisplayed());
     }
 
-    //DeleteDepartment //Burasi daha sonra silinecek
+    //DeleteDepartment
     @Then("delete the created department")
     public void delete_the_created_department() {
-        pages.getDepartmentsPage().deleteDepartmentWithIndex(0,1);
+        pages.getDepartmentsPage().deleteDepartmentWithIndex(5,6);
     }
+
 
 }

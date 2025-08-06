@@ -1,6 +1,6 @@
-@AllDepartments
+@Departments
 Feature: Department Feature
-#T****
+
   Background: User goes to homepage
     Given user goes to homepage
     And User clicks login link
@@ -24,9 +24,7 @@ Feature: Department Feature
   Scenario: TC_007_04 Verifying that Departments text visible
     Then User verifies that the departments are displayed
 
-    # Bu silinecek.
   @deleteDepartment
-  Scenario: Delete Department
+  Scenario: TC_007_01 Verifying that all registered departments are displayed
     Then delete the created department
-
 

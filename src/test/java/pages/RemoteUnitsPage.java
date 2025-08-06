@@ -26,8 +26,6 @@ public class RemoteUnitsPage {
 
     @FindBy(xpath = "//input[@class='form-control rounded-input search-input']")
     public WebElement searching;
-    @FindBy(xpath = "//div[@id='MainContent']//div//div//div[@class='row']")
-    public List<WebElement> searchResults;
 
     }
 

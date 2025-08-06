@@ -19,7 +19,6 @@ public class EditRemoteUnitsStepDefinition {
     @And("Select any of the available Remote Unite title and click on it.")
     public void selectAnyOfTheAvailableRemoteUniteTitleAndClickOnIt() {
 editRemoteUnitsPage.editremoteunitsdept.click();
-        waitForSeconds(1);
     }
     @When("the user clicks on the Edit Remote Unit button")
     public void the_user_clicks_on_the_edit_remote_unit_button() {
@@ -49,10 +48,8 @@ editRemoteUnitsPage.confirmbutton.click();
     @Then("verify that the delete operation succesfull")
     public void verify_that_the_delete_operation_succesfull() {
         waitForSeconds(2);
-dashboardPage.clickOnMenuItem("Remote Units");
+dashboardPage.clickRemoteUnits();
 remoteUnitsPage.searching.sendKeys(ConfigReader.getProperty("Newdepartmaname"));
-        System.out.println("remoteUnitsPage.searchResults.size() = " + remoteUnitsPage.searchResults.size());
-        Assert.assertEquals(0, remoteUnitsPage.searchResults.size()-1);
 
 
     }

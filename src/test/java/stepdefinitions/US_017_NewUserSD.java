@@ -1,13 +1,18 @@
 package stepdefinitions;
 
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import com.github.javafaker.Faker;
+import io.cucumber.java.en.*;
 import pages.AllPages;
+import utilities.ConfigReader;
 
-public class UserNewSD {
+public class US_017_NewUserSD {
 
     AllPages pages = new AllPages();
+
+    public static String fakeEmail = Faker.instance().internet().emailAddress();
+    public static String fakePassword;
+    public static int index = Integer.parseInt(ConfigReader.getProperty("indexOfUserList"));
+
 
     @And("User clicks Add New Member button")
     public void userClicksAddNewMemberButton() {
@@ -28,6 +33,8 @@ public class UserNewSD {
         pages
                 .getUsersPage()
                 .clickRegisterButton();
+
+
     }
 
     @Then("Verify that role error message {string} is occured")
@@ -90,6 +97,7 @@ public class UserNewSD {
     public void verifyThatWindowClosedWithoutSaving() {
         pages
                 .getUsersPage()
+                .refreshPage()
                 .assertWindowClosedWithoutSaving();
     }
 
@@ -103,5 +111,27 @@ public class UserNewSD {
                 .enterEmail(email)
                 .clickRegisterButton()
                 .refreshPage();
+    }
+
+    @And("User enters fake email")
+    public void userEntersFakeEmail() {
+        pages
+                .getUsersPage()
+                .enterEmail(fakeEmail);
+
+        ConfigReader.setProperty("usernameFake",fakeEmail);
+    }
+
+    @Then("Keep the created password")
+    public void keepTheCreatedPassword() {
+        ConfigReader.setProperty("passwordFake", pages
+                .getUsersPage()
+                .keepPassword() );
+
+        fakeEmail = ConfigReader.getProperty("passwordFake");
+    }
+
+    @And("User creates a new member {string} and {string}")
+    public void userCreatesANewMemberAnd(String arg0, String arg1) {
     }
 }

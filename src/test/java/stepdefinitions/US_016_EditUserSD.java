@@ -1,20 +1,20 @@
 package stepdefinitions;
 
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
 import pages.AllPages;
+import utilities.ConfigReader;
 
-public class UserEditSD {
+public class US_016_EditUserSD {
 
     AllPages pages = new AllPages();
+    public static int index = Integer.parseInt(ConfigReader.getProperty("indexOfUserList"));
 
-    @When("User clicks on first username from the list")
-    public void userClicksOnFirstUsernameFromTheList() {
+
+    @When("User clicks on indexed username from the list")
+    public void userClicksOnNdUsernameFromTheList() {
         pages
                 .getUsersPage()
-                .openUserDetailPageForFirstUser();
+                .openUserDetailPageForIndexedUser(index);
     }
 
     @Then("Verify that User Detail page is opened")
@@ -30,28 +30,21 @@ public class UserEditSD {
                 .getUserDetailPage()
                 .clickAddNewRoleButton();
     }
-
-
-    @Then("Verify that select a role window is opened")
-    public void verifyThatSelectARoleWindowIsOpened() {
+    @And("User selects a new role from the dropdown")
+    public void userSelectsANewRoleFromTheDropdown() {
         pages
                 .getUserDetailPage()
                 .clickOnRolesList()
-                .assertSelectARoleWindowOpens();
+                .selectARoleFromDropDown()
+                .keepSelectedRole();
     }
-    @And("User adds a new role from the dropdown")
-    public void userAddsANewRoleFromTheDropdown() {
+
+    @Then("Verify that select a role window is opened and {string} message seen")
+    public void verifyThatSelectARoleWindowIsOpenedAndMessageSeen(String expectedResult) {
         pages
                 .getUserDetailPage()
                 .clickOnRolesList()
-                .selectARoleFromDropDown();
-    }
-    @And("User clicks Save button")
-    public void userClicksSaveButton() {
-        pages
-                .getUserDetailPage()
-                .clickSaveButton();
-
+                .assertSelectARoleWindowOpens(expectedResult);
     }
 
     @Then("Verify that the new role is added and {string} message seen")
@@ -64,11 +57,11 @@ public class UserEditSD {
     @When("User adds a new role for user")
     public void userAddsANewRoleForUser() {
         pages
-                .getUsersPage()
-                .openUserDetailPageForFirstUser()
+                .getUserDetailPage()
                 .clickAddNewRoleButton()
                 .clickOnRolesList()
                 .selectARoleFromDropDown()
+                .keepSelectedRole()
                 .clickSaveButton();
     }
 
@@ -86,10 +79,6 @@ public class UserEditSD {
                 .assertNewAddedRoleIsListedUnderRolesSection();
     }
 
-    @Then("Verify that newly added role does not appear under Add New Roles dropdown list")
-    public void verifyThatNewlyAddedRoleDoesNotAppearUnderAddNewRolesDropdownList() {
-    }
-
     @When("User finds if there is a default role")
     public void userFindsIfThereIsADefaultRole() {
         pages
@@ -100,12 +89,9 @@ public class UserEditSD {
 
     @Then("Verify that default role cannot be removed")
     public void verifyThatDefaultRoleCannotBeRemoved() {
-
-        //span[@class='active-roles-box']//div[@class='btn-group dropup']
         pages
                 .getUserDetailPage()
                 .assertDefaultRoleDoesNotHaveThreeDots();
-
     }
 
     @When("User clicks Reset Password button")
@@ -129,11 +115,11 @@ public class UserEditSD {
                 .assertPasswordReset(expectedResult);
     }
 
-    @Then("keep the password")
-    public void keepThePassword() {
+    @Then("keep username and password")
+    public void keepUserNameAndNewPassword() {
         pages
                 .getUserDetailPage()
-                .keepNewPassword();
+                .keepUserNameAndNewPassword();
 
     }
 
@@ -142,12 +128,12 @@ public class UserEditSD {
         pages
                 .getUsersPage()
                 .openDropDownMenu()
-                //  .changeRoleToClaruswayCompany()
                 .goToUsersPage()
-                .openUserDetailPageForFirstUser()
+                .openUserDetailPageForIndexedUser(index)
                 .clickResetPasswordButton()
                 .clickConfirmButton()
-                .keepNewPassword();
+                .refreshUserDetailPage()
+                .keepUserNameAndNewPassword();
 
 
     }
@@ -159,7 +145,31 @@ public class UserEditSD {
                 .logout();
     }
 
-    @Then("verify that user logged in succesfully")
-    public void verifyThatUserLoggedInSuccesfully() {
+    @When("user sets the new role as default")
+    public void userSetsTheNewRoleAsDefault() {
+        pages
+                .getUserDetailPage()
+                .setNewRoleAsDefault();
+    }
+
+    @Then("Verify that the new default role is displayed correctly")
+    public void verifyThatTheNewDefaultRoleIsDisplayedCorrectly() {
+        pages
+                .getUserDetailPage()
+                .assertNewDefaultRoleIsCorrect();
+    }
+
+    @When("User clicks cancel button")
+    public void userClicksCancelButton() {
+        pages
+                .getUserDetailPage()
+                .clickCancelButton();
+    }
+
+    @Then("Verify that the canceled role is not listed under Roles section")
+    public void verifyThatTheCanceledRoleIsNotListedUnderRolesSection() {
+        pages
+                .getUserDetailPage()
+                .assertCanceledRoleIsNotListedUnderRolesSection();
     }
 }
