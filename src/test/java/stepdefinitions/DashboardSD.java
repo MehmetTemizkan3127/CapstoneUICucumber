@@ -1,9 +1,13 @@
 package stepdefinitions;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.AllPages;
+
+import java.util.List;
+import java.util.Map;
 
 public class DashboardSD {
     AllPages pages = new AllPages();
@@ -33,6 +37,8 @@ public class DashboardSD {
         pages.getDashboardPage().checkHomePage();
     }
 
+
+    //****SidebarSD****
     @When("user sees sidebar")
     public void userSeesSidebar() {
         pages.getDashboardPage().isSideBarVisible();
@@ -46,7 +52,6 @@ public class DashboardSD {
     @And("user sees minimized Sidebar")
     public void userSeesMinimizedSidebar() throws InterruptedException {
         pages.getDashboardPage().isMinimizedSideBarVisible();
-
     }
 
     @Then("user sees maximized sidebar")
@@ -59,116 +64,70 @@ public class DashboardSD {
         pages.getDashboardPage().clickMaximizeSideBar();
     }
 
-    @When("user clicks on MySubscriptions")
-    public void userClicksOnMySubscriptions() {
-        pages.getDashboardPage().clickMySubscriptions();
+    //**** DropDownMenüSD******
+    //US003-01
+    @When("The user clicks on the profile image")
+    public void theUserClicksOnTheProfileImage() {
+        pages.getDashboardPage().clickProfileImage();
     }
 
-
-    @Then("user sees MySubscriptions page")
-    public void userSeesMySubscriptionsPage() {
-        pages.getDashboardPage().checkMySubscriptions();
+    @Then("The dropdown menu should display the user's email and role")
+    public void theDropdownMenuShouldDisplayTheUserSEmailAndRole() {
+        pages.getDashboardPage().checkDisplayUserEmailAndRole();
     }
 
-    @When("user clicks on MyMemberships")
-    public void userClicksOnMyMemberships() {
-        pages.getDashboardPage().clickMyMemberships();
+    @And("The dropdown menu should display the user's company")
+    public void theDropdownMenuShouldDisplayTheUserSCompany() {
+        pages.getDashboardPage().checkDisplayUserCompany();
     }
 
-    @Then("user sees MyMemberships page")
-    public void userSeesMyMembershipsPage() {
-        pages.getDashboardPage().checkMyMemberships();
+    //US003-02
+    @And("The user clicks on the {string} option")
+    public void theUserClicksOnTheOption(String arg0) {
+        pages.getDashboardPage().clickOnPopupMenu(arg0);
     }
 
-
-    @When("user clicks on CompanyGroup")
-    public void userClicksOnCompanyGroup() {
-        pages.getDashboardPage().clickCompanyGroup();
+    @Then("The user should be redirected to the {string} page")
+    public void theUserShouldBeRedirectedToTheSubscriptionsPage(String page) {
+        //pages.getDashboardPage().checksOnPage(page);
     }
 
-    @Then("user sees CompanyGroup page")
-    public void userSeesCompanyGroupPage() {
-        pages.getDashboardPage().checkCompanyGroup();
+    //US003-03
+    @Then("The user should be redirected to the Memberships page")
+    public void theUserShouldBeRedirectedToTheMembershipsPage() {
+
     }
 
-    @When("user clicks on Company")
-    public void userClicksOnCompany() {
-        pages.getDashboardPage().clickCompany();
+    //US003-03
+    @Then("The user should be redirected to the Login page")
+    public void theUserShouldBeRedirectedToTheLoginPage() {
+        pages.getDashboardPage().checkHomePage();
     }
 
-    @Then("user sees Company page")
-    public void userSeesCompanyPage() {
+    @And("The session should be terminated")
+    public void theSessionShouldBeTerminated() {
+
+    }
+
+    //@UserDetailsCheck
+    @Then("user sees own avatar")
+    public void userSeesOwnAvatar() {
+        pages.getDashboardPage().checkAvatar();
+    }
+
+    @And("user sees own username and role")
+    public void userSeesOwnEmailAddress() {
+        pages.getDashboardPage().checkUsernameAndRole();
+    }
+
+    @And("user sees own company")
+    public void userSeesOwnCompany() {
         pages.getDashboardPage().checkCompany();
     }
 
-    @When("user clicks on Departments")
-    public void userClicksOnDepartments() {
-        pages.getDashboardPage().clickDepartments();
-    }
-
-    @Then("user sees Departments page")
-    public void userSeesDepartmentsPage() {
-        pages.getDashboardPage().checkDepartments();
-    }
-
-    @When("user clicks on RemoteUnits")
-    public void userClicksOnRemoteUnits() {
-        pages.getDashboardPage().clickRemoteUnits();
-    }
-
-    @Then("user sees RemoteUnits page")
-    public void userSeesRemoteUnitsPage() {
-        pages.getDashboardPage().checkRemoteUnits();
-    }
-
-    @When("user clicks on Teams")
-    public void userClicksOnTeams() {
-        pages.getDashboardPage().clickTeams();
-    }
-
-    @Then("user sees Teams page")
-    public void userSeesTeamsPage() {
-        pages.getDashboardPage().checkTeams();
-    }
-
-    @When("user clicks on Users")
-    public void userClicksOnUsers() {
-        pages.getDashboardPage().clickUsers();
-    }
-
-    @Then("user sees Users page")
-    public void userSeesUsersPage() {
-        pages.getDashboardPage().checkUsers();
-    }
-
-    @When("user clicks on Roles")
-    public void userClicksOnRoles() {
-        pages.getDashboardPage().clickRoles();
-    }
-
-    @Then("user sees Roles page")
-    public void userSeesRolesPage() {
-        pages.getDashboardPage().checkRoles();
-    }
-
-    @When("user clicks on Permissions")
-    public void userClicksOnPermissions() {
-        pages.getDashboardPage().clickPermissions();
-    }
-
-    @Then("user sees Permissions page")
-    public void userSeesPermissionsPage() {
-        pages.getDashboardPage().checkPermissions();
-    }
-
-    @When("user clicks on AccessToken")
-    public void userClicksOnAccessToken() {
-        pages.getDashboardPage().clickAccessToken();
-    }
-
-    @Then("user sees AccessToken page")
-    public void userSeesAccessTokenPage() {
-        pages.getDashboardPage().checkAccessToken();
+    @And("user clicks on MenuItem from the sidebar and sees the BreadCrumb page")
+    public void userClicksOnMenuItemFromTheSidebarAndSeesTheBreadCrumbPage(DataTable dataTable) {
+        List<Map<String, String>> links = dataTable.asMaps(String.class, String.class);
+        pages.getDashboardPage().checkSideBarLinks(links);
     }
 }
-

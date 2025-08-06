@@ -42,15 +42,15 @@ public class US_10_Remote_Units_StepDefinition {
     }
     @When("the user clicks on the Sign in button")
     public void the_user_clicks_on_the_sign_in_button() {
-loginPage.clickSignIn();
+        loginPage.clickSignIn();
         try {Thread.sleep(2000);} catch (InterruptedException e) {}
     }
     @When("user clicks the Remote Units  menu")
     public void user_clicks_the_remote_units_menu() {
-       dashboardPage.clickMaximizeSideBar();
-       //remoteUnitsPage.dropdown.click();
+        dashboardPage.clickMaximizeSideBar();
+        //remoteUnitsPage.dropdown.click();
         waitForSeconds(3);
-        dashboardPage.clickRemoteUnits();
+        dashboardPage.clickOnMenuItem("Remote Units");
 //remoteUnitsPage.remoteunitsign.click();
 
 
@@ -68,6 +68,6 @@ loginPage.clickSignIn();
 
     @And("user closes browser")
     public void userClosesBrowser() {
-Driver.closeDriver();
+        Driver.closeDriver();
     }
 }

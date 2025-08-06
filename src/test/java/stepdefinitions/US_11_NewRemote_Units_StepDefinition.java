@@ -75,9 +75,9 @@ public class US_11_NewRemote_Units_StepDefinition {
         System.out.println("Driver.getDriver().getCurrentUrl() = " + Driver.getDriver().getCurrentUrl());
         Driver.getDriver().navigate().refresh();
         waitForSeconds(3);
-       // newAdd.deletebutton.click();
-      //  waitForSeconds(2);
-       // newAdd.confirmbutton.click();
+        // newAdd.deletebutton.click();
+        //  waitForSeconds(2);
+        // newAdd.confirmbutton.click();
 
 
     }

@@ -43,7 +43,7 @@ public class US_008_NewDepartmentSD {
 
     @Then("Verify that the newly created department is displayed in the department list.")
     public void verify_that_the_newly_created_department_is_displayed_in_the_department_list() {
-        Assert.assertTrue(pages.getNewDepartmentPage().isNewCreatedDepartmentDisplayed());
+        Assert.assertTrue(pages.getDepartmentsPage().isNewCreatedDepartmentDisplayed());
     }
 
     // TC_008_02 - TC_008_03
@@ -83,7 +83,7 @@ public class US_008_NewDepartmentSD {
 
     @Then("Verify that the created department is not displayed in the department list")
     public void verify_that_the_created_department_is_not_displayed_in_the_department_list() {
-        Assert.assertFalse(pages.getNewDepartmentPage().isNewCreatedDepartmentDisplayed());
+        Assert.assertTrue(pages.getDepartmentsPage().verifyNewCreatedDepartmentNotDisplayed());
     }
 
     // TC_008_08
@@ -100,7 +100,7 @@ public class US_008_NewDepartmentSD {
     // TC_008_09
     @When("Select a departmant role twice")
     public void select_a_departmant_role_twice() {
-        pages.getNewDepartmentPage().selectRolesTwice("Sales Manager");
+        pages.getNewDepartmentPage().selectSameRoleTwice("Sales Manager");
     }
 
     @Then("Verify that the same role cannot be selected again")
@@ -109,10 +109,17 @@ public class US_008_NewDepartmentSD {
     }
 
     //TC_008_10
+    @Given("save the first department name")
+    public void save_the_first_department_name() {
+        pages.getNewDepartmentPage().getTheFirstDepartmentName();
+    }
+    @When("create new department with the same name")
+    public void create_new_department_with_the_same_name() {
+        pages.getNewDepartmentPage().sendSameNameForDepartments();
+    }
     @Given("Verify that the department is not created twice with the same name")
     public void verify_that_the_department_is_not_created_twice_with_the_same_name() {
-
-
+        Assert.assertFalse(pages.getDepartmentsPage().twoDepartmentWithSameName());
     }
 
     // TC_008_11

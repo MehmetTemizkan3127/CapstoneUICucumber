@@ -1,9 +1,12 @@
 package stepdefinitions;
 
 import io.cucumber.java.en.*;
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import pages.AllPages;
 import utilities.ReusableMethods;
+
+import static utilities.Driver.getDriver;
 
 public class US_007_DepartmentsSD {
 
@@ -12,8 +15,15 @@ public class US_007_DepartmentsSD {
     //TC_007_01
     @Then("User clicks department button")
     public void user_clicks_department_button() {
-        pages.getDepartmentsPage().clickDepartments();
+        // pages.getDashboardPage().clickOnMenuItem("Departments");
+        pages.getDepartmentsPage().clickAgainDepartmentsButton();
     }
+
+    @When("User clicks again department button")
+    public void user_clicks_again_department_button() {
+        pages.getDepartmentsPage().clickAgainDepartmentsButton();
+    }
+
     @Then("Verify that all departments are displayed")
     public void verify_that_all_departments_are_displayed() {
         Assert.assertTrue(pages.getDepartmentsPage().areDepartmentCardsDisplayed());
@@ -22,7 +32,7 @@ public class US_007_DepartmentsSD {
     //TC_007_02
     @Then("Click on the departments that have authorized roles and Verify that the roles are displayed")
     public void click_on_the_departments_that_have_authorized_roles_and_verify_that_the_roles_are_displayed() {
-    Assert.assertTrue(pages.getDepartmentsPage().areAuthorizedRolesDisplayed());
+        Assert.assertTrue(pages.getDepartmentsPage().areAuthorizedRolesDisplayed());
     }
 
     //TC_007_03
@@ -38,11 +48,10 @@ public class US_007_DepartmentsSD {
         Assert.assertTrue(pages.getDepartmentsPage().isDepartmentsTextDisplayed());
     }
 
-    //DeleteDepartment
+    //DeleteDepartment //Burasi daha sonra silinecek
     @Then("delete the created department")
     public void delete_the_created_department() {
-        pages.getDepartmentsPage().deleteDepartmentWithIndex(5,6);
+        pages.getDepartmentsPage().deleteDepartmentWithIndex(0,1);
     }
-
 
 }

@@ -18,7 +18,8 @@ public class EditRemoteUnitsStepDefinition {
     EditRemoteUnitsPage editRemoteUnitsPage=new EditRemoteUnitsPage();
     @And("Select any of the available Remote Unite title and click on it.")
     public void selectAnyOfTheAvailableRemoteUniteTitleAndClickOnIt() {
-editRemoteUnitsPage.editremoteunitsdept.click();
+        editRemoteUnitsPage.editremoteunitsdept.click();
+        waitForSeconds(1);
     }
     @When("the user clicks on the Edit Remote Unit button")
     public void the_user_clicks_on_the_edit_remote_unit_button() {
@@ -38,18 +39,20 @@ editRemoteUnitsPage.editremoteunitsdept.click();
     @When("user finds and clicks the delete button")
     public void user_finds_and_clicks_the_delete_button() {
         waitForSeconds(2);
-editRemoteUnitsPage.deletebutton.click();
+        editRemoteUnitsPage.deletebutton.click();
     }
     @And("user clicks the Confirm button in the confirmation window")
     public void userClicksTheConfirmButtonInTheConfirmationWindow() {
         waitForSeconds(3);
-editRemoteUnitsPage.confirmbutton.click();
+        editRemoteUnitsPage.confirmbutton.click();
     }
     @Then("verify that the delete operation succesfull")
     public void verify_that_the_delete_operation_succesfull() {
         waitForSeconds(2);
-dashboardPage.clickRemoteUnits();
-remoteUnitsPage.searching.sendKeys(ConfigReader.getProperty("Newdepartmaname"));
+        dashboardPage.clickOnMenuItem("Remote Units");
+        remoteUnitsPage.searching.sendKeys(ConfigReader.getProperty("Newdepartmaname"));
+        System.out.println("remoteUnitsPage.searchResults.size() = " + remoteUnitsPage.searchResults.size());
+        Assert.assertEquals(0, remoteUnitsPage.searchResults.size()-1);
 
 
     }
