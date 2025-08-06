@@ -7,6 +7,9 @@ import org.testng.Assert;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
+import java.util.List;
+import java.util.Map;
+
 public class DashboardPage {
 
     private static final By LOGO = By.className("navbar-brand");
@@ -141,6 +144,15 @@ public class DashboardPage {
                         .xpath("//a[@class='dropdown-item'][text()='{placeholder}']"
                                 .replace("{placeholder}", arg0)))
                 .click();
+    }
+
+    public void checkSideBarLinks(List<Map<String, String>> links) {
+        for (Map<String, String> row : links) {
+            String linkText = row.get("MenuItem");
+            String breadCrumbText = row.get("BreadCrumb");
+            clickOnMenuItem(linkText);
+            checksOnPage(breadCrumbText);
+        }
     }
 }
 

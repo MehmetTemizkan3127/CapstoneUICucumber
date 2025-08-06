@@ -1,9 +1,13 @@
 package stepdefinitions;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.AllPages;
+
+import java.util.List;
+import java.util.Map;
 
 public class DashboardSD {
     AllPages pages = new AllPages();
@@ -105,16 +109,6 @@ public class DashboardSD {
 
     }
 
-    @And("user clicks on {string} from the sidebar")
-    public void userClicksOnMenuItemFromTheSidebar(String menuItem) {
-        pages.getDashboardPage().clickOnMenuItem(menuItem);
-    }
-
-    @Then("user sees the {string} page")
-    public void userSeesTheMenuItemPage(String breadCrumb) {
-        pages.getDashboardPage().checksOnPage(breadCrumb);
-    }
-
     //@UserDetailsCheck
     @Then("user sees own avatar")
     public void userSeesOwnAvatar() {
@@ -129,6 +123,12 @@ public class DashboardSD {
     @And("user sees own company")
     public void userSeesOwnCompany() {
         pages.getDashboardPage().checkCompany();
+    }
+
+    @And("user clicks on MenuItem from the sidebar and sees the BreadCrumb page")
+    public void userClicksOnMenuItemFromTheSidebarAndSeesTheBreadCrumbPage(DataTable dataTable) {
+        List<Map<String, String>> links = dataTable.asMaps(String.class, String.class);
+        pages.getDashboardPage().checkSideBarLinks(links);
     }
 }
 
