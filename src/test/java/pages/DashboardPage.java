@@ -17,7 +17,7 @@ public class DashboardPage {
     private static final By HOME_PAGE_LINK = By.tagName("h1");
     private static final By SIDEBAR = By.id("Sidebar");
     private static final By COLLAPSE_BUTTON = By.className("btnCollapse");
-    private static final String MENU_ITEM = "//li[@class=\"list-group-item\"]/a[text()='{placeholder}']";
+    private static final String MENU_ITEM = "//li[contains(@class, \"list-group-item\")]/a[text()='{placeholder}']";
     private static final By BREADCRUMB = By.xpath("//li[@class='breadcrumb-item active']");
 
 
@@ -82,6 +82,11 @@ public class DashboardPage {
 
     public void clickOnMenuItem(String menuItem) {
         ReusableMethods.waitForSeconds(2);
+        WebElement element = Driver.getDriver().findElement(SIDEBAR);
+        if(element.getAttribute("class").contains("minimize")) {
+            clickMaximizeSideBar();
+            ReusableMethods.waitForSeconds(2);
+        }
         Driver.getDriver().findElement(By.xpath(MENU_ITEM.replace("{placeholder}", menuItem))).click();
         ReusableMethods.waitForSeconds(2); // Sayfa yukleme zaman aldigi icin sonraki stepler sorunsuz calissin diye wait gerek
     }

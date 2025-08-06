@@ -1,14 +1,12 @@
 package pages;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+import utilities.ConfigReader;
 import utilities.Driver;
-import utilities.ReusableMethods;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -19,6 +17,7 @@ import static org.testng.Assert.*;
 import static utilities.ReusableMethods.*;
 
 public class UsersPage {
+
 
     //USERS PAGE LOCATES
     private By parafIcon = By.cssSelector("button.btn.btn-transparent.m-0.me-4.p-1.rounded.border-0");
@@ -44,6 +43,7 @@ public class UsersPage {
     private By errorMessage = By.xpath("//p[text()='An error occurred']");
     private By succesfullyRegisteredMessage = By.xpath("//div[@class='toast-header bg-success text-white']//strong");
     private By cancelButton = By.xpath("//button[text()='Close']");
+    private By password = By.xpath("//span[@id='code']");
 
 
     //bu method ana sayfaya taşınmalı
@@ -119,23 +119,26 @@ public class UsersPage {
         }
     }
 
-    public UserDetailPage openUserDetailPageForFirstUser() {
-        waitForVisibilityofElementsByFleuntWait(usersUsernameList).get(0).click();
-        System.out.println("First user's detail page is opened ");
+    public UserDetailPage openUserDetailPageForIndexedUser(int index) {
         waitForSeconds(2);
+        waitForVisibilityofElementsByFleuntWait(usersUsernameList).get(index).click();
         return new UserDetailPage();
     }
 
     public void logout() {
-        clickElementByJS(this.userLogInInfo);
+       // clickElementByJS();
         Actions action = new Actions(Driver.getDriver());
         action
-                .sendKeys(Keys.TAB)
-                .sendKeys(Keys.TAB)
-                .sendKeys(Keys.TAB)
-                .sendKeys(Keys.TAB)
-                .click()
+                .click(Driver.getDriver().findElement( this.userLogInInfo))
+                .pause(300).sendKeys(Keys.TAB)
+                .pause(300) .sendKeys(Keys.TAB)
+                .pause(300).sendKeys(Keys.TAB)
+                .pause(300).sendKeys(Keys.TAB)
+                .pause(300)
+                .sendKeys(Keys.ENTER)
                 .perform();
+
+        waitForSeconds(5);
     }
 
     public UsersPage addNewMembeer() {
@@ -189,6 +192,7 @@ public class UsersPage {
     }
     public void assertVisibilityRegisterSuccessfullMessageOccur(String expectedResult) {
         assertEquals( getTextOfElementByJS(this.succesfullyRegisteredMessage) , expectedResult);
+         getTextOfElementByJS(this.password);
     }
 
 
@@ -198,14 +202,16 @@ public class UsersPage {
     }
 
     public void assertWindowClosedWithoutSaving() {
-        waitForSeconds(2);
-        System.out.println("size() = " + visibilityOfElements(this.registerButton).size());
-        assertTrue(visibilityOfElements(this.registerButton).size()==0);
-        //todo wait koymadan çözemedim, hocaya sor
+        assertTrue(visibilityOfElements(this.registerButton).isEmpty());
+
     }
 
     public UsersPage refreshPage() {
-        ReusableMethods.refreshPage();
+        refreshCurrentPage();
         return this;
+    }
+
+    public String keepPassword() {
+        return getTextOfElementByJS(this.password);
     }
 }

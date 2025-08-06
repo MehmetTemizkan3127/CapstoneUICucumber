@@ -5,33 +5,29 @@ Feature: User Module Display
     Given user goes to homepage
     And User clicks login link
     And user logins as "username1" with password "password1"
+    And user clicks on maximize icon
+    And user clicks on Users
 
-  @UsersPageAssertionScenario
+  @US_015  @UsersPageAssertionScenario   @Regression
   Scenario: User opens Users Page
-    Given User goes to usersPage
     Then verify that  page opened
 
-  @UserlistAssertionScenario
+  @US_015  @UserlistAssertionScenario   @Regression
   Scenario: User checks visibility of users list
-    Given User goes to usersPage
     Then verify userList exists
 
-  @Emaillistassertion
+  @US_015  @Emaillistassertion   @Regression
   Scenario: User checks visibility of email of each user data
-    Given User goes to usersPage
     Then verify each user has an email
 
-  @Sincelistassertion
+  @US_015  @Sincelistassertion   @Regression
   Scenario: User checks visibility of email of each user data
-    Given User goes to usersPage
     Then Verify that each user has a visible since date
 
-  @AccessTypelistassertion
+  @US_015  @AccessTypelistassertion   @Regression
   Scenario: User checks visibility of email of each user data
-    Given User goes to usersPage
     Then Verify that each user has a visible access type
 
-  @Statuslistassertion
+  @US_015  @Statuslistassertion   @Regression
   Scenario: User checks visibility of email of each user data
-    Given User goes to usersPage
     Then Verify that each user has a visible status
