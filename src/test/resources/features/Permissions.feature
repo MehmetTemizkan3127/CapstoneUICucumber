@@ -5,7 +5,7 @@ Feature: Display and Verify User Permissions on the Permissions Page
     Given user goes to homepage
     And User clicks login link
     And user logins as "userNameMehmet" with password "passwordMehmet"
-    When user expands the left menu if collapsed
+    When user clicks on maximize icon
     And user clicks the 'Permissions' option in the left menu
     When the user navigates to the Permissions page
 
