@@ -1,9 +1,12 @@
 package stepdefinitions;
 
 import io.cucumber.java.en.*;
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import pages.AllPages;
 import utilities.ReusableMethods;
+
+import static utilities.Driver.getDriver;
 
 public class US_007_DepartmentsSD {
 
@@ -12,8 +15,15 @@ public class US_007_DepartmentsSD {
     //TC_007_01
     @Then("User clicks department button")
     public void user_clicks_department_button() {
-        pages.getDashboardPage().clickOnMenuItem("Departments");
+       // pages.getDashboardPage().clickOnMenuItem("Departments");
+        pages.getDepartmentsPage().clickAgainDepartmentsButton();
     }
+
+    @When("User clicks again department button")
+    public void user_clicks_again_department_button() {
+        pages.getDepartmentsPage().clickAgainDepartmentsButton();
+    }
+
     @Then("Verify that all departments are displayed")
     public void verify_that_all_departments_are_displayed() {
         Assert.assertTrue(pages.getDepartmentsPage().areDepartmentCardsDisplayed());
