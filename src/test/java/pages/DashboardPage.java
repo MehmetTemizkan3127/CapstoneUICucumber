@@ -83,6 +83,7 @@ public class DashboardPage {
     public void clickOnMenuItem(String menuItem) {
         ReusableMethods.waitForSeconds(2);
         Driver.getDriver().findElement(By.xpath(MENU_ITEM.replace("{placeholder}", menuItem))).click();
+        ReusableMethods.waitForSeconds(2); // Sayfa yukleme zaman aldigi icin sonraki stepler sorunsuz calissin diye wait gerek
     }
 
     public void checksOnPage(String breadCrumbText) {
