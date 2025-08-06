@@ -6,18 +6,18 @@ Feature: Dashboard Feature
     And User clicks login link
     And user logins as "usernameAzize" with password "passwordAzize"
 
-  @SmokeTest
+  @TC_0002_01
   Scenario: Logo Display Test
     When logo is visible
     Then logo is enabled
 
-  @SmokeTest
+  @TC_0002_02
   Scenario: Logo Redirects Test
     When go to userPage
     And clicks on Logo
     Then user sees Home Page
 
-  @SmokeTest
+  @TC_0002_03
   Scenario: Minimized Sidebar Test
     When user sees sidebar
     And user clicks on maximize icon
@@ -25,60 +25,61 @@ Feature: Dashboard Feature
     And clicks on minimize icon
     And user sees minimized Sidebar
 
-  @MySubscriptions
-  Scenario:MySubscriptions click Test
-    When user clicks on MySubscriptions
-    Then user sees MySubscriptions page
 
-  @MyMemberships
-  Scenario:MyMemberships click Test
-    When user clicks on MyMemberships
-    Then user sees MyMemberships page
+  @Sidebar
+  Scenario Outline: User navigates to each page from the sidebar
+    When user clicks on maximize icon
+    And user clicks on "<MenuItem>" from the sidebar
+    Then user sees the "<BreadCrumb>" page
 
-  @CompanyGroup
-  Scenario:CompanyGroup click Test
-    When user clicks on CompanyGroup
-    Then user sees CompanyGroup page
+    Examples:
+      | MenuItem         | BreadCrumb       |
+      | Profile          | Profile          |
+      | My Subscriptions | My Subscriptions |
+      | My Memberships   | My Memberships   |
+      | Company Group    | Company Group    |
+      | Company          | Company Detail   |
+      | Departments      | Departments      |
+      | Remote Units     | Remote Units     |
+      | Teams            | Teams            |
+      | Users            | Users            |
+      | Roles            | Roles            |
+      | Permissions      | Permissions      |
+      | Access Tokens    | Access Tokens    |
 
-  @Company
-  Scenario:Company click Test
-    When user clicks on Company
-    Then user sees Company page
 
-  @Departments
-  Scenario:Departments click Test
-    When user clicks on Departments
-    Then user sees Departments page
+  @DropDown @Regression
+  @TC_0003_01
+  Scenario: User sees their email, role and company in dropdown
+    When The user clicks on the profile image
+    Then The dropdown menu should display the user's email and role
+    And The dropdown menu should display the user's company
 
-  @RemoteUnits
-  Scenario:RemoteUnits click Test
-    When user clicks on RemoteUnits
-    Then user sees RemoteUnits page
+  @TC_0003_02
+  Scenario: User navigates to My Subscriptions from dropdown
+    When The user clicks on the profile image
+    And The user clicks on the "My Subscriptions" option
+    Then The user should be redirected to the "My Subscriptions" page
 
-  @Teams
-  Scenario:Teams click Test
-    When user clicks on Teams
-    Then user sees Teams page
+  @TC_0003_03
+  Scenario: User navigates to My Memberships from dropdown
+    When The user clicks on the profile image
+    And The user clicks on the "My Memberships" option
+    Then The user should be redirected to the "My Memberships" page
 
-  @Users
-  Scenario:Users click Test
-    When user clicks on Users
-    Then user sees Users page
+  @TC_0003_04
+  Scenario: User logs out from dropdown
+    When The user clicks on the profile image
+    And The user clicks on the "Logout" option
+    Then The user should be redirected to the Login page
 
-  @Roles
-  Scenario:Roles click Test
-    When user clicks on Roles
-    Then user sees Roles page
+  @UserDetailsCheck
+  Scenario: User sees their email, role and company in dropdown menu
+    Then user sees own avatar
+    And user sees own username and role
+    And user sees own company
 
-  @Permissions
-  Scenario:Permissions click Test
-    When user clicks on Permissions
-    Then user sees Permissions page
 
-  @AccessToken
-  Scenario:AccessToken click Test
-    When user clicks on AccessToken
-    Then user sees AccessToken page
 
 
 

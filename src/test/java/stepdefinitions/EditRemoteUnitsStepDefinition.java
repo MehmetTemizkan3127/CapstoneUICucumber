@@ -49,7 +49,7 @@ editRemoteUnitsPage.confirmbutton.click();
     @Then("verify that the delete operation succesfull")
     public void verify_that_the_delete_operation_succesfull() {
         waitForSeconds(2);
-dashboardPage.clickRemoteUnits();
+dashboardPage.clickOnMenuItem("Remote Units");
 remoteUnitsPage.searching.sendKeys(ConfigReader.getProperty("Newdepartmaname"));
         System.out.println("remoteUnitsPage.searchResults.size() = " + remoteUnitsPage.searchResults.size());
         Assert.assertEquals(0, remoteUnitsPage.searchResults.size()-1);
