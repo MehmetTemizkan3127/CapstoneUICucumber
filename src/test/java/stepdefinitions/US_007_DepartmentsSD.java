@@ -15,8 +15,8 @@ public class US_007_DepartmentsSD {
     //TC_007_01
     @Then("User clicks department button")
     public void user_clicks_department_button() {
-       // pages.getDashboardPage().clickOnMenuItem("Departments");
-        pages.getDepartmentsPage().clickAgainDepartmentsButton();
+        pages.getDashboardPage().clickOnMenuItem("Departments");
+       // pages.getDepartmentsPage().clickAgainDepartmentsButton();
     }
 
     @When("User clicks again department button")
