@@ -27,12 +27,9 @@ Feature: Dashboard Feature
 
 
   @Sidebar
-  Scenario Outline: User navigates to each page from the sidebar
+  Scenario: User navigates to each page from the sidebar
     When user clicks on maximize icon
-    And user clicks on "<MenuItem>" from the sidebar
-    Then user sees the "<BreadCrumb>" page
-
-    Examples:
+    And user clicks on MenuItem from the sidebar and sees the BreadCrumb page
       | MenuItem         | BreadCrumb       |
       | Profile          | Profile          |
       | My Subscriptions | My Subscriptions |
