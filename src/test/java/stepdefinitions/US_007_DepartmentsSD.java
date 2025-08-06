@@ -12,7 +12,7 @@ public class US_007_DepartmentsSD {
     //TC_007_01
     @Then("User clicks department button")
     public void user_clicks_department_button() {
-        pages.getDashboardPage().clickDepartments();
+        pages.getDashboardPage().clickOnMenuItem("Departments");
     }
     @Then("Verify that all departments are displayed")
     public void verify_that_all_departments_are_displayed() {
