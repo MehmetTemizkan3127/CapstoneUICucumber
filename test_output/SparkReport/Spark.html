@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary">Build Test Report</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Aug 6, 2025 02:15:59 pm</span></a>
+<a href="#"><span class="badge badge-primary">Aug 7, 2025 02:42:31 am</span></a>
 </li>
 </ul>
 </div>
@@ -66,13 +66,13 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Aug 6, 2025 02:15:59 pm</h3>
+<h3>Aug 7, 2025 02:42:31 am</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Aug 6, 2025 02:17:04 pm</h3>
+<h3>Aug 7, 2025 02:43:18 am</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -143,7 +143,7 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'><b>6</b> steps passed</small></div>
+<div><small data-tooltip='100%'><b>8</b> steps passed</small></div>
 <div>
 <small data-tooltip='0%'><b>0</b> steps failed,
 <b>0</b> skipped, <b data-tooltip='%'>0</b> others
@@ -162,7 +162,7 @@
 </div></div>
 <script>
 var timeline = {
-"Department Feature":63.356
+"User Module Edit":43.729
 };
 </script>
 <div class="row">
@@ -172,7 +172,7 @@ var timeline = {
 <div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
 <thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
 <tr>
-<td>@deleteDepartment</td>
+<td>@TC_016_06</td>
 <td>1</td>
 <td>0</td>
 <td>0</td>
@@ -180,7 +180,23 @@ var timeline = {
 <td>100%</td>
 </tr>
 <tr>
-<td>@AllDepartments</td>
+<td>@SelectRoleWindowOpens</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@US_016</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@Fatma</td>
 <td>1</td>
 <td>0</td>
 <td>0</td>
@@ -221,7 +237,7 @@ warningChild: 0,
 skipChild: 0,
 infoChild: 0,
 grandChildCount: 5,
-passGrandChild: 6,
+passGrandChild: 8,
 failGrandChild: 0,
 warningGrandChild: 0,
 skipGrandChild: 0,
@@ -246,7 +262,7 @@ eventsCount: 5,
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tag"></i></a>
 <ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
-<a class="dropdown-item" href="#">@deleteDepartment</a><a class="dropdown-item" href="#">@AllDepartments</a>
+<a class="dropdown-item" href="#">@TC_016_06</a><a class="dropdown-item" href="#">@SelectRoleWindowOpens</a><a class="dropdown-item" href="#">@US_016</a><a class="dropdown-item" href="#">@Fatma</a>
 </ul>
 </li>
 </ul>
@@ -257,9 +273,9 @@ eventsCount: 5,
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">Department Feature</p>
+            <p class="name">User Module Edit</p>
             <p class="text-sm">
-              <span>14:16:00</span> / <span>00:01:03:356</span>
+              <span>02:42:34</span> / <span>00:00:43:729</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -267,10 +283,10 @@ eventsCount: 5,
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">Department Feature</h5>
-<span class='badge badge-success'>08.06.2025 14:16:00</span>
-<span class='badge badge-danger'>08.06.2025 14:17:03</span>
-<span class='badge badge-default'>00:01:03:356</span>
+<h5 class="test-status text-pass">User Module Edit</h5>
+<span class='badge badge-success'>08.07.2025 02:42:34</span>
+<span class='badge badge-danger'>08.07.2025 02:43:18</span>
+<span class='badge badge-default'>00:00:43:729</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
@@ -282,7 +298,7 @@ eventsCount: 5,
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>Delete Department</div>
+        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>User opens User Detail Page of first user of list</div>
       </div>
     </div>
         <div class="collapse">
@@ -298,7 +314,7 @@ eventsCount: 5,
       </div>
               </div>
               <div class="step pass-bg" title="stepdefinitions.CommonSD.userLogins(java.lang.String,java.lang.String)">
-                <span>When user logins as "usernameTugba" with password "passwordTugba"</span>
+                <span>And user logins as "username1" with password "password1"</span>
       <div>
       </div>
               </div>
@@ -307,13 +323,23 @@ eventsCount: 5,
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="stepdefinitions.US_007_DepartmentsSD.user_clicks_department_button()">
-                <span>And User clicks department button</span>
+              <div class="step pass-bg" title="stepdefinitions.DashboardSD.goToUserPage()">
+                <span>And go to userPage</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="stepdefinitions.US_007_DepartmentsSD.delete_the_created_department()">
-                <span>Then delete the created department</span>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.userClicksOnNdUsernameFromTheList()">
+                <span>Given User clicks on indexed username from the list</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.userClicksTheButtonUnderRolesSection()">
+                <span>When User clicks the + button under Roles section</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.verifyThatSelectRoleWindowIsOpened()">
+                <span>Then Verify that select role window is opened</span>
       <div>
       </div>
               </div>
@@ -336,7 +362,7 @@ eventsCount: 5,
 <div class="test-list">
 <div class="test-list-tools">
 <ul class="tools pull-left"><li><a href=""><span class="font-size-14">Category</span></a></li></ul>
-<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">2</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">4</span></a></li></ul>
 </div>
 <div class="test-list-wrapper scrollable">
 <ul class="test-list-item">
@@ -345,12 +371,12 @@ eventsCount: 5,
 <span class="meta">
 <span class='badge log pass-bg'>1</span>
 </span>
-<p class="name">@deleteDepartment</p>
+<p class="name">@TC_016_06</p>
 <p class="duration text-sm">1 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>@deleteDepartment</h4>
+<h4>@TC_016_06</h4>
 <span status="pass" class='badge log pass-bg'>1 passed</span>
 </div>
 <table class='table table-sm mt-4'>
@@ -364,11 +390,11 @@ eventsCount: 5,
 <tbody>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>14:16:00 pm</td>
+<td>02:42:34 am</td>
 <td>
-<a href="#" class="linked" test-id='1' id='2'>Delete Department</a>
+<a href="#" class="linked" test-id='1' id='2'>User opens User Detail Page of first user of list</a>
 <div class="">
-<span class="badge badge-default">Department Feature.Delete Department</span>
+<span class="badge badge-default">User Module Edit.User opens User Detail Page of first user of list</span>
 </div>
 </td>
 </tr>
@@ -381,12 +407,12 @@ eventsCount: 5,
 <span class="meta">
 <span class='badge log pass-bg'>1</span>
 </span>
-<p class="name">@AllDepartments</p>
+<p class="name">@SelectRoleWindowOpens</p>
 <p class="duration text-sm">1 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>@AllDepartments</h4>
+<h4>@SelectRoleWindowOpens</h4>
 <span status="pass" class='badge log pass-bg'>1 passed</span>
 </div>
 <table class='table table-sm mt-4'>
@@ -400,11 +426,83 @@ eventsCount: 5,
 <tbody>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>14:16:00 pm</td>
+<td>02:42:34 am</td>
 <td>
-<a href="#" class="linked" test-id='1' id='2'>Delete Department</a>
+<a href="#" class="linked" test-id='1' id='2'>User opens User Detail Page of first user of list</a>
 <div class="">
-<span class="badge badge-default">Department Feature.Delete Department</span>
+<span class="badge badge-default">User Module Edit.User opens User Detail Page of first user of list</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@US_016</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@US_016</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>02:42:34 am</td>
+<td>
+<a href="#" class="linked" test-id='1' id='2'>User opens User Detail Page of first user of list</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.User opens User Detail Page of first user of list</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@Fatma</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@Fatma</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>02:42:34 am</td>
+<td>
+<a href="#" class="linked" test-id='1' id='2'>User opens User Detail Page of first user of list</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.User opens User Detail Page of first user of list</span>
 </div>
 </td>
 </tr>
