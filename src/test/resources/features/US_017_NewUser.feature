@@ -1,12 +1,12 @@
 @AddNewUserFeature
-Feature: User New Registration
+Feature: New User
 
   Background: User logs in application
     Given user goes to homepage
     And User clicks login link
     And user logins as "username1" with password "password1"
     And user clicks on maximize icon
-    And user clicks on Users
+    And go to userPage
 
   @NewRegistrationPageOpens   @Regression
   Scenario: Does New User Registration page open
