@@ -1,7 +1,6 @@
 package stepdefinitions;
 
 import io.cucumber.java.en.*;
-import org.openqa.selenium.devtools.v136.page.Page;
 import org.testng.Assert;
 import pages.AllPages;
 import utilities.ReusableMethods;
@@ -84,7 +83,7 @@ public class US_008_NewDepartmentSD {
 
     @Then("Verify that the created department is not displayed in the department list")
     public void verify_that_the_created_department_is_not_displayed_in_the_department_list() {
-        Assert.assertTrue(pages.getDepartmentsPage().VeriyfThatNewCreatedDepartmentNotDisplayed());
+        Assert.assertTrue(pages.getDepartmentsPage().verifyNewCreatedDepartmentNotDisplayed());
     }
 
     // TC_008_08
@@ -101,7 +100,7 @@ public class US_008_NewDepartmentSD {
     // TC_008_09
     @When("Select a departmant role twice")
     public void select_a_departmant_role_twice() {
-        pages.getNewDepartmentPage().selectRolesTwice("Sales Manager");
+        pages.getNewDepartmentPage().selectSameRoleTwice("Sales Manager");
     }
 
     @Then("Verify that the same role cannot be selected again")
