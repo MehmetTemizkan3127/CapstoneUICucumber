@@ -134,11 +134,10 @@ public class UsersPage {
                 .pause(300) .sendKeys(Keys.TAB)
                 .pause(300).sendKeys(Keys.TAB)
                 .pause(300).sendKeys(Keys.TAB)
-                .pause(300)
-                .sendKeys(Keys.ENTER)
+                .pause(300).sendKeys(Keys.ENTER)
                 .perform();
 
-        waitForSeconds(5);
+        waitForSeconds(2);
     }
 
     public UsersPage addNewMembeer() {

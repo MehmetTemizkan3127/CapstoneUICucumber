@@ -39,14 +39,6 @@ public class US_016_EditUserSD {
                 .keepSelectedRole();
     }
 
-    @Then("Verify that select a role window is opened and {string} message seen")
-    public void verifyThatSelectARoleWindowIsOpenedAndMessageSeen(String expectedResult) {
-        pages
-                .getUserDetailPage()
-                .clickOnRolesList()
-                .assertSelectARoleWindowOpens(expectedResult);
-    }
-
     @Then("Verify that the new role is added and {string} message seen")
     public void verifyThatTheNewRoleIsAddedAndMessageSeen(String expectedResult) {
         pages
@@ -171,5 +163,68 @@ public class US_016_EditUserSD {
         pages
                 .getUserDetailPage()
                 .assertCanceledRoleIsNotListedUnderRolesSection();
+    }
+
+    @When("User click save button")
+    public void userClickSaveButton() {
+        pages
+                .getUserDetailPage()
+                .clickSaveButton();
+    }
+
+    @Then("Verify that adding role error message {string} is occured")
+    public void verifyThatAddingRoleErrorMessageIsOccured(String arg0) {
+        pages
+                .getUserDetailPage()
+                .assertSaveErrorWithoutRole();
+    }
+
+    @When("User clicks the Pencil Image")
+    public void userClicksThePencilImage() {
+        pages
+                .getUserDetailPage()
+                .clickPencilImage();
+    }
+
+    @Then("Verify that pencil image is changed into tick and cross buttons")
+    public void verifyThatPencilImageIsChangedIntoTickAndCrossButtons() {
+        pages
+                .getUserDetailPage()
+                .assertVisibilityOfTickImage();
+    }
+
+    @Then("Verify that email addres cannot be changed")
+    public void verifyThatEmailAddresCannotBeChanged() {
+        pages
+                .getUserDetailPage()
+                .assertEmailAddressUnchangeable();
+    }
+
+    @And("User deletes username input")
+    public void userDeletesUsernameInput() {
+        pages
+                .getUserDetailPage()
+                .deleteUsernameInputArea();
+    }
+
+    @Then("Verify that username error message {string} is occured")
+    public void verifyThatUsernameErrorMessageIsOccured(String arg0) {
+        pages
+                .getUserDetailPage()
+                .assertUsernameErrorMessageOccurs();
+    }
+
+    @Then("Verify that Reset Password window should be opened")
+    public void verifyThatResetPasswordWindowShouldBeOpened() {
+        pages
+                .getUserDetailPage()
+                .assertConfirmButtonIsVisible();
+    }
+
+    @Then("Verify that select role window is opened")
+    public void verifyThatSelectRoleWindowIsOpened() {
+        pages
+                .getUserDetailPage()
+                .assertSelectARoleWindowOpens();
     }
 }
