@@ -2,5 +2,7 @@ target/
 .idea/
 ExtentReports/
 CapstoneUICucumber.iml
-test_output/
+
+test.output/
+
 
