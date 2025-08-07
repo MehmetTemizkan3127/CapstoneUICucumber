@@ -1,5 +1,7 @@
 @Dashboard
+@Regression
 Feature: Dashboard Feature
+
 
   Background: User goes to homepage
     Given user goes to homepage
@@ -25,7 +27,6 @@ Feature: Dashboard Feature
     And clicks on minimize icon
     And user sees minimized Sidebar
 
-
   @Sidebar
   Scenario: User navigates to each page from the sidebar
     When user clicks on maximize icon
@@ -45,7 +46,7 @@ Feature: Dashboard Feature
       | Access Tokens    | Access Tokens    |
 
 
-  @DropDown @Regression
+  @DropDown
   @TC_0003_01
   Scenario: User sees their email, role and company in dropdown
     When The user clicks on the profile image
