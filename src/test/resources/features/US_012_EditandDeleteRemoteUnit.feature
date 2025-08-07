@@ -15,8 +15,6 @@ Feature: US_12 -Edit the units displayed in the Remote Unit module.
     And the user clicks on the Edit Remote Unit button
     And the user enters new Department Name
     And  the user clicks the Save button
-  @TC_001_03 @Smoke
-  Scenario:TC_012_03
     And  user finds and clicks the delete button
     And user clicks the Confirm button in the confirmation window
     Then verify that the delete operation succesfull

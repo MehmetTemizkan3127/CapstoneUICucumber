@@ -1,6 +1,5 @@
 @US_0010
-Feature:
-  displayed remote units
+Feature:  displayed remote units
 
   Background:Login
     Given user goes to homepage

@@ -14,8 +14,6 @@ Feature: AddNew Remote Unit Page
     And the user enters Department Name
     And the user selects the department type as Remote Unit from the dropdown menu.
     And the user clicks the Save button
-  @TC_001_02 @Smoke
-    Scenario: TC_011_02
     And user clicks the Remote Units  menu
     Then the user verifies that the newly added remote unit displayed under Remote Units.
     And  user closes browser
