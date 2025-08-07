@@ -20,8 +20,7 @@ public class UserDetailPage {
     Logger log = LogManager.getLogger(UserDetailPage.class);
 
     private By pageTitle = By.xpath("//body//div[@class='col']/h4");
-    private By addRoleButton = By.xpath("//div[@class='col']/label[@class='form-label text-secondary']/img");
-    private By roleWindow_fade = By.xpath("//div[@class='modal fade show']");
+    private By addRoleButton = By.xpath("//label[@class='form-label text-secondary']//img[@class='ms-2 cursor-pointer']");
     private By roleWindow_pageTitle = By.xpath("//div[@class='modal fade show']//h5");
     private By roleWindow_DropDownMenu = By.xpath("//div[@class='modal fade show']//div[@class=' css-1xc3v61-indicatorContainer']");
     private By listOfRolesDropDownMenu = By.xpath("//div[@id='react-select-5-listbox']/div");
@@ -57,17 +56,18 @@ public class UserDetailPage {
     }
 
     public UserDetailPage clickAddNewRoleButton() {
-        clickElement(addRoleButton);
-        return this;
+        waitForSeconds(1);
+        Driver.getDriver().findElement(this.addRoleButton).click();
+         return this;
     }
 
     public UserDetailPage clickOnRolesList() {
-        clickElementByJS(roleWindow_DropDownMenu);
+        clickElementByJS(this.roleWindow_DropDownMenu);
         return this;
     }
 
     public void assertSelectARoleWindowOpens() {
-        visibilityOfElementsByWebDriverWait(roleWindow_fade);
+        visibilityOfElementsByWebDriverWait(this.roleWindow_pageTitle);
     }
 
     public UserDetailPage selectARoleFromDropDown() {
@@ -82,9 +82,9 @@ public class UserDetailPage {
                 .keyDown(Keys.ARROW_DOWN)
                 .keyDown(Keys.ENTER)
                 .perform();
-
-        ConfigReader.setProperty("selectedRole", getTextOfElementByJS(this.selectedRole));
-        waitForSeconds(5);
+        waitForSeconds(2);
+        ConfigReader.setProperty("selectedRole", getTextOfElement(this.selectedRole));  //todo hatalar sonrası editledim. kontrol et
+        waitForSeconds(2);
         return this;
     }
 
@@ -192,11 +192,11 @@ public class UserDetailPage {
     }
 
     public void assertSaveErrorWithoutRole() {
-        visibilityOfElement(this.roleWindow_ErrorMessage);
+        visibilityOfElementByWebDriverWait(this.roleWindow_ErrorMessage);
     }
 
     public void clickPencilImage() {
-        clickElement(this.pencilImage);
+        clickElementByJS(this.pencilImage);
     }
 
     public void assertVisibilityOfTickImage() {
@@ -205,18 +205,29 @@ public class UserDetailPage {
     }
 
     public void assertEmailAddressUnchangeable() {
-        assertEquals(visibilityOfElement(emailLabel).getTagName(), "label");
+        try{
+            sendKeys(this.emailLabel,"test");
+            assert  false;
+        }
+        catch (Exception e){
+            assert true;
+        }
+        finally {
+            assertEquals(visibilityOfElement(emailLabel).getTagName(), "label");
+        }
     }
 
     public void deleteUsernameInputArea() {
          WebElement usernameInput = visibilityOfElement(this.usernameInput);
          usernameInput.click();
+         waitForSeconds(1);
          usernameInput.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-         usernameInput.sendKeys(Keys.BACK_SPACE);
+         usernameInput.sendKeys(Keys.DELETE);
 
     }
 
     public void assertUsernameErrorMessageOccurs() {
+        waitForSeconds(2);
         visibilityOfElement(this.errorMessage);
     }
 

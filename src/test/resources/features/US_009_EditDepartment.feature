@@ -8,7 +8,7 @@ Feature: Edit Department Feature
     And user clicks on maximize icon
     And User clicks department button
 
-  @TC_009_01
+  @TC_009_01 @Smoke @Regression
   Scenario: TC_009_01 Updating the information of the created department
     Given Click on a department that has already been created
     When Click Edit Department button
@@ -19,21 +19,21 @@ Feature: Edit Department Feature
     And Click save button
     Then Verify that the information has been updated
 
-  @TC_009_02
+  @TC_009_02 @Smoke @Regression
   Scenario: TC_009_02 Verifying that Edit Department button visible and clickable
     Given Click on a department that has already been created
     Then Verify that Edit Department button visible and clickable
 
-  @TC_009_03
+  @TC_009_03 @Regression
   Scenario: TC_009_03 Verifying that New User button visible and clickable
     Given Click on a department that has already been created
     Then Verify that New User button visible and clickable
 
-  @TC_009_04
+  @TC_009_04 @Regression
   Scenario: TC_009_04 Verifying that you are redirected to the correct department after clicking on it
     Then Verify that you are redirected to the correct department after clicking on it
 
-  @TC_009_05
+  @TC_009_05 @Regression
   Scenario: TC_009_05 Verifying that the card with the changed department type is no longer listed among the departments
     Given Create a new department with the name "A", short name "Type Test", type "Department", description "Test", role "Sales Manager"
     When User clicks department button
@@ -45,14 +45,14 @@ Feature: Edit Department Feature
     And Click save button
     Then Verify that the created department is not displayed in the department list
 
-  @TC_009_06
+  @TC_009_06 @Smoke @Regression
   Scenario: TC_009_06 Verifying that Delete Department button is visible and clickable
     Given Click on a department that has already been created
     When Click Edit Department button
     And refresh page until page loads
     Then Verify that Delete Department button is visible and clickable
 
-  @TC_009_07
+  @TC_009_07 @Regression
   Scenario: TC_009_07 Deleting the created department
     Given Create a new department with the name "A", short name "Type Test", type "Department", description "Test", role "Sales Manager"
     When User clicks department button
@@ -64,7 +64,7 @@ Feature: Edit Department Feature
     Then User verifies that the departments are displayed
     Then Verify that the created department is not displayed in the department list
 
-  @TC_009_08
+  @TC_009_08 @Regression
   Scenario: TC_009_08 Verifying that Change image button is visible and clickable
     Given Click on a department that has already been created
     When Click Edit Department button
