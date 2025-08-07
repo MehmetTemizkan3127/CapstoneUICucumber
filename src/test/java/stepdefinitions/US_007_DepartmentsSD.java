@@ -1,9 +1,12 @@
 package stepdefinitions;
 
 import io.cucumber.java.en.*;
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import pages.AllPages;
 import utilities.ReusableMethods;
+
+import static utilities.Driver.getDriver;
 
 public class US_007_DepartmentsSD {
 
@@ -13,7 +16,14 @@ public class US_007_DepartmentsSD {
     @Then("User clicks department button")
     public void user_clicks_department_button() {
         pages.getDashboardPage().clickOnMenuItem("Departments");
+       // pages.getDepartmentsPage().clickAgainDepartmentsButton();
     }
+
+    @When("User clicks again department button")
+    public void user_clicks_again_department_button() {
+        pages.getDepartmentsPage().clickAgainDepartmentsButton();
+    }
+
     @Then("Verify that all departments are displayed")
     public void verify_that_all_departments_are_displayed() {
         Assert.assertTrue(pages.getDepartmentsPage().areDepartmentCardsDisplayed());
@@ -34,14 +44,13 @@ public class US_007_DepartmentsSD {
     //TC_007_04
     @Then("User verifies that the departments are displayed")
     public void user_verifies_that_the_departments_are_displayed() {
-
         Assert.assertTrue(pages.getDepartmentsPage().isDepartmentsTextDisplayed());
     }
 
     //DeleteDepartment //Burasi daha sonra silinecek
     @Then("delete the created department")
     public void delete_the_created_department() {
-        pages.getDepartmentsPage().deleteDepartmentWithIndex(0,1);
+        pages.getDepartmentsPage().deleteDepartmentWithIndex(0,2);
     }
 
 }
