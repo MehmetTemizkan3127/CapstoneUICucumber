@@ -27,7 +27,6 @@ public class DepartmentsPage {
 
     //Object And Varibales
     AllPages pages = new AllPages();
-    //WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
     private WebDriver driver = Driver.getDriver();
 
     //METHODS
@@ -76,6 +75,7 @@ public class DepartmentsPage {
             int roleCount = Integer.parseInt(lastChar);
 
             if (roleCount > 0) { //Bu for'a sadece rol sayisi 0'dan büyükse girecek
+                ReusableMethods.waitForElementToBeClickable(driver,allDepartmentNames,10);
                 driver.findElements(allDepartmentNames).get(i).click(); // stale element excp. almamak icin locate'i her seferinde aldim
                 ReusableMethods.waitForSeconds(2);
                 List<WebElement> allRoles = driver.findElements(pages.getDepartmentDetailPage().getRolesList());
@@ -103,6 +103,7 @@ public class DepartmentsPage {
             int roleCount = Integer.parseInt(lastChar);
 
             if (roleCount > 0) {
+                ReusableMethods.waitForElementToBeClickable(driver,By.xpath("//p//div[@class='row']//a"),10);
                 cardNames.get(i).click(); //Ilk if'te roleCount 0'dan büyük degil dolayisiyla i=0 iken if'e girmeyecek ve böylece dogru cardname'e tiklayacak
                 ReusableMethods.waitForSeconds(1);
 
