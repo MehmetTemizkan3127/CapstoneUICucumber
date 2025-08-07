@@ -50,7 +50,6 @@ public class US_016_EditUserSD {
     public void userAddsANewRoleForUser() {
         pages
                 .getUserDetailPage()
-                .clickAddNewRoleButton()
                 .clickOnRolesList()
                 .selectARoleFromDropDown()
                 .keepSelectedRole()
@@ -223,6 +222,13 @@ public class US_016_EditUserSD {
 
     @Then("Verify that select role window is opened")
     public void verifyThatSelectRoleWindowIsOpened() {
+        pages
+                .getUserDetailPage()
+                .assertSelectARoleWindowOpens();
+    }
+
+    @Then("Verify that select a role window is opened")
+    public void verifyThatSelectARoleWindowIsOpenedAndTitleSeen() {
         pages
                 .getUserDetailPage()
                 .assertSelectARoleWindowOpens();

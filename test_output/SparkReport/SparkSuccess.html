@@ -1,0 +1,4751 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>My Spark Report</title>
+<link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
+<link href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@d6562a79075e061305ccfdb82f01e5e195e2d307/spark/css/spark-style.css" rel="stylesheet" />
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@7cc78ce/spark/js/jsontree.js"></script>
+<style type="text/css"></style></head><body class="spa bdd-report standard">
+  <div class="app">
+    <div class="layout">
+<div class="header navbar">
+<div class="vheader">
+<div class="nav-logo">
+<a href="#">
+<div class="logo" style="background-image: url('https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png')"></div>
+</a>
+</div>
+<ul class="nav-left">
+<li class="search-box">
+<a class="search-toggle" href="#">
+<i class="search-icon fa fa-search"></i>
+<i class="search-icon-close fa fa-close"></i>
+</a>
+</li>
+<li class="search-input"><input id="search-tests" class="form-control" type="text" placeholder="Search..."></li>
+</ul>
+<ul class="nav-right">
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary">Build Test Report</span></a>
+</li>
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary">Aug 7, 2025 03:38:49 pm</span></a>
+</li>
+</ul>
+</div>
+</div><div class="side-nav">
+<div class="side-nav-inner">
+<ul class="side-nav-menu">
+<li class="nav-item dropdown" onclick="toggleView('dashboard-view')">
+<a id="nav-dashboard" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bar-chart"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('test-view')">
+<a id="nav-test" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-list"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('category-view')">
+<a id="nav-category" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-tag"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('exception-view')">
+<a id="nav-exception" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bug"></i></span>
+</a>
+</li>
+</ul>
+</div>
+</div>      <div class="vcontainer">
+        <div class="main-content">
+<div class="container-fluid p-4 view dashboard-view">
+<div class="row">
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Started</p>
+<h3>Aug 7, 2025 03:38:49 pm</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Ended</p>
+<h3>Aug 7, 2025 03:50:53 pm</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-pass">Features Passed</p>
+<h3>2</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-fail">Features Failed</p>
+<h3>1</h3>
+</div></div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-4">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Features</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='parent-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='66%'>
+<b>2</b> features passed
+</small>
+</div>
+<div>
+<small data-tooltip='33%'><b>1</b> features failed,
+<b>0</b> skipped, <b data-tooltip='0%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Scenarios</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='child-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='93%'><b>27</b> scenarios passed</small></div>
+<div>
+<small data-tooltip='6%'><b>2</b> scenarios failed,
+<b>0</b> skipped, <b data-tooltip='%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Steps</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='grandchild-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='97%'><b>238</b> steps passed</small></div>
+<div>
+<small data-tooltip='0%'><b>2</b> steps failed,
+<b>4</b> skipped, <b data-tooltip='%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><div class="col-md-12">
+<div class="card"><div class="card-header"><p>Timeline</p></div>
+<div class="card-body pt-0"><div>
+<canvas id="timeline" height="120"></canvas>
+</div></div>
+</div>
+</div></div>
+<script>
+var timeline = {
+"User Module Display":123.818,"User Module Edit":347.787,"New User":251.825
+};
+</script>
+<div class="row">
+<div class="col-lg-6 col-md-12 category-container">
+<div class="card">
+<div class="card-header"><p>Tags</p></div>
+<div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
+<thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
+<tr>
+<td>@NewRegistrationWithoutOrWithInvalidEmail</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@TC_016_11</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@Emaillistassertion</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@DoesEditButtonWorks</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@NewRegistrationWithoutData</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@UsernameCannotBeEmpty</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@AddANewRoleFromFropDownMenu</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@AssertUserDetailPageOpens</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@TC_016_08</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@SelectRoleWindowOpens</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@RoleSavingError</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@AssertSelectARoleWindowOpens</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@AddNewUserFeature</td>
+<td>10</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@UserlistAssertionScenario</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@TC_016_04</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>@TC_016_06</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@DoesCancelButtonWorks</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@US_016</td>
+<td>11</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>84.615%</td>
+</tr>
+<tr>
+<td>@SetNewAddedRoleAsDefaultRole</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>@UserDisplayFeature</td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@AccessTypelistassertion</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@CheckCanceledRoleIsNotAddedRolesSection</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@NewRegistrationPageOpens</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@TC_016_07</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>@ResetPasswordWindowOpens</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@NewRegistrationWithRegisteredEmail</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@CheckNewRoleAddedSuccessfully</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>@Sincelistassertion</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@TC_016_09</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@TC_016_02</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@DefaultRoleCannotBeDeleted</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@US_015</td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@TC_016_03</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@TC_016_01</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@Statuslistassertion</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@Smoke</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@TC_016_05</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@Fatma</td>
+<td>27</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>93.103%</td>
+</tr>
+<tr>
+<td>@NewRegistrationWithValidCredentials</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@Regression</td>
+<td>11</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@TC_016_10</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@UsersPageAssertionScenario</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@TC_016_12</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@EmailAdressUnclickable</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="col-lg-6 col-md-12 sysenv-container">
+<div class="card">
+<div class="card-header"><p>System/Environment</p></div>
+<div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
+<thead><tr class="bg-gray"><th>Name</th><th>Value</th></tr></thead>
+<tbody>
+<tr>
+<td>os</td>
+<td>Windows</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</div>
+<script>
+var statusGroup = {
+parentCount: 5,
+passParent: 2,
+failParent: 1,
+warningParent: 0,
+skipParent: 0,
+childCount: 5,
+passChild: 27,
+failChild: 2,
+warningChild: 0,
+skipChild: 0,
+infoChild: 0,
+grandChildCount: 5,
+passGrandChild: 238,
+failGrandChild: 2,
+warningGrandChild: 0,
+skipGrandChild: 4,
+infoGrandChild: 0,
+eventsCount: 5,
+};
+</script><div class="test-wrapper row view test-view">
+  <div class="test-list">
+    <div class="test-list-tools">
+<ul class="tools pull-left">
+<li><a href="#"><span class="font-size-14">Tests</span></a></li>
+</ul>
+<ul class="tools text-right">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
+<ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
+<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
+<div class="dropdown-divider"></div>
+<a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
+</ul>
+</li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tag"></i></a>
+<ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" href="#">@NewRegistrationWithoutOrWithInvalidEmail</a><a class="dropdown-item" href="#">@TC_016_11</a><a class="dropdown-item" href="#">@Emaillistassertion</a><a class="dropdown-item" href="#">@DoesEditButtonWorks</a><a class="dropdown-item" href="#">@NewRegistrationWithoutData</a><a class="dropdown-item" href="#">@UsernameCannotBeEmpty</a><a class="dropdown-item" href="#">@AddANewRoleFromFropDownMenu</a><a class="dropdown-item" href="#">@AssertUserDetailPageOpens</a><a class="dropdown-item" href="#">@TC_016_08</a><a class="dropdown-item" href="#">@SelectRoleWindowOpens</a><a class="dropdown-item" href="#">@RoleSavingError</a><a class="dropdown-item" href="#">@AssertSelectARoleWindowOpens</a><a class="dropdown-item" href="#">@AddNewUserFeature</a><a class="dropdown-item" href="#">@UserlistAssertionScenario</a><a class="dropdown-item" href="#">@TC_016_04</a><a class="dropdown-item" href="#">@TC_016_06</a><a class="dropdown-item" href="#">@DoesCancelButtonWorks</a><a class="dropdown-item" href="#">@US_016</a><a class="dropdown-item" href="#">@SetNewAddedRoleAsDefaultRole</a><a class="dropdown-item" href="#">@UserDisplayFeature</a><a class="dropdown-item" href="#">@AccessTypelistassertion</a><a class="dropdown-item" href="#">@CheckCanceledRoleIsNotAddedRolesSection</a><a class="dropdown-item" href="#">@NewRegistrationPageOpens</a><a class="dropdown-item" href="#">@TC_016_07</a><a class="dropdown-item" href="#">@ResetPasswordWindowOpens</a><a class="dropdown-item" href="#">@NewRegistrationWithRegisteredEmail</a><a class="dropdown-item" href="#">@CheckNewRoleAddedSuccessfully</a><a class="dropdown-item" href="#">@Sincelistassertion</a><a class="dropdown-item" href="#">@TC_016_09</a><a class="dropdown-item" href="#">@TC_016_02</a><a class="dropdown-item" href="#">@DefaultRoleCannotBeDeleted</a><a class="dropdown-item" href="#">@US_015</a><a class="dropdown-item" href="#">@TC_016_03</a><a class="dropdown-item" href="#">@TC_016_01</a><a class="dropdown-item" href="#">@Statuslistassertion</a><a class="dropdown-item" href="#">@Smoke</a><a class="dropdown-item" href="#">@TC_016_05</a><a class="dropdown-item" href="#">@Fatma</a><a class="dropdown-item" href="#">@NewRegistrationWithValidCredentials</a><a class="dropdown-item" href="#">@Regression</a><a class="dropdown-item" href="#">@TC_016_10</a><a class="dropdown-item" href="#">@UsersPageAssertionScenario</a><a class="dropdown-item" href="#">@TC_016_12</a><a class="dropdown-item" href="#">@EmailAdressUnclickable</a>
+</ul>
+</li>
+</ul>
+</div>    <div class="test-list-wrapper scrollable">
+      <ul class="test-list-item">
+        <li class="test-item"  status="pass" test-id="1"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">User Module Display</p>
+            <p class="text-sm">
+              <span>15:38:50</span> / <span>00:02:03:818</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">User Module Display</h5>
+<span class='badge badge-success'>08.07.2025 15:38:50</span>
+<span class='badge badge-danger'>08.07.2025 15:40:54</span>
+<span class='badge badge-default'>00:02:03:818</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-10 m-l-5"></div>
+</div>
+</div>
+<div class="accordion mt-4">
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>User opens Users Page</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.user_goes_to_homepage()">
+                <span>Given user goes to homepage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.userClicksLoginLink()">
+                <span>And User clicks login link</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.CommonSD.userLogins(java.lang.String,java.lang.String)">
+                <span>And user logins as "username1" with password "password1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.DashboardSD.user_clicks_on_maximize_icon()">
+                <span>And user clicks on maximize icon</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_015_UsersSD.goToUserPage()">
+                <span>And User goes to userPage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_015_UsersSD.verifyThatPageOpened()">
+                <span>Then verify that  page opened</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="10"><span class="badge log pass-bg mr-2">Pass</span>User checks visibility of users list</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.user_goes_to_homepage()">
+                <span>Given user goes to homepage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.userClicksLoginLink()">
+                <span>And User clicks login link</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.CommonSD.userLogins(java.lang.String,java.lang.String)">
+                <span>And user logins as "username1" with password "password1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.DashboardSD.user_clicks_on_maximize_icon()">
+                <span>And user clicks on maximize icon</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_015_UsersSD.goToUserPage()">
+                <span>And User goes to userPage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_015_UsersSD.verifyUserListExists()">
+                <span>Then verify userList exists</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="18"><span class="badge log pass-bg mr-2">Pass</span>User checks visibility of email of each user data</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.user_goes_to_homepage()">
+                <span>Given user goes to homepage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.userClicksLoginLink()">
+                <span>And User clicks login link</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.CommonSD.userLogins(java.lang.String,java.lang.String)">
+                <span>And user logins as "username1" with password "password1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.DashboardSD.user_clicks_on_maximize_icon()">
+                <span>And user clicks on maximize icon</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_015_UsersSD.goToUserPage()">
+                <span>And User goes to userPage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_015_UsersSD.verifyEachUserHasAnEmail()">
+                <span>Then verify each user has an email</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="26"><span class="badge log pass-bg mr-2">Pass</span>User checks visibility of email of each user data</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.user_goes_to_homepage()">
+                <span>Given user goes to homepage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.userClicksLoginLink()">
+                <span>And User clicks login link</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.CommonSD.userLogins(java.lang.String,java.lang.String)">
+                <span>And user logins as "username1" with password "password1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.DashboardSD.user_clicks_on_maximize_icon()">
+                <span>And user clicks on maximize icon</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_015_UsersSD.goToUserPage()">
+                <span>And User goes to userPage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_015_UsersSD.verifyThatEachUserHasAVisibleSinceDate()">
+                <span>Then Verify that each user has a visible since date</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="34"><span class="badge log pass-bg mr-2">Pass</span>User checks visibility of email of each user data</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.user_goes_to_homepage()">
+                <span>Given user goes to homepage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.userClicksLoginLink()">
+                <span>And User clicks login link</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.CommonSD.userLogins(java.lang.String,java.lang.String)">
+                <span>And user logins as "username1" with password "password1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.DashboardSD.user_clicks_on_maximize_icon()">
+                <span>And user clicks on maximize icon</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_015_UsersSD.goToUserPage()">
+                <span>And User goes to userPage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_015_UsersSD.verifyThatEachUserHasAVisibleAccessType()">
+                <span>Then Verify that each user has a visible access type</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="42"><span class="badge log pass-bg mr-2">Pass</span>User checks visibility of email of each user data</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.user_goes_to_homepage()">
+                <span>Given user goes to homepage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.userClicksLoginLink()">
+                <span>And User clicks login link</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.CommonSD.userLogins(java.lang.String,java.lang.String)">
+                <span>And user logins as "username1" with password "password1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.DashboardSD.user_clicks_on_maximize_icon()">
+                <span>And user clicks on maximize icon</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_015_UsersSD.goToUserPage()">
+                <span>And User goes to userPage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_015_UsersSD.verifyThatEachUserHasAVisibleStatus()">
+                <span>Then Verify that each user has a visible status</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="50"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">User Module Edit</p>
+            <p class="text-sm">
+              <span>15:40:54</span> / <span>00:05:47:787</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">User Module Edit</h5>
+<span class='badge badge-success'>08.07.2025 15:40:54</span>
+<span class='badge badge-danger'>08.07.2025 15:46:41</span>
+<span class='badge badge-default'>00:05:47:787</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=50</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-10 m-l-5"></div>
+</div>
+</div>
+<div class="accordion mt-4">
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="51"><span class="badge log pass-bg mr-2">Pass</span>User opens User Detail Page of first user of list</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.user_goes_to_homepage()">
+                <span>Given user goes to homepage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.userClicksLoginLink()">
+                <span>And User clicks login link</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.CommonSD.userLogins(java.lang.String,java.lang.String)">
+                <span>And user logins as "username1" with password "password1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.DashboardSD.user_clicks_on_maximize_icon()">
+                <span>And user clicks on maximize icon</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_015_UsersSD.goToUserPage()">
+                <span>And User goes to userPage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.userClicksOnNdUsernameFromTheList()">
+                <span>Given User clicks on indexed username from the list</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.verifyThatUserDetailPageIsOpened()">
+                <span>Then Verify that User Detail page is opened</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="60"><span class="badge log pass-bg mr-2">Pass</span>User opens select a role window</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.user_goes_to_homepage()">
+                <span>Given user goes to homepage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.userClicksLoginLink()">
+                <span>And User clicks login link</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.CommonSD.userLogins(java.lang.String,java.lang.String)">
+                <span>And user logins as "username1" with password "password1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.DashboardSD.user_clicks_on_maximize_icon()">
+                <span>And user clicks on maximize icon</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_015_UsersSD.goToUserPage()">
+                <span>And User goes to userPage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.userClicksOnNdUsernameFromTheList()">
+                <span>Given User clicks on indexed username from the list</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.userClicksTheButtonUnderRolesSection()">
+                <span>When User clicks the + button under Roles section</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.verifyThatSelectARoleWindowIsOpenedAndTitleSeen()">
+                <span>Then Verify that select a role window is opened</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="70"><span class="badge log pass-bg mr-2">Pass</span>User selects a role to first user of list</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.user_goes_to_homepage()">
+                <span>Given user goes to homepage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.userClicksLoginLink()">
+                <span>And User clicks login link</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.CommonSD.userLogins(java.lang.String,java.lang.String)">
+                <span>And user logins as "username1" with password "password1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.DashboardSD.user_clicks_on_maximize_icon()">
+                <span>And user clicks on maximize icon</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_015_UsersSD.goToUserPage()">
+                <span>And User goes to userPage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.userClicksOnNdUsernameFromTheList()">
+                <span>Given User clicks on indexed username from the list</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.userClicksTheButtonUnderRolesSection()">
+                <span>When User clicks the + button under Roles section</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.userAddsANewRoleForUser()">
+                <span>And User adds a new role for user</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.verifyThatTheNewRoleIsAddedAndMessageSeen(java.lang.String)">
+                <span>Then Verify that the new role is added and "New role added for this user successfuly" message seen</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="81"><span class="badge log fail-bg mr-2">Fail</span>Check that new role is saved correctly</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.user_goes_to_homepage()">
+                <span>Given user goes to homepage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.userClicksLoginLink()">
+                <span>And User clicks login link</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.CommonSD.userLogins(java.lang.String,java.lang.String)">
+                <span>And user logins as "username1" with password "password1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.DashboardSD.user_clicks_on_maximize_icon()">
+                <span>And user clicks on maximize icon</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_015_UsersSD.goToUserPage()">
+                <span>And User goes to userPage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.userClicksOnNdUsernameFromTheList()">
+                <span>Given User clicks on indexed username from the list</span>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" title="stepdefinitions.US_016_EditUserSD.userAddsANewRoleForUser()">
+                <span>When User adds a new role for user</span>
+      <div>
+        <textarea disabled class="code-block">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//div[@class='modal fade show']//div[@class=' css-1xc3v61-indicatorContainer']"}
+  (Session info: chrome=138.0.7204.184)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.34.0', revision: '707dcb4246*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [176d29ba7c9a8458b3b6aba14adeacce, findElement {value=//div[@class='modal fade show']//div[@class=' css-1xc3v61-indicatorContainer'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 138.0.7204.184, chrome: {chromedriverVersion: 138.0.7204.183 (e90faf484dd..., userDataDir: C:\Users\fatma\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51013}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51013/devtoo..., se:cdpVersion: 138.0.7204.184, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 176d29ba7c9a8458b3b6aba14adeacce
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:367)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:361)
+	at utilities.ReusableMethods.clickElementByJS(ReusableMethods.java:27)
+	at pages.UserDetailPage.clickOnRolesList(UserDetailPage.java:65)
+	at stepdefinitions.US_016_EditUserSD.userAddsANewRoleForUser(US_016_EditUserSD.java:53)
+	at ✽.User adds a new role for user(file:///C:/Users/fatma/IdeaProjects/CapstoneUICucumber/src/test/resources/features/US_016_EditUser.feature:32)
+</textarea>
+      
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.US_016_EditUserSD.userRefreshesTheProfilePage()">
+                <span>And User refreshes the profile page</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.US_016_EditUserSD.verifyThatTheNewlyAddedRoleAppearsUnderRolesSection()">
+                <span>Then Verify that the newly added role appears under Roles section</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER">
+                <span>stepdefinitions.Hooks.tearDown(io.cucumber.java.Scenario)</span>
+      <div>Screenshot of failed scenarioCheck that new role is saved correctly
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded1.png' src="../Screenshots/embedded1.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="92"><span class="badge log pass-bg mr-2">Pass</span>Default role cannot be deleted</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.user_goes_to_homepage()">
+                <span>Given user goes to homepage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.userClicksLoginLink()">
+                <span>And User clicks login link</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.CommonSD.userLogins(java.lang.String,java.lang.String)">
+                <span>And user logins as "username1" with password "password1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.DashboardSD.user_clicks_on_maximize_icon()">
+                <span>And user clicks on maximize icon</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_015_UsersSD.goToUserPage()">
+                <span>And User goes to userPage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.userClicksOnNdUsernameFromTheList()">
+                <span>Given User clicks on indexed username from the list</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.verifyThatDefaultRoleCannotBeRemoved()">
+                <span>Then Verify that default role cannot be removed</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="101"><span class="badge log pass-bg mr-2">Pass</span>User opens User Detail Page of first user of list</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.user_goes_to_homepage()">
+                <span>Given user goes to homepage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.userClicksLoginLink()">
+                <span>And User clicks login link</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.CommonSD.userLogins(java.lang.String,java.lang.String)">
+                <span>And user logins as "username1" with password "password1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.DashboardSD.user_clicks_on_maximize_icon()">
+                <span>And user clicks on maximize icon</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_015_UsersSD.goToUserPage()">
+                <span>And User goes to userPage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.userClicksOnNdUsernameFromTheList()">
+                <span>Given User clicks on indexed username from the list</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.userClicksTheButtonUnderRolesSection()">
+                <span>When User clicks the + button under Roles section</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.verifyThatSelectRoleWindowIsOpened()">
+                <span>Then Verify that select role window is opened</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="111"><span class="badge log fail-bg mr-2">Fail</span>Set a newly added role as default role</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.user_goes_to_homepage()">
+                <span>Given user goes to homepage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.userClicksLoginLink()">
+                <span>And User clicks login link</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.CommonSD.userLogins(java.lang.String,java.lang.String)">
+                <span>And user logins as "username1" with password "password1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.DashboardSD.user_clicks_on_maximize_icon()">
+                <span>And user clicks on maximize icon</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_015_UsersSD.goToUserPage()">
+                <span>And User goes to userPage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.userClicksOnNdUsernameFromTheList()">
+                <span>Given User clicks on indexed username from the list</span>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" title="stepdefinitions.US_016_EditUserSD.userAddsANewRoleForUser()">
+                <span>And User adds a new role for user</span>
+      <div>
+        <textarea disabled class="code-block">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//div[@class='modal fade show']//div[@class=' css-1xc3v61-indicatorContainer']"}
+  (Session info: chrome=138.0.7204.184)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.34.0', revision: '707dcb4246*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [1dc82b3522e36564f2299470a8d7e9f6, findElement {value=//div[@class='modal fade show']//div[@class=' css-1xc3v61-indicatorContainer'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 138.0.7204.184, chrome: {chromedriverVersion: 138.0.7204.183 (e90faf484dd..., userDataDir: C:\Users\fatma\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51191}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51191/devtoo..., se:cdpVersion: 138.0.7204.184, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 1dc82b3522e36564f2299470a8d7e9f6
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:367)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:361)
+	at utilities.ReusableMethods.clickElementByJS(ReusableMethods.java:27)
+	at pages.UserDetailPage.clickOnRolesList(UserDetailPage.java:65)
+	at stepdefinitions.US_016_EditUserSD.userAddsANewRoleForUser(US_016_EditUserSD.java:53)
+	at ✽.User adds a new role for user(file:///C:/Users/fatma/IdeaProjects/CapstoneUICucumber/src/test/resources/features/US_016_EditUser.feature:50)
+</textarea>
+      
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.US_016_EditUserSD.userSetsTheNewRoleAsDefault()">
+                <span>When user sets the new role as default</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.US_016_EditUserSD.verifyThatTheNewDefaultRoleIsDisplayedCorrectly()">
+                <span>Then Verify that the new default role is displayed correctly</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER">
+                <span>stepdefinitions.Hooks.tearDown(io.cucumber.java.Scenario)</span>
+      <div>Screenshot of failed scenarioSet a newly added role as default role
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded2.png' src="../Screenshots/embedded2.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="122"><span class="badge log pass-bg mr-2">Pass</span>User cancels add a new role window</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.user_goes_to_homepage()">
+                <span>Given user goes to homepage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.userClicksLoginLink()">
+                <span>And User clicks login link</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.CommonSD.userLogins(java.lang.String,java.lang.String)">
+                <span>And user logins as "username1" with password "password1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.DashboardSD.user_clicks_on_maximize_icon()">
+                <span>And user clicks on maximize icon</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_015_UsersSD.goToUserPage()">
+                <span>And User goes to userPage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.userClicksOnNdUsernameFromTheList()">
+                <span>Given User clicks on indexed username from the list</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.userClicksTheButtonUnderRolesSection()">
+                <span>And User clicks the + button under Roles section</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.userSelectsANewRoleFromTheDropdown()">
+                <span>And User selects a new role from the dropdown</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.userClicksCancelButton()">
+                <span>When User clicks cancel button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.verifyThatTheCanceledRoleIsNotListedUnderRolesSection()">
+                <span>Then Verify that the canceled role is not listed under Roles section</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="134"><span class="badge log pass-bg mr-2">Pass</span>User saves without selecting role</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.user_goes_to_homepage()">
+                <span>Given user goes to homepage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.userClicksLoginLink()">
+                <span>And User clicks login link</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.CommonSD.userLogins(java.lang.String,java.lang.String)">
+                <span>And user logins as "username1" with password "password1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.DashboardSD.user_clicks_on_maximize_icon()">
+                <span>And user clicks on maximize icon</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_015_UsersSD.goToUserPage()">
+                <span>And User goes to userPage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.userClicksOnNdUsernameFromTheList()">
+                <span>Given User clicks on indexed username from the list</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.userClicksTheButtonUnderRolesSection()">
+                <span>And User clicks the + button under Roles section</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.userClickSaveButton()">
+                <span>When User click save button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.verifyThatAddingRoleErrorMessageIsOccured(java.lang.String)">
+                <span>Then Verify that adding role error message "You can add a role to the user from the profile page." is occured</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="145"><span class="badge log pass-bg mr-2">Pass</span>Does Profile page edit button works</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.user_goes_to_homepage()">
+                <span>Given user goes to homepage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.userClicksLoginLink()">
+                <span>And User clicks login link</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.CommonSD.userLogins(java.lang.String,java.lang.String)">
+                <span>And user logins as "username1" with password "password1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.DashboardSD.user_clicks_on_maximize_icon()">
+                <span>And user clicks on maximize icon</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_015_UsersSD.goToUserPage()">
+                <span>And User goes to userPage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.userClicksOnNdUsernameFromTheList()">
+                <span>Given User clicks on indexed username from the list</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.userClicksThePencilImage()">
+                <span>When User clicks the Pencil Image</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.verifyThatPencilImageIsChangedIntoTickAndCrossButtons()">
+                <span>Then Verify that pencil image is changed into tick and cross buttons</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="155"><span class="badge log pass-bg mr-2">Pass</span>Email addres cannot be changed</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.user_goes_to_homepage()">
+                <span>Given user goes to homepage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.userClicksLoginLink()">
+                <span>And User clicks login link</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.CommonSD.userLogins(java.lang.String,java.lang.String)">
+                <span>And user logins as "username1" with password "password1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.DashboardSD.user_clicks_on_maximize_icon()">
+                <span>And user clicks on maximize icon</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_015_UsersSD.goToUserPage()">
+                <span>And User goes to userPage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.userClicksOnNdUsernameFromTheList()">
+                <span>Given User clicks on indexed username from the list</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.userClicksThePencilImage()">
+                <span>When User clicks the Pencil Image</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.verifyThatEmailAddresCannotBeChanged()">
+                <span>Then Verify that email addres cannot be changed</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="165"><span class="badge log pass-bg mr-2">Pass</span>Username cannot be empty</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.user_goes_to_homepage()">
+                <span>Given user goes to homepage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.userClicksLoginLink()">
+                <span>And User clicks login link</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.CommonSD.userLogins(java.lang.String,java.lang.String)">
+                <span>And user logins as "username1" with password "password1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.DashboardSD.user_clicks_on_maximize_icon()">
+                <span>And user clicks on maximize icon</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_015_UsersSD.goToUserPage()">
+                <span>And User goes to userPage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.userClicksOnNdUsernameFromTheList()">
+                <span>Given User clicks on indexed username from the list</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.userClicksThePencilImage()">
+                <span>When User clicks the Pencil Image</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.userDeletesUsernameInput()">
+                <span>And User deletes username input</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.verifyThatUsernameErrorMessageIsOccured(java.lang.String)">
+                <span>Then Verify that username error message "Username cannot be empty" is occured</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="176"><span class="badge log pass-bg mr-2">Pass</span>Reset Password window should ben opened</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.user_goes_to_homepage()">
+                <span>Given user goes to homepage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.userClicksLoginLink()">
+                <span>And User clicks login link</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.CommonSD.userLogins(java.lang.String,java.lang.String)">
+                <span>And user logins as "username1" with password "password1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.DashboardSD.user_clicks_on_maximize_icon()">
+                <span>And user clicks on maximize icon</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_015_UsersSD.goToUserPage()">
+                <span>And User goes to userPage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.userClicksOnNdUsernameFromTheList()">
+                <span>And User clicks on indexed username from the list</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.userClicksResetPasswordButton()">
+                <span>When User clicks Reset Password button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.verifyThatResetPasswordWindowShouldBeOpened()">
+                <span>Then Verify that Reset Password window should be opened</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="186"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">New User</p>
+            <p class="text-sm">
+              <span>15:46:41</span> / <span>00:04:11:825</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">New User</h5>
+<span class='badge badge-success'>08.07.2025 15:46:41</span>
+<span class='badge badge-danger'>08.07.2025 15:50:53</span>
+<span class='badge badge-default'>00:04:11:825</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=186</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-10 m-l-5"></div>
+</div>
+</div>
+<div class="accordion mt-4">
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="187"><span class="badge log pass-bg mr-2">Pass</span>Does New User Registration page open</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.user_goes_to_homepage()">
+                <span>Given user goes to homepage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.userClicksLoginLink()">
+                <span>And User clicks login link</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.CommonSD.userLogins(java.lang.String,java.lang.String)">
+                <span>And user logins as "username1" with password "password1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.DashboardSD.user_clicks_on_maximize_icon()">
+                <span>And user clicks on maximize icon</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_015_UsersSD.goToUserPage()">
+                <span>And User goes to userPage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_017_NewUserSD.userClicksAddNewMemberButton()">
+                <span>Given User clicks Add New Member button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_017_NewUserSD.verifyThatTitleIsSeen(java.lang.String)">
+                <span>Then Verify that title "New User Registration" is seen</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="196"><span class="badge log pass-bg mr-2">Pass</span>Attempt to create a new member without any data</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.user_goes_to_homepage()">
+                <span>Given user goes to homepage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.userClicksLoginLink()">
+                <span>And User clicks login link</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.CommonSD.userLogins(java.lang.String,java.lang.String)">
+                <span>And user logins as "username1" with password "password1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.DashboardSD.user_clicks_on_maximize_icon()">
+                <span>And user clicks on maximize icon</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_015_UsersSD.goToUserPage()">
+                <span>And User goes to userPage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_017_NewUserSD.userClicksAddNewMemberButton()">
+                <span>Given User clicks Add New Member button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_017_NewUserSD.userClicksRegisterButton()">
+                <span>When User clicks Register button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_017_NewUserSD.verifyThatRoleErrorMessageIsOccured(java.lang.String)">
+                <span>Then Verify that role error message "Please select a role for the user you will add" is occured</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="206"><span class="badge log pass-bg mr-2">Pass</span>Attempt to create a new member without an email</div>
+      </div>
+    </div>
+        <div class="scenario_outline collapse">
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="207"><span class="badge log pass-bg mr-2">Pass</span>Attempt to create a new member without an email</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given user goes to homepage</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And User clicks login link</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And user logins as "username1" with password "password1"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And user clicks on maximize icon</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And User goes to userPage</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Given User clicks Add New Member button</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When User selects a role from Roles dropdown menu</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And User enters ''</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And User clicks Register button</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then Verify that email error message "Please enter a valid email" is occured</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="219"><span class="badge log pass-bg mr-2">Pass</span>Attempt to create a new member without an email</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given user goes to homepage</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And User clicks login link</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And user logins as "username1" with password "password1"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And user clicks on maximize icon</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And User goes to userPage</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Given User clicks Add New Member button</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When User selects a role from Roles dropdown menu</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And User enters 'fat@s'</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And User clicks Register button</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then Verify that email error message "Please enter a valid email" is occured</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="231"><span class="badge log pass-bg mr-2">Pass</span>Attempt to create a new member without an email</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given user goes to homepage</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And User clicks login link</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And user logins as "username1" with password "password1"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And user clicks on maximize icon</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And User goes to userPage</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Given User clicks Add New Member button</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When User selects a role from Roles dropdown menu</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And User enters '@asd.asd'</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And User clicks Register button</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then Verify that email error message "Please enter a valid email" is occured</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="243"><span class="badge log pass-bg mr-2">Pass</span>Attempt to create a new member without an email</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given user goes to homepage</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And User clicks login link</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And user logins as "username1" with password "password1"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And user clicks on maximize icon</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And User goes to userPage</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Given User clicks Add New Member button</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When User selects a role from Roles dropdown menu</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And User enters '@asd.com'</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And User clicks Register button</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then Verify that email error message "Please enter a valid email" is occured</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="255"><span class="badge log pass-bg mr-2">Pass</span>Attempt to create a new member with an existed/registered email</div>
+      </div>
+    </div>
+        <div class="scenario_outline collapse">
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="256"><span class="badge log pass-bg mr-2">Pass</span>Attempt to create a new member with an existed/registered email</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given user goes to homepage</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And User clicks login link</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And user logins as "username1" with password "password1"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And user clicks on maximize icon</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And User goes to userPage</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Given User clicks Add New Member button</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When User selects a role from Roles dropdown menu</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And User enters 'fatmapostaci@gmail.com'</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And User clicks Register button</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then Verify that error message "An error occurred" is occured</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="268"><span class="badge log pass-bg mr-2">Pass</span>Create a new member with an acceptable data in all areas</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.user_goes_to_homepage()">
+                <span>Given user goes to homepage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.userClicksLoginLink()">
+                <span>And User clicks login link</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.CommonSD.userLogins(java.lang.String,java.lang.String)">
+                <span>And user logins as "username1" with password "password1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.DashboardSD.user_clicks_on_maximize_icon()">
+                <span>And user clicks on maximize icon</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_015_UsersSD.goToUserPage()">
+                <span>And User goes to userPage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_017_NewUserSD.userClicksAddNewMemberButton()">
+                <span>Given User clicks Add New Member button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_017_NewUserSD.userSelectsADepartmentFromDeparmentsDropdownMenu()">
+                <span>When User selects a department from Deparments dropdown menu</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_017_NewUserSD.userSelectsARoleFromRolesDropdownMenu()">
+                <span>And User selects a role from Roles dropdown menu</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_017_NewUserSD.userEntersFakeEmail()">
+                <span>And User enters fake email</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_017_NewUserSD.userClicksRegisterButton()">
+                <span>And User clicks Register button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_017_NewUserSD.keepTheCreatedPassword()">
+                <span>Then Keep the created password</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_017_NewUserSD.verifyThatRegisterSuccesfulMessageIsOccured(java.lang.String)">
+                <span>Then Verify that register succesful message "Successful" is occured</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="282"><span class="badge log pass-bg mr-2">Pass</span>Does Cancel button works</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.user_goes_to_homepage()">
+                <span>Given user goes to homepage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.userClicksLoginLink()">
+                <span>And User clicks login link</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.CommonSD.userLogins(java.lang.String,java.lang.String)">
+                <span>And user logins as "username1" with password "password1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.DashboardSD.user_clicks_on_maximize_icon()">
+                <span>And user clicks on maximize icon</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_015_UsersSD.goToUserPage()">
+                <span>And User goes to userPage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_017_NewUserSD.userClicksAddNewMemberButton()">
+                <span>Given User clicks Add New Member button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_017_NewUserSD.userSelectsADepartmentFromDeparmentsDropdownMenu()">
+                <span>And User selects a department from Deparments dropdown menu</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_017_NewUserSD.userSelectsARoleFromRolesDropdownMenu()">
+                <span>And User selects a role from Roles dropdown menu</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_017_NewUserSD.userEntersEmail(java.lang.String)">
+                <span>And User enters "something@something.com"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_017_NewUserSD.userClicksCancelButton()">
+                <span>When User clicks Cancel button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_017_NewUserSD.verifyThatWindowClosedWithoutSaving()">
+                <span>Then Verify that window closed without saving</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="295"><span class="badge log pass-bg mr-2">Pass</span>Login with new registered member</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.user_goes_to_homepage()">
+                <span>Given user goes to homepage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.userClicksLoginLink()">
+                <span>And User clicks login link</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.CommonSD.userLogins(java.lang.String,java.lang.String)">
+                <span>And user logins as "username1" with password "password1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.DashboardSD.user_clicks_on_maximize_icon()">
+                <span>And user clicks on maximize icon</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_015_UsersSD.goToUserPage()">
+                <span>And User goes to userPage</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_016_EditUserSD.userLogsOut()">
+                <span>Given User logs out</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.userClicksLoginLink()">
+                <span>And User clicks login link</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.CommonSD.userLogins(java.lang.String,java.lang.String)">
+                <span>When user logins as "usernameFake" with password "passwordFake"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.LoginSD.user_validates_sign_in()">
+                <span>Then user validates sign in</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+<div class="test-content scrollable">
+<div class="test-content-tools">
+<ul><li><a class="back-to-test" href="#"><i class="fa fa-arrow-left"></i></a></li></ul>
+</div>
+<div class="test-content-detail"><div class="detail-body"></div></div>
+</div></div>
+<div class="test-wrapper row view category-view attributes-view">
+<div class="test-list">
+<div class="test-list-tools">
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Category</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">44</span></a></li></ul>
+</div>
+<div class="test-list-wrapper scrollable">
+<ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>4</span>
+</span>
+<p class="name">@NewRegistrationWithoutOrWithInvalidEmail</p>
+<p class="duration text-sm">4 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@NewRegistrationWithoutOrWithInvalidEmail</h4>
+<span status="pass" class='badge log pass-bg'>4 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:47:24 pm</td>
+<td>
+<a href="#" class="linked" test-id='186' id='207'>Attempt to create a new member without an email</a>
+<div class="">
+<span class="badge badge-default">New User.Attempt to create a new member without an email</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:47:51 pm</td>
+<td>
+<a href="#" class="linked" test-id='186' id='219'>Attempt to create a new member without an email</a>
+<div class="">
+<span class="badge badge-default">New User.Attempt to create a new member without an email</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:48:13 pm</td>
+<td>
+<a href="#" class="linked" test-id='186' id='231'>Attempt to create a new member without an email</a>
+<div class="">
+<span class="badge badge-default">New User.Attempt to create a new member without an email</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:48:35 pm</td>
+<td>
+<a href="#" class="linked" test-id='186' id='243'>Attempt to create a new member without an email</a>
+<div class="">
+<span class="badge badge-default">New User.Attempt to create a new member without an email</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@TC_016_11</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@TC_016_11</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:45:54 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='165'>Username cannot be empty</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.Username cannot be empty</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@Emaillistassertion</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@Emaillistassertion</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:39:30 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='18'>User checks visibility of email of each user data</a>
+<div class="">
+<span class="badge badge-default">User Module Display.User checks visibility of email of each user data</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@DoesEditButtonWorks</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@DoesEditButtonWorks</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:45:09 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='145'>Does Profile page edit button works</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.Does Profile page edit button works</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@NewRegistrationWithoutData</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@NewRegistrationWithoutData</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:47:01 pm</td>
+<td>
+<a href="#" class="linked" test-id='186' id='196'>Attempt to create a new member without any data</a>
+<div class="">
+<span class="badge badge-default">New User.Attempt to create a new member without any data</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@UsernameCannotBeEmpty</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@UsernameCannotBeEmpty</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:45:54 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='165'>Username cannot be empty</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.Username cannot be empty</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@AddANewRoleFromFropDownMenu</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@AddANewRoleFromFropDownMenu</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:41:38 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='70'>User selects a role to first user of list</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.User selects a role to first user of list</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@AssertUserDetailPageOpens</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@AssertUserDetailPageOpens</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:40:54 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='51'>User opens User Detail Page of first user of list</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.User opens User Detail Page of first user of list</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@TC_016_08</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@TC_016_08</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:44:13 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='122'>User cancels add a new role window</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.User cancels add a new role window</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@SelectRoleWindowOpens</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@SelectRoleWindowOpens</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:43:14 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='101'>User opens User Detail Page of first user of list</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.User opens User Detail Page of first user of list</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@RoleSavingError</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@RoleSavingError</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:44:47 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='134'>User saves without selecting role</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.User saves without selecting role</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@AssertSelectARoleWindowOpens</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@AssertSelectARoleWindowOpens</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:41:15 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='60'>User opens select a role window</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.User opens select a role window</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>10</span>
+</span>
+<p class="name">@AddNewUserFeature</p>
+<p class="duration text-sm">10 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@AddNewUserFeature</h4>
+<span status="pass" class='badge log pass-bg'>10 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:46:41 pm</td>
+<td>
+<a href="#" class="linked" test-id='186' id='187'>Does New User Registration page open</a>
+<div class="">
+<span class="badge badge-default">New User.Does New User Registration page open</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:47:01 pm</td>
+<td>
+<a href="#" class="linked" test-id='186' id='196'>Attempt to create a new member without any data</a>
+<div class="">
+<span class="badge badge-default">New User.Attempt to create a new member without any data</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:47:24 pm</td>
+<td>
+<a href="#" class="linked" test-id='186' id='207'>Attempt to create a new member without an email</a>
+<div class="">
+<span class="badge badge-default">New User.Attempt to create a new member without an email</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:47:51 pm</td>
+<td>
+<a href="#" class="linked" test-id='186' id='219'>Attempt to create a new member without an email</a>
+<div class="">
+<span class="badge badge-default">New User.Attempt to create a new member without an email</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:48:13 pm</td>
+<td>
+<a href="#" class="linked" test-id='186' id='231'>Attempt to create a new member without an email</a>
+<div class="">
+<span class="badge badge-default">New User.Attempt to create a new member without an email</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:48:35 pm</td>
+<td>
+<a href="#" class="linked" test-id='186' id='243'>Attempt to create a new member without an email</a>
+<div class="">
+<span class="badge badge-default">New User.Attempt to create a new member without an email</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:49:01 pm</td>
+<td>
+<a href="#" class="linked" test-id='186' id='256'>Attempt to create a new member with an existed/registered email</a>
+<div class="">
+<span class="badge badge-default">New User.Attempt to create a new member with an existed/registered email</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:49:24 pm</td>
+<td>
+<a href="#" class="linked" test-id='186' id='268'>Create a new member with an acceptable data in all areas</a>
+<div class="">
+<span class="badge badge-default">New User.Create a new member with an acceptable data in all areas</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:49:46 pm</td>
+<td>
+<a href="#" class="linked" test-id='186' id='282'>Does Cancel button works</a>
+<div class="">
+<span class="badge badge-default">New User.Does Cancel button works</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:50:24 pm</td>
+<td>
+<a href="#" class="linked" test-id='186' id='295'>Login with new registered member</a>
+<div class="">
+<span class="badge badge-default">New User.Login with new registered member</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@UserlistAssertionScenario</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@UserlistAssertionScenario</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:39:09 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='10'>User checks visibility of users list</a>
+<div class="">
+<span class="badge badge-default">User Module Display.User checks visibility of users list</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>1</span>
+</span>
+<p class="name">@TC_016_04</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@TC_016_04</h4>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>15:42:08 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='81'>Check that new role is saved correctly</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.Check that new role is saved correctly</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@TC_016_06</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@TC_016_06</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:43:14 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='101'>User opens User Detail Page of first user of list</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.User opens User Detail Page of first user of list</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@DoesCancelButtonWorks</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@DoesCancelButtonWorks</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:49:46 pm</td>
+<td>
+<a href="#" class="linked" test-id='186' id='282'>Does Cancel button works</a>
+<div class="">
+<span class="badge badge-default">New User.Does Cancel button works</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>11</span>
+<span class='badge log badge-danger'>2</span>
+</span>
+<p class="name">@US_016</p>
+<p class="duration text-sm">13 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@US_016</h4>
+<span status="pass" class='badge log pass-bg'>11 passed</span>
+<span status="fail" class='badge log badge-danger'>2 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:40:54 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='51'>User opens User Detail Page of first user of list</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.User opens User Detail Page of first user of list</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:41:15 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='60'>User opens select a role window</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.User opens select a role window</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:41:38 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='70'>User selects a role to first user of list</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.User selects a role to first user of list</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>15:42:08 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='81'>Check that new role is saved correctly</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.Check that new role is saved correctly</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:42:40 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='92'>Default role cannot be deleted</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.Default role cannot be deleted</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:43:14 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='101'>User opens User Detail Page of first user of list</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.User opens User Detail Page of first user of list</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>15:43:39 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='111'>Set a newly added role as default role</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.Set a newly added role as default role</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:44:13 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='122'>User cancels add a new role window</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.User cancels add a new role window</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:44:47 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='134'>User saves without selecting role</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.User saves without selecting role</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:45:09 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='145'>Does Profile page edit button works</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.Does Profile page edit button works</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:45:33 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='155'>Email addres cannot be changed</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.Email addres cannot be changed</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:45:54 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='165'>Username cannot be empty</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.Username cannot be empty</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:46:17 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='176'>Reset Password window should ben opened</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.Reset Password window should ben opened</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>1</span>
+</span>
+<p class="name">@SetNewAddedRoleAsDefaultRole</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@SetNewAddedRoleAsDefaultRole</h4>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>15:43:39 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='111'>Set a newly added role as default role</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.Set a newly added role as default role</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>6</span>
+</span>
+<p class="name">@UserDisplayFeature</p>
+<p class="duration text-sm">6 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@UserDisplayFeature</h4>
+<span status="pass" class='badge log pass-bg'>6 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:38:50 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='2'>User opens Users Page</a>
+<div class="">
+<span class="badge badge-default">User Module Display.User opens Users Page</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:39:09 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='10'>User checks visibility of users list</a>
+<div class="">
+<span class="badge badge-default">User Module Display.User checks visibility of users list</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:39:30 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='18'>User checks visibility of email of each user data</a>
+<div class="">
+<span class="badge badge-default">User Module Display.User checks visibility of email of each user data</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:39:49 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='26'>User checks visibility of email of each user data</a>
+<div class="">
+<span class="badge badge-default">User Module Display.User checks visibility of email of each user data</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:40:12 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='34'>User checks visibility of email of each user data</a>
+<div class="">
+<span class="badge badge-default">User Module Display.User checks visibility of email of each user data</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:40:30 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='42'>User checks visibility of email of each user data</a>
+<div class="">
+<span class="badge badge-default">User Module Display.User checks visibility of email of each user data</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@AccessTypelistassertion</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@AccessTypelistassertion</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:40:12 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='34'>User checks visibility of email of each user data</a>
+<div class="">
+<span class="badge badge-default">User Module Display.User checks visibility of email of each user data</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@CheckCanceledRoleIsNotAddedRolesSection</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@CheckCanceledRoleIsNotAddedRolesSection</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:44:13 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='122'>User cancels add a new role window</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.User cancels add a new role window</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@NewRegistrationPageOpens</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@NewRegistrationPageOpens</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:46:41 pm</td>
+<td>
+<a href="#" class="linked" test-id='186' id='187'>Does New User Registration page open</a>
+<div class="">
+<span class="badge badge-default">New User.Does New User Registration page open</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>1</span>
+</span>
+<p class="name">@TC_016_07</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@TC_016_07</h4>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>15:43:39 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='111'>Set a newly added role as default role</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.Set a newly added role as default role</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@ResetPasswordWindowOpens</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@ResetPasswordWindowOpens</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:46:17 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='176'>Reset Password window should ben opened</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.Reset Password window should ben opened</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@NewRegistrationWithRegisteredEmail</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@NewRegistrationWithRegisteredEmail</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:49:01 pm</td>
+<td>
+<a href="#" class="linked" test-id='186' id='256'>Attempt to create a new member with an existed/registered email</a>
+<div class="">
+<span class="badge badge-default">New User.Attempt to create a new member with an existed/registered email</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>1</span>
+</span>
+<p class="name">@CheckNewRoleAddedSuccessfully</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@CheckNewRoleAddedSuccessfully</h4>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>15:42:08 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='81'>Check that new role is saved correctly</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.Check that new role is saved correctly</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@Sincelistassertion</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@Sincelistassertion</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:39:49 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='26'>User checks visibility of email of each user data</a>
+<div class="">
+<span class="badge badge-default">User Module Display.User checks visibility of email of each user data</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>2</span>
+</span>
+<p class="name">@TC_016_09</p>
+<p class="duration text-sm">2 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@TC_016_09</h4>
+<span status="pass" class='badge log pass-bg'>2 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:44:47 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='134'>User saves without selecting role</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.User saves without selecting role</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:45:09 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='145'>Does Profile page edit button works</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.Does Profile page edit button works</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@TC_016_02</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@TC_016_02</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:41:15 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='60'>User opens select a role window</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.User opens select a role window</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@DefaultRoleCannotBeDeleted</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@DefaultRoleCannotBeDeleted</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:42:40 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='92'>Default role cannot be deleted</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.Default role cannot be deleted</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>6</span>
+</span>
+<p class="name">@US_015</p>
+<p class="duration text-sm">6 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@US_015</h4>
+<span status="pass" class='badge log pass-bg'>6 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:38:50 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='2'>User opens Users Page</a>
+<div class="">
+<span class="badge badge-default">User Module Display.User opens Users Page</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:39:09 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='10'>User checks visibility of users list</a>
+<div class="">
+<span class="badge badge-default">User Module Display.User checks visibility of users list</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:39:30 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='18'>User checks visibility of email of each user data</a>
+<div class="">
+<span class="badge badge-default">User Module Display.User checks visibility of email of each user data</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:39:49 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='26'>User checks visibility of email of each user data</a>
+<div class="">
+<span class="badge badge-default">User Module Display.User checks visibility of email of each user data</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:40:12 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='34'>User checks visibility of email of each user data</a>
+<div class="">
+<span class="badge badge-default">User Module Display.User checks visibility of email of each user data</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:40:30 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='42'>User checks visibility of email of each user data</a>
+<div class="">
+<span class="badge badge-default">User Module Display.User checks visibility of email of each user data</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@TC_016_03</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@TC_016_03</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:41:38 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='70'>User selects a role to first user of list</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.User selects a role to first user of list</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@TC_016_01</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@TC_016_01</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:40:54 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='51'>User opens User Detail Page of first user of list</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.User opens User Detail Page of first user of list</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@Statuslistassertion</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@Statuslistassertion</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:40:30 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='42'>User checks visibility of email of each user data</a>
+<div class="">
+<span class="badge badge-default">User Module Display.User checks visibility of email of each user data</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>3</span>
+</span>
+<p class="name">@Smoke</p>
+<p class="duration text-sm">3 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@Smoke</h4>
+<span status="pass" class='badge log pass-bg'>3 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:41:38 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='70'>User selects a role to first user of list</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.User selects a role to first user of list</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:49:24 pm</td>
+<td>
+<a href="#" class="linked" test-id='186' id='268'>Create a new member with an acceptable data in all areas</a>
+<div class="">
+<span class="badge badge-default">New User.Create a new member with an acceptable data in all areas</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:50:24 pm</td>
+<td>
+<a href="#" class="linked" test-id='186' id='295'>Login with new registered member</a>
+<div class="">
+<span class="badge badge-default">New User.Login with new registered member</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@TC_016_05</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@TC_016_05</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:42:40 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='92'>Default role cannot be deleted</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.Default role cannot be deleted</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>27</span>
+<span class='badge log badge-danger'>2</span>
+</span>
+<p class="name">@Fatma</p>
+<p class="duration text-sm">29 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@Fatma</h4>
+<span status="pass" class='badge log pass-bg'>27 passed</span>
+<span status="fail" class='badge log badge-danger'>2 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:38:50 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='2'>User opens Users Page</a>
+<div class="">
+<span class="badge badge-default">User Module Display.User opens Users Page</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:39:09 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='10'>User checks visibility of users list</a>
+<div class="">
+<span class="badge badge-default">User Module Display.User checks visibility of users list</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:39:30 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='18'>User checks visibility of email of each user data</a>
+<div class="">
+<span class="badge badge-default">User Module Display.User checks visibility of email of each user data</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:39:49 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='26'>User checks visibility of email of each user data</a>
+<div class="">
+<span class="badge badge-default">User Module Display.User checks visibility of email of each user data</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:40:12 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='34'>User checks visibility of email of each user data</a>
+<div class="">
+<span class="badge badge-default">User Module Display.User checks visibility of email of each user data</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:40:30 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='42'>User checks visibility of email of each user data</a>
+<div class="">
+<span class="badge badge-default">User Module Display.User checks visibility of email of each user data</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:40:54 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='51'>User opens User Detail Page of first user of list</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.User opens User Detail Page of first user of list</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:41:15 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='60'>User opens select a role window</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.User opens select a role window</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:41:38 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='70'>User selects a role to first user of list</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.User selects a role to first user of list</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>15:42:08 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='81'>Check that new role is saved correctly</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.Check that new role is saved correctly</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:42:40 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='92'>Default role cannot be deleted</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.Default role cannot be deleted</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:43:14 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='101'>User opens User Detail Page of first user of list</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.User opens User Detail Page of first user of list</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>15:43:39 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='111'>Set a newly added role as default role</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.Set a newly added role as default role</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:44:13 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='122'>User cancels add a new role window</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.User cancels add a new role window</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:44:47 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='134'>User saves without selecting role</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.User saves without selecting role</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:45:09 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='145'>Does Profile page edit button works</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.Does Profile page edit button works</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:45:33 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='155'>Email addres cannot be changed</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.Email addres cannot be changed</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:45:54 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='165'>Username cannot be empty</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.Username cannot be empty</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:46:17 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='176'>Reset Password window should ben opened</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.Reset Password window should ben opened</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:46:41 pm</td>
+<td>
+<a href="#" class="linked" test-id='186' id='187'>Does New User Registration page open</a>
+<div class="">
+<span class="badge badge-default">New User.Does New User Registration page open</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:47:01 pm</td>
+<td>
+<a href="#" class="linked" test-id='186' id='196'>Attempt to create a new member without any data</a>
+<div class="">
+<span class="badge badge-default">New User.Attempt to create a new member without any data</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:47:24 pm</td>
+<td>
+<a href="#" class="linked" test-id='186' id='207'>Attempt to create a new member without an email</a>
+<div class="">
+<span class="badge badge-default">New User.Attempt to create a new member without an email</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:47:51 pm</td>
+<td>
+<a href="#" class="linked" test-id='186' id='219'>Attempt to create a new member without an email</a>
+<div class="">
+<span class="badge badge-default">New User.Attempt to create a new member without an email</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:48:13 pm</td>
+<td>
+<a href="#" class="linked" test-id='186' id='231'>Attempt to create a new member without an email</a>
+<div class="">
+<span class="badge badge-default">New User.Attempt to create a new member without an email</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:48:35 pm</td>
+<td>
+<a href="#" class="linked" test-id='186' id='243'>Attempt to create a new member without an email</a>
+<div class="">
+<span class="badge badge-default">New User.Attempt to create a new member without an email</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:49:01 pm</td>
+<td>
+<a href="#" class="linked" test-id='186' id='256'>Attempt to create a new member with an existed/registered email</a>
+<div class="">
+<span class="badge badge-default">New User.Attempt to create a new member with an existed/registered email</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:49:24 pm</td>
+<td>
+<a href="#" class="linked" test-id='186' id='268'>Create a new member with an acceptable data in all areas</a>
+<div class="">
+<span class="badge badge-default">New User.Create a new member with an acceptable data in all areas</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:49:46 pm</td>
+<td>
+<a href="#" class="linked" test-id='186' id='282'>Does Cancel button works</a>
+<div class="">
+<span class="badge badge-default">New User.Does Cancel button works</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:50:24 pm</td>
+<td>
+<a href="#" class="linked" test-id='186' id='295'>Login with new registered member</a>
+<div class="">
+<span class="badge badge-default">New User.Login with new registered member</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>2</span>
+</span>
+<p class="name">@NewRegistrationWithValidCredentials</p>
+<p class="duration text-sm">2 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@NewRegistrationWithValidCredentials</h4>
+<span status="pass" class='badge log pass-bg'>2 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:49:24 pm</td>
+<td>
+<a href="#" class="linked" test-id='186' id='268'>Create a new member with an acceptable data in all areas</a>
+<div class="">
+<span class="badge badge-default">New User.Create a new member with an acceptable data in all areas</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:50:24 pm</td>
+<td>
+<a href="#" class="linked" test-id='186' id='295'>Login with new registered member</a>
+<div class="">
+<span class="badge badge-default">New User.Login with new registered member</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>11</span>
+</span>
+<p class="name">@Regression</p>
+<p class="duration text-sm">11 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@Regression</h4>
+<span status="pass" class='badge log pass-bg'>11 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:38:50 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='2'>User opens Users Page</a>
+<div class="">
+<span class="badge badge-default">User Module Display.User opens Users Page</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:39:09 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='10'>User checks visibility of users list</a>
+<div class="">
+<span class="badge badge-default">User Module Display.User checks visibility of users list</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:39:30 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='18'>User checks visibility of email of each user data</a>
+<div class="">
+<span class="badge badge-default">User Module Display.User checks visibility of email of each user data</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:39:49 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='26'>User checks visibility of email of each user data</a>
+<div class="">
+<span class="badge badge-default">User Module Display.User checks visibility of email of each user data</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:40:12 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='34'>User checks visibility of email of each user data</a>
+<div class="">
+<span class="badge badge-default">User Module Display.User checks visibility of email of each user data</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:40:30 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='42'>User checks visibility of email of each user data</a>
+<div class="">
+<span class="badge badge-default">User Module Display.User checks visibility of email of each user data</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:40:54 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='51'>User opens User Detail Page of first user of list</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.User opens User Detail Page of first user of list</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:41:15 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='60'>User opens select a role window</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.User opens select a role window</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:46:41 pm</td>
+<td>
+<a href="#" class="linked" test-id='186' id='187'>Does New User Registration page open</a>
+<div class="">
+<span class="badge badge-default">New User.Does New User Registration page open</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:49:24 pm</td>
+<td>
+<a href="#" class="linked" test-id='186' id='268'>Create a new member with an acceptable data in all areas</a>
+<div class="">
+<span class="badge badge-default">New User.Create a new member with an acceptable data in all areas</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:49:46 pm</td>
+<td>
+<a href="#" class="linked" test-id='186' id='282'>Does Cancel button works</a>
+<div class="">
+<span class="badge badge-default">New User.Does Cancel button works</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@TC_016_10</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@TC_016_10</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:45:33 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='155'>Email addres cannot be changed</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.Email addres cannot be changed</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@UsersPageAssertionScenario</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@UsersPageAssertionScenario</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:38:50 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='2'>User opens Users Page</a>
+<div class="">
+<span class="badge badge-default">User Module Display.User opens Users Page</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@TC_016_12</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@TC_016_12</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:46:17 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='176'>Reset Password window should ben opened</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.Reset Password window should ben opened</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@EmailAdressUnclickable</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@EmailAdressUnclickable</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>15:45:33 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='155'>Email addres cannot be changed</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.Email addres cannot be changed</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="test-content scrollable">
+<div class="test-content-detail">
+<div class="detail-body"></div>
+</div>
+</div>
+</div><div class="test-wrapper row view exception-view attributes-view">
+<div class="test-list">
+<div class="test-list-tools">
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Exception</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
+</div>
+<div class="test-list-wrapper scrollable">
+<ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>2</span>
+</span>
+<p class="name">org.openqa.selenium.NoSuchElementException</p>
+<p class="duration text-sm">2 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>org.openqa.selenium.NoSuchElementException</h4>
+<span status="fail" class='badge log badge-danger'>2 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>15:42:25 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='88'>When User adds a new role for user</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.Check that new role is saved correctly.When User adds a new role for user</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>15:44:00 pm</td>
+<td>
+<a href="#" class="linked" test-id='50' id='118'>And User adds a new role for user</a>
+<div class="">
+<span class="badge badge-default">User Module Edit.Set a newly added role as default role.And User adds a new role for user</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="test-content scrollable">
+<div class="test-content-detail">
+<div class="detail-body"></div>
+</div>
+</div>
+</div>        </div>
+      </div>
+    </div>
+  </div>
+<script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@d6562a79075e061305ccfdb82f01e5e195e2d307/spark/js/spark-script.js"></script>
+<script type="text/javascript"></script></body>
+</html>
