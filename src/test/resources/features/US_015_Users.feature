@@ -1,4 +1,4 @@
-@UserDisplayFeature   @Regression
+@UserDisplayFeature   @Regression @Fatma
 Feature: User Module Display
 
   Background: User logs in application

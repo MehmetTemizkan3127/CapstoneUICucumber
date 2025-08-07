@@ -1,4 +1,4 @@
-@AddNewUserFeature
+@AddNewUserFeature @Fatma
 Feature: New User
 
   Background: User logs in application

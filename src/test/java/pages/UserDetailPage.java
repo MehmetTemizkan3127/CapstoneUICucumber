@@ -192,11 +192,11 @@ public class UserDetailPage {
     }
 
     public void assertSaveErrorWithoutRole() {
-        visibilityOfElement(this.roleWindow_ErrorMessage);
+        visibilityOfElementByWebDriverWait(this.roleWindow_ErrorMessage);
     }
 
     public void clickPencilImage() {
-        clickElement(this.pencilImage);
+        clickElementByJS(this.pencilImage);
     }
 
     public void assertVisibilityOfTickImage() {
@@ -217,7 +217,7 @@ public class UserDetailPage {
     }
 
     public void assertUsernameErrorMessageOccurs() {
-        visibilityOfElement(this.errorMessage);
+        visibilityOfElementByWebDriverWait(this.errorMessage);
     }
 
     public void assertConfirmButtonIsVisible() {
