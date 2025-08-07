@@ -12,7 +12,7 @@ import utilities.Driver;
 
 import static utilities.ReusableMethods.waitForSeconds;
 
-public class EditRemoteUnitsStepDefinition {
+public class US_012_EditRemoteUnitsSD {
     RemoteUnitsPage remoteUnitsPage=new RemoteUnitsPage();
     DashboardPage dashboardPage=new DashboardPage();
     EditRemoteUnitsPage editRemoteUnitsPage=new EditRemoteUnitsPage();
@@ -51,8 +51,8 @@ editRemoteUnitsPage.confirmbutton.click();
         waitForSeconds(2);
 dashboardPage.clickOnMenuItem("Remote Units");
 remoteUnitsPage.searching.sendKeys(ConfigReader.getProperty("Newdepartmaname"));
-        System.out.println("remoteUnitsPage.searchResults.size() = " + remoteUnitsPage.searchResults.size());
-        Assert.assertEquals(0, remoteUnitsPage.searchResults.size()-1);
+System.out.println("remoteUnitsPage.searchResults.size() = " + remoteUnitsPage.searchResults.size());
+Assert.assertEquals(0, remoteUnitsPage.searchResults.size()-1,"Aranan departman bulunamadi");
 
 
     }

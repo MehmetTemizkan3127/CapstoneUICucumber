@@ -3,22 +3,15 @@ package stepdefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
 import org.testng.Assert;
 import pages.*;
 import utilities.ConfigReader;
 import utilities.Driver;
-import utilities.JavascriptUtils;
-import utilities.ReusableMethods;
-
-import java.util.List;
 
 import static utilities.ReusableMethods.waitForSeconds;
 
-public class US_10_Remote_Units_StepDefinition {
+public class US_010_RemoteUnitsSD {
     RemoteUnitsPage remoteUnitsPage = new RemoteUnitsPage();
     HomePage homePage=new HomePage();
     LoginPage loginPage=new LoginPage();

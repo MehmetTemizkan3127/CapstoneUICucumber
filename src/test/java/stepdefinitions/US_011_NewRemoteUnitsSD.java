@@ -1,23 +1,18 @@
 package stepdefinitions;
 
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import pages.AllPages;
-import pages.DashboardPage;
 import pages.NewRemoteUnitPage;
 import pages.RemoteUnitsPage;
 import utilities.ConfigReader;
 import utilities.Driver;
-import utilities.ReusableMethods;
 
 import static org.testng.AssertJUnit.assertEquals;
 import static utilities.ReusableMethods.waitForSeconds;
 
-public class US_11_NewRemote_Units_StepDefinition {
+public class US_011_NewRemoteUnitsSD {
     RemoteUnitsPage remoteUnitsPage=new RemoteUnitsPage();
     NewRemoteUnitPage newAdd =new NewRemoteUnitPage();
 
