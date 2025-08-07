@@ -23,7 +23,8 @@ public class NewTeamPage {
     private final By shortNameTitle = By.xpath("//label[@for='short_name']");
     private final By shortNameInput = By.xpath("//label[@for='short_name']");
     private final By departmentTypeTitle = By.xpath("//label[@for='group_type_id']");
-    private final By departmentTypeDropDownMenu = By.xpath("(//div[@class=' css-b62m3t-container'])[1]");
+    //private final By departmentTypeDropDownMenu = By.xpath("(//div[@class=' css-b62m3t-container'])[1]");
+    private final By departmentTypeDropDownMenu = By.xpath("//div[@id='react-select-2-option-1']");
     private final By departmentDescriptionTitle = By.xpath("//label[@for='description']");
     private final By departmentDescriptionInput = By.xpath("//input[@placeholder='Department Description']");
     private final By rolesTitle = By.xpath("//label[@for='roles']");
