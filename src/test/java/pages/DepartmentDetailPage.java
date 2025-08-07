@@ -38,7 +38,6 @@ public class DepartmentDetailPage {
 
     public boolean isEditDepartmentButtonVisibleAndClickable() {
         ReusableMethods.waitForElementToBeClickable(driver,editDepartmentButton,10);
-        //wait.until(ExpectedConditions.elementToBeClickable(editDepartmentButton));
         return ReusableMethods.isDisplayed(editDepartmentButton) & ReusableMethods.isEnabled(editDepartmentButton);
     }
 
@@ -54,6 +53,5 @@ public class DepartmentDetailPage {
         String expectedName = driver.findElement(departmentName).getText();
         return actualName.equals(expectedName);
     }
-
 
 }

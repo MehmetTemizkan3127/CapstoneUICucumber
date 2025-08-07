@@ -30,7 +30,6 @@ public class DepartmentsPage {
     private WebDriver driver = Driver.getDriver();
 
     //METHODS
-
     public DepartmentsPage clickAgainDepartmentsButton(){
         ReusableMethods.visibilityOfElementByWebDriverWait(departmentsButton); //Burada departments locate'inin getter'i gerekli
         ReusableMethods.clickElementByJS(departmentsButton);
@@ -52,8 +51,6 @@ public class DepartmentsPage {
         return departmentWithRoleList;
     }
 
-    //TC07_01
-
     public boolean areDepartmentCardsDisplayed() {
         List<WebElement> allDepartmentCards = driver.findElements(allDepartmentsList);
         for (WebElement w : allDepartmentCards) {
@@ -63,8 +60,6 @@ public class DepartmentsPage {
         }
         return true;
     }
-
-    //007_02
 
     public boolean areAuthorizedRolesDisplayed() { //Rolleri olan dep. kartlarina tiklar roller görünüyor mu kontrol eder
         List<WebElement> allTitles =driver.findElements(allDepartmentsTitleList); // Tüm bilgi /isim/üye/rol sayisi (rol sayısı burada)
@@ -90,8 +85,6 @@ public class DepartmentsPage {
         }
         return true;
     }
-
-    //TC_007_03
 
     public boolean areAuthorizedRolesMatched() { //Departman karti üzerindeki rol sayisi ile icindeki rol sayisi eslesiyor mu diye kontrol eder
         List<WebElement> allTitles =driver.findElements(allDepartmentsTitleList);
@@ -123,12 +116,10 @@ public class DepartmentsPage {
         return true;
     }
 
-    //TC_007_04
     public boolean isDepartmentsTextDisplayed() {
         return ReusableMethods.isDisplayed(departmentsText);
     }
 
-    //TC_008_10
     public boolean twoDepartmentWithSameName() { //ayni isimle iki departman olusuyor mu diye kontrol eder
 
         List<WebElement> namesList = driver.findElements(allDepartmentNames);
@@ -142,7 +133,6 @@ public class DepartmentsPage {
         return false;
     }
 
-    //TC_008_12
     public NewDepartmentPage clickAddNewDepartment() {
         ReusableMethods.clickElement(addNewDepartmentButton);
         return new NewDepartmentPage();
@@ -184,9 +174,7 @@ public class DepartmentsPage {
 
     public boolean verifyNewCreatedDepartmentNotDisplayed() { //Department görünmüyorsa True döner
         boolean flag = true;
-       //** driver.findElement(By.xpath("//*[@id=\"link5\"]/a")).click(); //stale element excp aldigim icin
         ReusableMethods.visibilityOfElementsByWebDriverWait(By.xpath("//*[@id=\"link5\"]/a"));
-        //** wait.until(ExpectedConditions.visibilityOfAllElements(driver.findElements(departmentsButton))); //Azize hocadan al burayi get ile
         List<WebElement> names = driver.findElements(By.xpath("//p//div[@class='row']//a"));
         for (WebElement nameElement : names) {
             if (nameElement.getText().equals(NewDepartmentPage.staticName)) {
@@ -197,7 +185,6 @@ public class DepartmentsPage {
         return flag;
     }
 
-    //BU METHOD SONRA SILINECEK
     public void deleteDepartmentWithIndex(int index, int lastIndex) { //Departman isimsiz de olsa verilen indextekini siler
         for (int i = index; i < lastIndex; i++) {
             JavascriptUtils.clickElementByJS(driver.findElements(allDepartmentNames).get(i));
@@ -218,6 +205,5 @@ public class DepartmentsPage {
             ReusableMethods.visibilityOfElementByWebDriverWait(pages.getDepartmentsPage().getDepartmentsText());
         }
     }
-
 
 }
