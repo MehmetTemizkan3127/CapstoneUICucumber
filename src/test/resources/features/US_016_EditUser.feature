@@ -1,5 +1,5 @@
 @Fatma @US_016
-Feature: User Module Edit
+Feature: Users Module Edit
 
   Background: User logs in application
     Given user goes to homepage
