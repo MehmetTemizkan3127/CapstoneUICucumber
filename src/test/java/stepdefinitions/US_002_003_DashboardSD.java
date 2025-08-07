@@ -9,7 +9,7 @@ import pages.AllPages;
 import java.util.List;
 import java.util.Map;
 
-public class DashboardSD {
+public class US_002_003_DashboardSD {
     AllPages pages = new AllPages();
 
     @When("logo is visible")
@@ -64,6 +64,7 @@ public class DashboardSD {
         pages.getDashboardPage().clickMaximizeSideBar();
     }
 
+
     //**** DropDownMenüSD******
     //US003-01
     @When("The user clicks on the profile image")
@@ -93,20 +94,9 @@ public class DashboardSD {
     }
 
     //US003-03
-    @Then("The user should be redirected to the Memberships page")
-    public void theUserShouldBeRedirectedToTheMembershipsPage() {
-
-    }
-
-    //US003-03
     @Then("The user should be redirected to the Login page")
     public void theUserShouldBeRedirectedToTheLoginPage() {
         pages.getDashboardPage().checkHomePage();
-    }
-
-    @And("The session should be terminated")
-    public void theSessionShouldBeTerminated() {
-
     }
 
     //@UserDetailsCheck
@@ -130,5 +120,7 @@ public class DashboardSD {
         List<Map<String, String>> links = dataTable.asMaps(String.class, String.class);
         pages.getDashboardPage().checkSideBarLinks(links);
     }
+
+
 }
 

@@ -19,6 +19,13 @@ public class DashboardPage {
     private static final By COLLAPSE_BUTTON = By.className("btnCollapse");
     private static final String MENU_ITEM = "//li[contains(@class, \"list-group-item\")]/a[text()='{placeholder}']";
     private static final By BREADCRUMB = By.xpath("//li[@class='breadcrumb-item active']");
+    public static final By PROFILE_IMAGE = By.xpath("//div[contains(@class, 'avatar')]/ancestor::button[1]");
+    public static final By USER_INFO_POPUP = By.xpath("//*[@id=\"Header\"]/div/div/div/ul/li[1]/span/div/table/tbody/tr/td[2]/span[1]");
+    public static final By COMPANY_NAME_ON_COMPANY_PAGE = By.xpath("//label[@for='organizations']/following-sibling::span");
+    public static final By COMPANY_NAME_ON_HEADER = By.xpath("//*[@id=\"Header\"]/div/div/div/ul/li[1]/span/div/table/tbody/tr/td[2]/span[2]");
+    public static final By AVATAR_ON_HEADER = By.xpath("//div[contains(@class, 'avatar')]");
+    public static final By USER_INFO_ON_DROPDOWN = By.xpath("//*[@id=\"Header\"]/div/div/div/button/div/table/tbody/tr/td[2]/span[1]");
+    public static final By COMPANY_NAME_ON_DROPDOWN = By.xpath("//*[@id=\"Header\"]/div/div/div/button/div/table/tbody/tr/td[2]/span[2]");
 
 
     public void checkLogoIsVisible() {
@@ -101,7 +108,7 @@ public class DashboardPage {
     //US003-01
 
     public void clickProfileImage() {
-        Driver.getDriver().findElement(By.xpath("//div[contains(@class, 'avatar')]/ancestor::button[1]")).click();
+        Driver.getDriver().findElement(PROFILE_IMAGE).click();
         ReusableMethods.waitForSeconds(1);
     }
 
@@ -110,14 +117,14 @@ public class DashboardPage {
         String defaultRole = Driver.getDriver().findElement(By.className("active-roles-box")).getText();
         String user = username + " | " + defaultRole;
         String userInfoOnPopup = Driver.getDriver()
-                .findElement(By.xpath("//*[@id=\"Header\"]/div/div/div/ul/li[1]/span/div/table/tbody/tr/td[2]/span[1]"))
+                .findElement(USER_INFO_POPUP)
                 .getText();
         Assert.assertEquals(userInfoOnPopup, user);
     }
 
     public void checkDisplayUserCompany() {
-        String company = Driver.getDriver().findElement(By.xpath("//label[@for='organizations']/following-sibling::span")).getText();
-        String companyOnHeader = Driver.getDriver().findElement(By.xpath("//*[@id=\"Header\"]/div/div/div/ul/li[1]/span/div/table/tbody/tr/td[2]/span[2]")).getText();
+        String company = Driver.getDriver().findElement(COMPANY_NAME_ON_COMPANY_PAGE).getText();
+        String companyOnHeader = Driver.getDriver().findElement(COMPANY_NAME_ON_HEADER).getText();
         Assert.assertEquals(company, companyOnHeader);
     }
 
@@ -125,7 +132,7 @@ public class DashboardPage {
     public void checkAvatar() {
         ReusableMethods.waitForSeconds(2);
         String username = Driver.getDriver().findElement(By.id("username")).getText();
-        String avatar = Driver.getDriver().findElement(By.xpath("//div[contains(@class, 'avatar')]")).getText();
+        String avatar = Driver.getDriver().findElement(AVATAR_ON_HEADER).getText();
         Assert.assertEquals(username.toUpperCase().charAt(0), avatar.charAt(0));
     }
 
@@ -133,14 +140,14 @@ public class DashboardPage {
         String username = Driver.getDriver().findElement(By.id("username")).getText();
         String defaultRole = Driver.getDriver().findElement(By.className("active-roles-box")).getText();
         String user = username + " | " + defaultRole;
-        String userInfoOnHeader = Driver.getDriver().findElement(By.xpath("//*[@id=\"Header\"]/div/div/div/button/div/table/tbody/tr/td[2]/span[1]")).getText();
+        String userInfoOnHeader = Driver.getDriver().findElement(USER_INFO_ON_DROPDOWN).getText();
         Assert.assertEquals(userInfoOnHeader, user);
     }
 
     public void checkCompany() {
 
-        String company = Driver.getDriver().findElement(By.xpath("//label[@for='organizations']/following-sibling::span")).getText();
-        String companyOnHeader = Driver.getDriver().findElement(By.xpath("//*[@id=\"Header\"]/div/div/div/button/div/table/tbody/tr/td[2]/span[2]")).getText();
+        String company = Driver.getDriver().findElement(COMPANY_NAME_ON_COMPANY_PAGE).getText();
+        String companyOnHeader = Driver.getDriver().findElement(DashboardPage.COMPANY_NAME_ON_DROPDOWN).getText();
         Assert.assertEquals(company, companyOnHeader);
     }
 
@@ -152,6 +159,7 @@ public class DashboardPage {
                 .click();
     }
 
+    //DataTable
     public void checkSideBarLinks(List<Map<String, String>> links) {
         for (Map<String, String> row : links) {
             String linkText = row.get("MenuItem");
