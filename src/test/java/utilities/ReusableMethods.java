@@ -126,6 +126,45 @@ public class ReusableMethods {
         Driver.getDriver().navigate().refresh();
     }
 
+    public static boolean waitForUrlContains(String data) {
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(5));
+        try {
+            return wait.until(ExpectedConditions.urlContains(data));
+        } catch (TimeoutException e) {
+            return false;
+        }
+    }
+    /**
+     * Waits for the page title to contain the given string.
+     */
+    public static boolean waitForVisibilityOfTitle(String string) {
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+        return wait.until(ExpectedConditions.titleContains(string));
+    }
+
+    public static WebElement waitForElementToBeClickable(WebDriver driver, By by, int timeoutSeconds) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSeconds));
+        return wait.until(ExpectedConditions.elementToBeClickable(by));
+    }
+
+    // Belirli bir elemente kaydırma yapar
+    public static void scrollToElement(WebDriver driver, WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+
+    // Sayfanın en altına kaydırır
+    public static void scrollToBottom(WebDriver driver) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+    }
+
+    // Sayfanın en üstüne kaydırır
+    public static void scrollToTop(WebDriver driver) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0, 0);");
+    }
+
 
 
 

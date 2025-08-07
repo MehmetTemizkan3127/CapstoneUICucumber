@@ -6,7 +6,7 @@ Feature: User Module Display
     And User clicks login link
     And user logins as "username1" with password "password1"
     And user clicks on maximize icon
-    And user clicks on Users
+    And go to userPage
 
   @US_015  @UsersPageAssertionScenario   @Regression
   Scenario: User opens Users Page

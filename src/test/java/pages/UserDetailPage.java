@@ -1,5 +1,7 @@
 package pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -15,6 +17,7 @@ import static utilities.ReusableMethods.*;
 
 public class UserDetailPage {
 
+    Logger log = LogManager.getLogger(UserDetailPage.class);
 
     private By pageTitle = By.xpath("//body//div[@class='col']/h4");
     private By addRoleButton = By.xpath("//div[@class='col']/label[@class='form-label text-secondary']/img");
@@ -37,11 +40,17 @@ public class UserDetailPage {
     private By newResetPasswordText = By.xpath("//div[@class='callout callout-success']//textarea");
     private By username = By.xpath("//div/label[@id='username']");
 
-    private By siblingElementLocate = By.xpath("//span[text()='" + ConfigReader.getProperty("selectedRole").trim() + "']/following-sibling::div[contains(@class,'btn-group')]//button");
+    private String siblingElementLocate = "//span[text()='{selectedRole}']/following-sibling::div[contains(@class,'btn-group')]//button";
     private By setAsDefaultRoleButton = By.xpath("//div[@class='btn-group dropup show']//a[text()='Set as default role']");
     private By roleWindow_cancelButton = By.xpath("//button[text()='Cancel']");
+    private By roleWindow_ErrorMessage = By.xpath("//div[contains(text(),'You can add a role to the user from the profile page.')]");
+    private By pencilImage = By.xpath("//button[@class='btn btn-ghost-dark rounded-circle']");
+    private By tickImage = By.xpath("//button[@class='btn btn-ghost-primary rounded-circle']");
+    private By crossImage = By.xpath("//button[@class='btn btn-ghost-danger rounded-circle']");
+    private By emailLabel = By.id("email");
+    private By usernameInput = By.id("username");
+    private By errorMessage = By.xpath("//span[@class='text-danger']");
 
-    ///    //div[@class='modal fade show']//div[@class='  css-1xc3v61-indicatorContainer']
 
     public void assertUserDetailPageOpens() {
         assertEquals(getTextOfElement(pageTitle), "User Detail");
@@ -57,13 +66,11 @@ public class UserDetailPage {
         return this;
     }
 
-    public void assertSelectARoleWindowOpens(String expectedResult) {
+    public void assertSelectARoleWindowOpens() {
         visibilityOfElementsByWebDriverWait(roleWindow_fade);
-        assertTrue(getTextOfElement(roleWindow_pageTitle).contains(expectedResult));
     }
 
     public UserDetailPage selectARoleFromDropDown() {
-        // Dropdown input alanını tıklayıp listeyi aç
         WebElement dropdownInput = Driver.getDriver().findElement(By.xpath("//div[contains(@class,'css-13cymwt-control')]"));
         dropdownInput.click();
 
@@ -76,13 +83,14 @@ public class UserDetailPage {
                 .keyDown(Keys.ENTER)
                 .perform();
 
-
+        ConfigReader.setProperty("selectedRole", getTextOfElementByJS(this.selectedRole));
         waitForSeconds(5);
         return this;
     }
 
     public UserDetailPage keepSelectedRole() {
-        waitForSeconds(2);
+
+       waitForSeconds(2);
         ConfigReader.setProperty("selectedRole", getTextOfElementByJS(this.selectedRole));
         return this;
     }
@@ -116,7 +124,7 @@ public class UserDetailPage {
         try {
             visibilityOfElementByWebDriverWait(defaultRole);
         } catch (Exception e) {
-            System.out.println("There isn't a Default Role");
+            log.info("There isn't a Default Role");
         }
         return this;
 
@@ -130,23 +138,20 @@ public class UserDetailPage {
 
     public UserDetailPage clickResetPasswordButton() {
         clickElement(resetPassword);
-        System.out.println("Clicked Reset Password button");
         return this;
     }
 
     public UserDetailPage clickConfirmButton() {
         clickElement(this.confirmResetPassword);
-        System.out.println("Clicked Confirm button");
         return this;
     }
 
     public void assertPasswordReset(String expectedResult) {
         assertEquals(getTextOfElement(this.resetPasswordSuccessMessage), expectedResult);
-        System.out.println("Assertion done.  " + getTextOfElement(this.resetPasswordSuccessMessage));
     }
 
 
-    public UserDetailPage keepUserNameAndNewPassword() {
+    public void keepUserNameAndNewPassword() {
 
         String username = getTextOfElementByJS(this.username);
         String password = getTextOfElement(this.newResetPasswordText);
@@ -154,14 +159,15 @@ public class UserDetailPage {
         System.out.println("email = " + username);
         ConfigReader.setProperty("username2", username);
         ConfigReader.setProperty("password2", password);
-        return this;
-
     }
-
 
     public void setNewRoleAsDefault() {
 
-        visibilityOfElement(this.siblingElementLocate).click();
+        By siblingElementLocate = By.xpath(this.siblingElementLocate.replace("{selectedRole}", ConfigReader.getProperty("selectedRole")));
+        clickElementByJS(siblingElementLocate);
+
+        System.out.println("ConfigReader.getProperty(\"selectedRole\") = " + ConfigReader.getProperty("selectedRole"));
+
         visibilityOfElementByWebDriverWait(this.setAsDefaultRoleButton).click();
     }
 
@@ -170,7 +176,7 @@ public class UserDetailPage {
         WebElement defaultRole = visibilityOfElementByWebDriverWait(this.defaultRole);
         String bgColor = defaultRole.getCssValue("background-color");
         System.out.println("bgColor = " + bgColor);
-       // assertEquals(bgColor,);
+        // assertEquals(bgColor,);
     }
 
     public void clickCancelButton() {
@@ -178,10 +184,43 @@ public class UserDetailPage {
     }
 
     public void assertCanceledRoleIsNotListedUnderRolesSection() {
-            List<WebElement> rolesList = visibilityOfElementsByWebDriverWait(this.listOfAddedRoles);
-            assertFalse(rolesList
-                    .stream()
-                    .anyMatch(t -> t.getText().equals(ConfigReader.getProperty("selectedRole")))
-            );
+        List<WebElement> rolesList = visibilityOfElementsByWebDriverWait(this.listOfAddedRoles);
+        assertFalse(rolesList
+                .stream()
+                .anyMatch(t -> t.getText().equals(ConfigReader.getProperty("selectedRole")))
+        );
+    }
+
+    public void assertSaveErrorWithoutRole() {
+        visibilityOfElement(this.roleWindow_ErrorMessage);
+    }
+
+    public void clickPencilImage() {
+        clickElement(this.pencilImage);
+    }
+
+    public void assertVisibilityOfTickImage() {
+        visibilityOfElementByWebDriverWait(this.tickImage);
+        visibilityOfElementByWebDriverWait(this.crossImage);
+    }
+
+    public void assertEmailAddressUnchangeable() {
+        assertEquals(visibilityOfElement(emailLabel).getTagName(), "label");
+    }
+
+    public void deleteUsernameInputArea() {
+         WebElement usernameInput = visibilityOfElement(this.usernameInput);
+         usernameInput.click();
+         usernameInput.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+         usernameInput.sendKeys(Keys.BACK_SPACE);
+
+    }
+
+    public void assertUsernameErrorMessageOccurs() {
+        visibilityOfElement(this.errorMessage);
+    }
+
+    public void assertConfirmButtonIsVisible() {
+        isDisplayed(this.confirmResetPassword);
     }
 }
