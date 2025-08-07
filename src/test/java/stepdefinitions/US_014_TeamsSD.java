@@ -5,7 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.AllPages;
 
-public class US_0014_TeamsSD {
+public class US_014_TeamsSD {
 
     AllPages pages =new AllPages();
 
