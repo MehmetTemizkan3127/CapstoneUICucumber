@@ -1,13 +1,11 @@
 package pages;
 
 import lombok.Getter;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utilities.Driver;
 import utilities.ReusableMethods;
 
 import java.time.Duration;
@@ -15,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static utilities.Driver.getDriver;
 
 //T****
 @Getter
@@ -44,10 +41,10 @@ public class NewDepartmentPage {
 
 
     //Object and Variables******************
+    private WebDriver driver = Driver.getDriver();
     private String savedDepartmentName;
     public static String staticName;
     private int expectedRoleCount = 0;
-    final private WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10)); //intelij final önerdi:)
     final private Actions actions = new Actions(getDriver());
     final private AllPages pages = new AllPages();
 
@@ -143,12 +140,14 @@ public class NewDepartmentPage {
     }
 
     public boolean isMessageDisplayed(By by, String message) {
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
         wait.until(ExpectedConditions.textToBePresentInElement(getDriver().findElement(by), message));
         return getDriver().findElement(by).getText().equals(message);
     }
 
     public boolean isRoleCountMatched() {  // yeni creat edilen department'a eklenen rol sayisi ile dep. icindeki rol sayisinin esitligini dogrular
-        ReusableMethods.clickElement(pages.getDepartmentsPage().getDepartmentsButton());
+        pages.getDashboardPage().clickOnMenuItem("Departments");
+        //ReusableMethods.clickElement(pages.getDepartmentsPage().getDepartmentsButton());
         ReusableMethods.waitForSeconds(2);
         List<WebElement> rolesList = new ArrayList<>();
         for (WebElement w : getDriver().findElements(pages.getDepartmentsPage().getAllDepartmentNames())) {
