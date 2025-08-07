@@ -109,7 +109,7 @@ Feature: Teams Modules Process
     And write to this "mertay" word in department name area
     Then real click to Save button with error assertion
 
-  @RegressionTest @SmokeTest
+  @RegressionTest @SmokeTest @SmokeDemo
   Scenario:TC_0014_25 needs to see this message is visible->New department successfully created
     When real click to department name button
     And write to this "mertay" word in department name area
