@@ -1,6 +1,6 @@
 @US_0011
 Feature:AddNew Remote Unit Page
-  @AddNew_Remote_Unit_Page
+  @AddNew_Remote_Unit_Page @SmokeDemo
   Scenario: US_11 Add New Remote Units Process
     Given user goes to homepage
     When user clicks on Login button
