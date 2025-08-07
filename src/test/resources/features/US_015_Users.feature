@@ -1,4 +1,4 @@
-@UserDisplayFeature   @Regression @Fatma
+@Fatma @US_015
 Feature: User Module Display
 
   Background: User logs in application
@@ -6,28 +6,28 @@ Feature: User Module Display
     And User clicks login link
     And user logins as "username1" with password "password1"
     And user clicks on maximize icon
-    And go to userPage
+    And User goes to userPage
 
-  @US_015  @UsersPageAssertionScenario   @Regression
+  @TC_015_01  @UsersPageAssertionScenario  @Regression
   Scenario: User opens Users Page
     Then verify that  page opened
 
-  @US_015  @UserlistAssertionScenario   @Regression
+  @TC_015_02  @UserlistAssertionScenario  @Regression
   Scenario: User checks visibility of users list
     Then verify userList exists
 
-  @US_015  @Emaillistassertion   @Regression
+  @TC_015_03  @Emaillistassertion  @Regression
   Scenario: User checks visibility of email of each user data
     Then verify each user has an email
 
-  @US_015  @Sincelistassertion   @Regression
+  @TC_015_04  @Sincelistassertion  @Regression
   Scenario: User checks visibility of email of each user data
     Then Verify that each user has a visible since date
 
-  @US_015  @AccessTypelistassertion   @Regression
+  @TC_015_05  @AccessTypelistassertion  @Regression
   Scenario: User checks visibility of email of each user data
     Then Verify that each user has a visible access type
 
-  @US_015  @Statuslistassertion   @Regression
+  @TC_015_06  @Statuslistassertion  @Regression
   Scenario: User checks visibility of email of each user data
     Then Verify that each user has a visible status

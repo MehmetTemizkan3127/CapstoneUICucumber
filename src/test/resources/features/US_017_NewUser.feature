@@ -1,4 +1,4 @@
-@AddNewUserFeature @Fatma
+@Fatma @US_017
 Feature: New User
 
   Background: User logs in application
@@ -6,20 +6,20 @@ Feature: New User
     And User clicks login link
     And user logins as "username1" with password "password1"
     And user clicks on maximize icon
-    And go to userPage
+    And User goes to userPage
 
-  @NewRegistrationPageOpens   @Regression
+  @TC_017_01  @NewRegistrationPageOpens  @Regression
   Scenario: Does New User Registration page open
     Given User clicks Add New Member button
     Then Verify that title "New User Registration" is seen
 
-  @NewRegistrationWithoutData
+  @TC_017_02  @NewRegistrationWithoutData  @Regression
   Scenario: Attempt to create a new member without any data
     Given User clicks Add New Member button
     When User clicks Register button
     Then Verify that role error message "Please select a role for the user you will add" is occured
 
-  @NewRegistrationWithoutOrWithInvalidEmail
+  @TC_017_03  @NewRegistrationWithoutOrWithInvalidEmail  @Regression
   Scenario Outline: Attempt to create a new member without an email
     Given User clicks Add New Member button
     When User selects a role from Roles dropdown menu
@@ -34,8 +34,7 @@ Feature: New User
       | @asd.com |
 
 
-    #todo  ->   existed mail listesi çoğaltılabilir
-  @NewRegistrationWithRegisteredEmail
+  @TC_017_03  @NewRegistrationWithRegisteredEmail  @Regression
   Scenario Outline: Attempt to create a new member with an existed/registered email
     Given User clicks Add New Member button
     When User selects a role from Roles dropdown menu
@@ -48,7 +47,7 @@ Feature: New User
       | fatmapostaci@gmail.com |
 
 
-  @NewRegistrationWithValidCredentials   @Regression   @Smoke
+  @TC_017_04  @NewRegistrationWithValidCredentials  @Regression  @Smoke  @SmokeDemo
   Scenario: Create a new member with an acceptable data in all areas
     Given User clicks Add New Member button
     When User selects a department from Deparments dropdown menu
@@ -59,7 +58,7 @@ Feature: New User
     Then Verify that register succesful message "Successful" is occured
 
 
-  @DoesCancelButtonWorks   @Regression
+  @TC_017_05  @DoesCancelButtonWorks  @Regression
   Scenario:  Does Cancel button works
     Given User clicks Add New Member button
     And User selects a department from Deparments dropdown menu
@@ -69,7 +68,7 @@ Feature: New User
     Then Verify that window closed without saving
 
 
-  @NewRegistrationWithValidCredentials   @Smoke
+  @TC_017_06  @NewRegistrationWithValidCredentials  @Smoke  @Regression
     Scenario: Login with new registered member
     Given User logs out
     And User clicks login link

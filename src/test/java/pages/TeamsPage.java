@@ -7,9 +7,6 @@ import utilities.ReusableMethods;
 
 import java.util.List;
 
-import static java.lang.StringTemplate.STR;
-import static org.yaml.snakeyaml.nodes.Tag.STR;
-
 public class TeamsPage {
 
 
@@ -27,7 +24,7 @@ public TeamDetailPage TeamsTitleTextsClick(){
   if (Driver.getDriver().findElement(TeamsTitleTexts).getText().equals("mertay")) {
     ReusableMethods.clickElement(TeamsTitleTexts);
   }else {
-//    System.out.println(STR."\{Driver.getDriver().findElement(TeamsTitleTexts).getText()}this title not equals mertay for this reason try again..");
+    System.out.println(STR."\{Driver.getDriver().findElement(TeamsTitleTexts).getText()}this title not equals mertay for this reason try again..");
   }
 
 return new TeamDetailPage();
