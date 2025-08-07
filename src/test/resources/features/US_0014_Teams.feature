@@ -97,7 +97,9 @@ Feature: Teams Modules Process
 
   @RegressionTest @SmokeTest
   Scenario:TC_0014_23 need to see this error message -> Please enter a name for department
-    When real click to department type dropdown menu
+    When real click to department name button
+    And write to this "" word in department name area
+    And real click to department type dropdown menu
     And select to team
     Then real click to Save button with error assertion
 
@@ -115,7 +117,7 @@ Feature: Teams Modules Process
     And select to team
     Then real click to Save button with true assertion
 
-  @RegressionTest @SmokeTest
+  @RegressionTest @SmokeTest @Bug
   Scenario:TC_0014_26 needs to see this message is visible->New department successfully created
     When write to "mertay" to search by name button
     And click to mertay tittle
