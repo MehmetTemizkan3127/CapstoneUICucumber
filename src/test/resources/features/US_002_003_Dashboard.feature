@@ -1,5 +1,4 @@
 @Dashboard
-@Regression
 Feature: Dashboard Feature
 
 
@@ -8,18 +7,21 @@ Feature: Dashboard Feature
     And User clicks login link
     And user logins as "usernameAzize" with password "passwordAzize"
 
-  @TC_0002_01
+
+  @TC_0002_01  @Regression
   Scenario: Logo Display Test
     When logo is visible
     Then logo is enabled
 
-  @TC_0002_02
+
+  @TC_0002_02  @Regression
   Scenario: Logo Redirects Test
     When go to userPage
     And clicks on Logo
     Then user sees Home Page
 
-  @TC_0002_03
+
+  @TC_0002_03   @Regression
   Scenario: Minimized Sidebar Test
     When user sees sidebar
     And user clicks on maximize icon
@@ -27,7 +29,8 @@ Feature: Dashboard Feature
     And clicks on minimize icon
     And user sees minimized Sidebar
 
-  @Sidebar
+
+  @Sidebar @Regression
   Scenario: User navigates to each page from the sidebar
     When user clicks on maximize icon
     And user clicks on MenuItem from the sidebar and sees the BreadCrumb page
@@ -46,32 +49,32 @@ Feature: Dashboard Feature
       | Access Tokens    | Access Tokens    |
 
 
-  @DropDown
+  @DropDown @Regression
   @TC_0003_01
   Scenario: User sees their email, role and company in dropdown
     When The user clicks on the profile image
     Then The dropdown menu should display the user's email and role
     And The dropdown menu should display the user's company
 
-  @TC_0003_02
+  @TC_0003_02  @Regression
   Scenario: User navigates to My Subscriptions from dropdown
     When The user clicks on the profile image
     And The user clicks on the "My Subscriptions" option
     Then The user should be redirected to the "My Subscriptions" page
 
-  @TC_0003_03
+  @TC_0003_03  @Regression
   Scenario: User navigates to My Memberships from dropdown
     When The user clicks on the profile image
     And The user clicks on the "My Memberships" option
     Then The user should be redirected to the "My Memberships" page
 
-  @TC_0003_04
+  @TC_0003_04  @Regression
   Scenario: User logs out from dropdown
     When The user clicks on the profile image
     And The user clicks on the "Logout" option
     Then The user should be redirected to the Login page
 
-  @UserDetailsCheck
+  @UserDetailsCheck  @Regression
   Scenario: User sees their email, role and company in dropdown menu
     Then user sees own avatar
     And user sees own username and role
