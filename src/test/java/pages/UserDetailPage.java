@@ -197,6 +197,7 @@ public class UserDetailPage {
 
     public void clickPencilImage() {
         clickElementByJS(this.pencilImage);
+
     }
 
     public void assertVisibilityOfTickImage() {
