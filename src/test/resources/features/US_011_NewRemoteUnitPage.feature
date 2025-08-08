@@ -1,4 +1,4 @@
-@US_0011
+@US_0011 @RemoteUnits @Regression
 Feature: AddNew Remote Unit Page
 
   Background:Login
