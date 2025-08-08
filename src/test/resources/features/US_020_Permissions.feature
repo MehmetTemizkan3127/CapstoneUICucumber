@@ -1,4 +1,4 @@
-@PermissionsTest @US20Test @Regression @MehmetTest @Smoke
+@PermissionsTest @US20Test @Regression @US18_19_20
 Feature: Listing and visibility of roles on the Roles page
 
   Background: Authorized user logs into the system and navigates to Roles page
