@@ -1,4 +1,4 @@
-@US_0012
+@US_0012 @RemoteUnits @Regression
 Feature: US_12 -Edit the units displayed in the Remote Unit module.
 
 

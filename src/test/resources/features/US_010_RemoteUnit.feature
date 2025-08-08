@@ -1,4 +1,4 @@
-@US_0010
+@US_0010 @Regression
 Feature:  displayed remote units
 
   Background:Login
