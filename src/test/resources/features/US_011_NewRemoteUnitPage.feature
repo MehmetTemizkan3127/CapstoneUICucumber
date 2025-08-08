@@ -7,7 +7,7 @@ Feature: AddNew Remote Unit Page
     And the user enters a valid "usuario" username in the username field
     And the user enters a valid "clave" password in the Password field
     And the user clicks on the Sign in button
-  @TC_001_01 @Smoke
+  @TC_001_01 @SmokeDemo
     Scenario: TC_011_01
     And user clicks the Remote Units  menu
     And the user clicks on the Add New Remote Unit button
