@@ -12,19 +12,19 @@ public class TeamsPage {
 
   private final By MainTeamsButton = By.xpath("//a[normalize-space()='Teams']");
   private final By MenuWider = By.xpath("//div[@id='divCollapseUncollapse']//*[name()='svg']");
-  private final By AddNewTeamButton = By.xpath("//button[@class='btn btn-info float-end text-white']");
+  private final By addNewTeamButton = By.xpath("//button[@class='btn btn-info float-end text-white']");
   private final By PageTeamTittle = By.xpath("//button[@class='btn btn-info float-end text-white']");
-  private final By SearchByNameInputBox = By.xpath("//input[@id=\"search\"]");
-  private final By ClearFiltersButton = By.xpath("//button[normalize-space()='Clear Filters']");
-  private final By TeamsTitleTexts = By.xpath("//div[@id='MainContent']//div[2]//div[1]//div[1]//p[1]//div[1]//div[2]//a[1]//b[1]");
+  private final By searchByNameInputBox = By.xpath("//input[@id=\"search\"]");
+  private final By clearFiltersButton = By.xpath("//button[normalize-space()='Clear Filters']");
+  private final By teamsTitleTexts = By.xpath("//div[@id='MainContent']//div[2]//div[1]//div[1]//p[1]//div[1]//div[2]//a[1]//b[1]");
 
 
 public TeamDetailPage TeamsTitleTextsClick(){
 
-  if (Driver.getDriver().findElement(TeamsTitleTexts).getText().equals("mertay")) {
-    ReusableMethods.clickElement(TeamsTitleTexts);
+  if (Driver.getDriver().findElement(teamsTitleTexts).getText().equals("mertay")) {
+    ReusableMethods.clickElement(teamsTitleTexts);
   }else {
-    System.out.println(STR."\{Driver.getDriver().findElement(TeamsTitleTexts).getText()}this title not equals mertay for this reason try again..");
+    System.out.println(STR."\{Driver.getDriver().findElement(teamsTitleTexts).getText()}this title not equals mertay for this reason try again..");
   }
 
 return new TeamDetailPage();
@@ -43,25 +43,25 @@ return new TeamDetailPage();
 
   }*/
 
-  public void MenuWiderClick(){ //When you click this method getting wide to main menu
+  public void menuWiderClick(){ //When you click this method getting wide to main menu
     Driver.getDriver().findElement(MenuWider).click();
   }
 
-  public void MainTeamsButtonClick(){ //When you use this method that means click to main menu teams button
+  public void mainTeamsButtonClick(){ //When you use this method that means click to main menu teams button
     ReusableMethods.clickElementByJS(MainTeamsButton);
   }
 
 
   public boolean MainTeamsButtonIsAppear() { //Checking to main menu teams button visibility
 
-    MenuWiderClick();
+    menuWiderClick();
     return ReusableMethods.isDisplayed(MainTeamsButton);
 
   }
 
   public boolean MainTeamsButtonIsClickable() {
 
-    MenuWiderClick();
+    menuWiderClick();
     return ReusableMethods.isClickableByWebDriverWait(MainTeamsButton);
 
   }
@@ -69,28 +69,28 @@ return new TeamDetailPage();
 
   public boolean AddNewTeamButtonIsAppear(){
 
-    MenuWiderClick();
-    MainTeamsButtonClick();
+    menuWiderClick();
+    mainTeamsButtonClick();
 
-    return ReusableMethods.isDisplayed(AddNewTeamButton);
+    return ReusableMethods.isDisplayed(addNewTeamButton);
 
   }
 
   public boolean AddNewTeamButtonIsClickable(){
 
-    MenuWiderClick();
-    MainTeamsButtonClick();
+    menuWiderClick();
+    mainTeamsButtonClick();
 
-    return ReusableMethods.isClickableByWebDriverWait(AddNewTeamButton);
+    return ReusableMethods.isClickableByWebDriverWait(addNewTeamButton);
 
   }
 
-  public NewTeamPage AddNewTeamButtonClick(){
+  public NewTeamPage addNewTeamButtonClick(){
 
-    MenuWiderClick();
-    MainTeamsButtonClick();
+    menuWiderClick();
+    mainTeamsButtonClick();
 
-    ReusableMethods.clickElement(AddNewTeamButton);
+    ReusableMethods.clickElement(addNewTeamButton);
 
     return new NewTeamPage();
 
@@ -98,8 +98,8 @@ return new TeamDetailPage();
 
   public boolean TeamTittleVisibility(){
 
-    MenuWiderClick();
-    MainTeamsButtonClick();
+    menuWiderClick();
+    mainTeamsButtonClick();
 
     return ReusableMethods.isDisplayed(PageTeamTittle);
 
@@ -107,78 +107,78 @@ return new TeamDetailPage();
 
   public boolean SearchByNameInputBoxIsClickable(){
 
-    MenuWiderClick();
-    MainTeamsButtonClick();
+    menuWiderClick();
+    mainTeamsButtonClick();
 
-    return ReusableMethods.isClickableByWebDriverWait(SearchByNameInputBox);
+    return ReusableMethods.isClickableByWebDriverWait(searchByNameInputBox);
 
   }
 
   public boolean SearchByNameInputBoxIsAppear(){
 
-    MenuWiderClick();
-    MainTeamsButtonClick();
+    menuWiderClick();
+    mainTeamsButtonClick();
 
-    return ReusableMethods.isDisplayed(SearchByNameInputBox);
+    return ReusableMethods.isDisplayed(searchByNameInputBox);
 
   }
 
   public boolean ClearFiltersButtonISAppear(){
 
-    MenuWiderClick();
-    MainTeamsButtonClick();
+    menuWiderClick();
+    mainTeamsButtonClick();
 
-    return ReusableMethods.isDisplayed(ClearFiltersButton);
+    return ReusableMethods.isDisplayed(clearFiltersButton);
 
   }
 
   public boolean ClearFiltersButtonISClickable(){
 
-    MenuWiderClick();
-    MainTeamsButtonClick();
+    menuWiderClick();
+    mainTeamsButtonClick();
 
-    return ReusableMethods.isClickableByWebDriverWait(ClearFiltersButton);
+    return ReusableMethods.isClickableByWebDriverWait(clearFiltersButton);
 
   }
 
-  public TeamsPage TheSearchBoxSendKeys(String arg){
+  public TeamsPage theSearchBoxSendKeys(String arg){
 
-    MenuWiderClick();
-    MainTeamsButtonClick();
-    ReusableMethods.clickElementByJS(SearchByNameInputBox);
-    Driver.getDriver().findElement(SearchByNameInputBox).sendKeys(arg);
+    menuWiderClick();
+    mainTeamsButtonClick();
+    ReusableMethods.clickElementByJS(searchByNameInputBox);
+    Driver.getDriver().findElement(searchByNameInputBox).sendKeys(arg);
     ReusableMethods.waitForSeconds(2);
 
     return this;
 
   }
 
-  public TeamsPage ClearFiltersButtonClick(){
+  public TeamsPage clearFiltersButtonClick(){
 
-    ReusableMethods.clickElementByJS(ClearFiltersButton);
+    ReusableMethods.clickElementByJS(clearFiltersButton);
 
     return this;
 
   }
 
-  public String TheSearchBoxGetAttribute(){
+  public String theSearchBoxGetAttribute(){
 
-   return  Driver.getDriver().findElement(SearchByNameInputBox).getAttribute("value");
+   return  Driver.getDriver().findElement(searchByNameInputBox).getAttribute("value");
 
   }
 
   public boolean TheSearchBoxShouldBeClean(){
 
-    MenuWiderClick();
-    MainTeamsButtonClick();
-    TheSearchBoxSendKeys("IT");
-    ClearFiltersButtonClick();
-      return TheSearchBoxGetAttribute().isEmpty();
+    menuWiderClick();
+    mainTeamsButtonClick();
+    theSearchBoxSendKeys("IT");
+    clearFiltersButtonClick();
+      return theSearchBoxGetAttribute().isEmpty();
 
   }
 
-  public boolean TitlesAreContain1(String arg1){
-    List<WebElement> titles = Driver.getDriver().findElements(TeamsTitleTexts);
+  public boolean titlesAreContain1(String arg1){
+    List<WebElement> titles = Driver.getDriver().findElements(teamsTitleTexts);
 
     return titles.stream()
             .map(WebElement::getText)
