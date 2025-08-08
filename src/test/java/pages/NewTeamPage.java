@@ -34,7 +34,7 @@ public class NewTeamPage {
     private final By nameErrorMessage =By.xpath("//span[@class='text-danger']");
     private final By acceptedMessage =By.xpath("//div[@class='toast-body']");
     private final By searchByNameButton =By.xpath("//input[@id='search']");
-    private final By firstMertayTitle =By.xpath("//body//div[@id='root']//div[@class='row']//div[@class='row']//div[1]//div[1]//div[1]//p[1]//div[1]//div[2]//a[1]//b[1]");
+    private final By firstMertayTitle =By.xpath("//div[@id='MainContent']//div[2]//div[1]//div[1]//p[1]//div[1]//div[2]//a[1]//b[1]");
 
 
 

@@ -48,7 +48,7 @@ public class TeamDetailPage {
     }
 
     public boolean AddedSuccesTextMessageAssert(){
-
+        ReusableMethods.waitForSeconds(5);
       return ReusableMethods.isDisplayed(AddedSuccesText);
 
 

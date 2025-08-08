@@ -16,7 +16,7 @@ public class TeamsPage {
   private final By PageTeamTittle = By.xpath("//button[@class='btn btn-info float-end text-white']");
   private final By SearchByNameInputBox = By.xpath("//input[@id=\"search\"]");
   private final By ClearFiltersButton = By.xpath("//button[normalize-space()='Clear Filters']");
-  private final By TeamsTitleTexts = By.xpath("//b");
+  private final By TeamsTitleTexts = By.xpath("//div[@id='MainContent']//div[2]//div[1]//div[1]//p[1]//div[1]//div[2]//a[1]//b[1]");
 
 
 public TeamDetailPage TeamsTitleTextsClick(){
