@@ -5,7 +5,7 @@ Feature: Login Feature
     Given user goes to homepage
     And User clicks login link
 
-  @SmokeDemo @Regression
+  @SmokeDemo @Regression @Smoke
   @PositiveLogin
   Scenario: Successful login with valid credentials
     When user enters email "azizetest@gmail.com"
@@ -13,14 +13,14 @@ Feature: Login Feature
     And user clicks on Login Button
     Then user validates sign in
 
-  @NegativeLogin  @Regression
+  @NegativeLogin  @Regression  @Smoke
   Scenario: Login attempt with invalid password
     When user enters email "azizetest@gmail.com"
     And user enters password "invalidPAss"
     And user clicks on Login Button
     Then user validates error message "Invalid Credentials"
 
-  @NegativeLogin  @Regression
+  @NegativeLogin  @Regression  @Smoke
   Scenario: Login attempt with invalid username
     When user enters email "invalid@gmail.com"
     And user enters password "yHQ_aWYbs1yJtJm"

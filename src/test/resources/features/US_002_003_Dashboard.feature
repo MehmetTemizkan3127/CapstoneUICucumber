@@ -8,13 +8,13 @@ Feature: Dashboard Feature
     And user logins as "usernameAzize" with password "passwordAzize"
 
 
-  @TC_0002_01  @Regression
+  @TC_0002_01  @Regression @Smoke
   Scenario: Logo Display Test
     When logo is visible
     Then logo is enabled
 
 
-  @TC_0002_02  @Regression
+  @TC_0002_02  @Regression @Smoke
   Scenario: Logo Redirects Test
     When go to userPage
     And clicks on Logo
@@ -68,7 +68,7 @@ Feature: Dashboard Feature
     And The user clicks on the "My Memberships" option
     Then The user should be redirected to the "My Memberships" page
 
-  @TC_0003_04  @Regression
+  @TC_0003_04  @Regression @Smoke
   Scenario: User logs out from dropdown
     When The user clicks on the profile image
     And The user clicks on the "Logout" option
