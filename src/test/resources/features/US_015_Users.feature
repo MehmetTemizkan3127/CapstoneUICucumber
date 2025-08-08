@@ -1,5 +1,5 @@
 @Fatma @US_015
-Feature: User Module Display
+Feature: Users Module Display
 
   Background: User logs in application
     Given user goes to homepage

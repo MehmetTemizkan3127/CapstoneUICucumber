@@ -1,5 +1,5 @@
 @Fatma @US_017
-Feature: New User
+Feature: Users Module NewUser
 
   Background: User logs in application
     Given user goes to homepage
