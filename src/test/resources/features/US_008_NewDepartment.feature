@@ -1,4 +1,4 @@
-@NewDepartment
+@NewDepartment @AllDepartments
 Feature: New Department Feature
 #T****
   Background: User goes to homepage
@@ -60,6 +60,10 @@ Feature: New Department Feature
     And Select a departmant role
     And Click save button
     Then user verifies that the message 'New department successfully created' is not displayed
+
+  @deleteDepartment
+  Scenario: Delete Department
+    Then delete the created department
 
   @TC_008_06 @Regression
   Scenario: TC_08_06 Verifying that more than one role can be added to a newly created department
@@ -160,7 +164,4 @@ Feature: New Department Feature
     And Click cancel
     Then Verify that edit button is visible
 
-  @deleteDepartment
-  Scenario: Delete Department
-    Then delete the created department
 
