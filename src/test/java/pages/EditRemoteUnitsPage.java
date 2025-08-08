@@ -18,6 +18,4 @@ public class EditRemoteUnitsPage {
     @FindBy(xpath = "//button[@class='btn btn-danger']")
     public WebElement confirmbutton;
 
-
-
 }

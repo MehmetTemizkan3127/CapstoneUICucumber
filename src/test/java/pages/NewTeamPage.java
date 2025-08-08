@@ -17,24 +17,24 @@ public class NewTeamPage {
 
     private final By informationTitle = By.xpath("//h5[normalize-space()='Information']");
     private final By companyTitle = By.xpath("//label[normalize-space()='Company']");
-    private final By companyName = By.xpath("(//span[@class='fw-bold'])[3]");
-    private final By departmentNameTitle = By.xpath("(//span[@class='fw-bold'])[3]");
+    private final By companyName = By.xpath("//span[@class='fw-bold'][normalize-space()='Clarusway Company']");
+    private final By departmentNameTitle = By.xpath("//label[@for='name']");
     private final By departmentNameInput = By.id("name");
     private final By shortNameTitle = By.xpath("//label[@for='short_name']");
     private final By shortNameInput = By.xpath("//label[@for='short_name']");
     private final By departmentTypeTitle = By.xpath("//label[@for='group_type_id']");
-    private final By departmentTypeDropDownMenu = By.xpath("(//div[@class=' css-b62m3t-container'])[1]");
-    private final By departmentTypeDropDownMenuList = By.id("react-select-2-listbox");
-    private final By departmentDescriptionTitle = By.id("//label[@for='description']");
-    private final By departmentDescriptionInput = By.id("//label[@for='description']");
-    private final By rolesTitle = By.id("//label[@for='description']");
-    private final By departmentRolesDropDownMenu = By.id("(//div[@class=' css-b62m3t-container'])[2]");
+    //private final By departmentTypeDropDownMenu = By.xpath("(//div[@class=' css-b62m3t-container'])[1]");
+    private final By departmentTypeDropDownMenu = By.xpath("//div[@id='react-select-2-option-1']");
+    private final By departmentDescriptionTitle = By.xpath("//label[@for='description']");
+    private final By departmentDescriptionInput = By.xpath("//input[@placeholder='Department Description']");
+    private final By rolesTitle = By.xpath("//label[@for='roles']");
+    private final By departmentRolesDropDownMenu = By.xpath("(//div[@class=' css-b62m3t-container'])[2]");
     private final By saveButton = By.xpath("//button[normalize-space()='Save']");
     private final By cancelButton = By.xpath("//button[normalize-space()='Cancel']");
     private final By nameErrorMessage =By.xpath("//span[@class='text-danger']");
     private final By acceptedMessage =By.xpath("//div[@class='toast-body']");
     private final By searchByNameButton =By.xpath("//input[@id='search']");
-    private final By firstMertayTitle =By.xpath("//body//div[@id='root']//div[@class='row']//div[@class='row']//div[1]//div[1]//div[1]//p[1]//div[1]//div[2]//a[1]//b[1]");
+    private final By firstMertayTitle =By.xpath("//div[@id='MainContent']//div[2]//div[1]//div[1]//p[1]//div[1]//div[2]//a[1]//b[1]");
 
 
 

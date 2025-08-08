@@ -5,7 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.AllPages;
 
-public class US_0013_TeamsSD {
+public class US_013_TeamsSD {
 
     AllPages pages = new AllPages();
 
@@ -79,8 +79,8 @@ public class US_0013_TeamsSD {
     @Then("The search box should clean")
     public void theSearchBoxShouldClean() {
         assert pages.getTeamsPage()
-                .ClearFiltersButtonClick()
-                .TheSearchBoxGetAttribute()
+                .clearFiltersButtonClick()
+                .theSearchBoxGetAttribute()
                 .isEmpty();
 
 
@@ -90,7 +90,7 @@ public class US_0013_TeamsSD {
     public void userTypesIntoTheSearchBox(String arg0) {
 
         pages.getTeamsPage()
-                .TheSearchBoxSendKeys(arg0);
+                .theSearchBoxSendKeys(arg0);
 
     }
 
@@ -99,7 +99,7 @@ public class US_0013_TeamsSD {
     public void eachAreaTitleShouldContain(String arg1) {
 
         assert pages.getTeamsPage()
-                .TitlesAreContain1(arg1);
+                .titlesAreContain1(arg1);
     }
 
     @Then("teams title text click")
@@ -151,6 +151,6 @@ public class US_0013_TeamsSD {
     @Then("Added new team button")
     public void addedNewTeamButton() {
 
-        pages.getTeamsPage().AddNewTeamButtonClick();
+        pages.getTeamsPage().addNewTeamButtonClick();
     }
 }

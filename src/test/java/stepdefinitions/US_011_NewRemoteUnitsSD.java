@@ -54,7 +54,7 @@ public class US_011_NewRemoteUnitsSD {
     public void the_user_verifies_that_the_newly_added_remote_unit_displayed_under_remote_units() {
 
 
-        waitForSeconds(3);
+      //  waitForSeconds(3);
         String actualText = newAdd.verifynewremoteunits.getText();
         System.out.println("actualText = " + actualText);
         String expectedDeptName = ConfigReader.getProperty("departmaname");
@@ -62,17 +62,13 @@ public class US_011_NewRemoteUnitsSD {
 
         Assert.assertTrue(actualText.contains(expectedDeptName),
                 "Beklenen metin bulunamadı: " + expectedDeptName);
-        waitForSeconds(1);
+
         newAdd.verifynewremoteunits.click();
-        waitForSeconds(1);
-        //newAdd.editbutton.click();
         waitForSeconds(2);
         System.out.println("Driver.getDriver().getCurrentUrl() = " + Driver.getDriver().getCurrentUrl());
-        Driver.getDriver().navigate().refresh();
-        waitForSeconds(3);
-       // newAdd.deletebutton.click();
-      //  waitForSeconds(2);
-       // newAdd.confirmbutton.click();
+        //Driver.getDriver().navigate().refresh();
+
+
 
 
     }

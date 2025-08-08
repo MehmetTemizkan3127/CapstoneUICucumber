@@ -1,12 +1,14 @@
-@US_0011
-Feature:AddNew Remote Unit Page
-  @AddNew_Remote_Unit_Page
-  Scenario: US_11 Add New Remote Units Process
+@US_0011 @RemoteUnits @Regression
+Feature: AddNew Remote Unit Page
+
+  Background:Login
     Given user goes to homepage
     When user clicks on Login button
     And the user enters a valid "usuario" username in the username field
     And the user enters a valid "clave" password in the Password field
     And the user clicks on the Sign in button
+  @TC_001_01 @SmokeDemo
+    Scenario: TC_011_01
     And user clicks the Remote Units  menu
     And the user clicks on the Add New Remote Unit button
     And the user enters Department Name
