@@ -1,4 +1,4 @@
-@RolesTest @US18Test @Regression @MehmetTest @Smoke
+@RolesTest @US18Test @Regression @US18_19_20
 Feature: Listing and visibility of roles on the Roles page
 
   Background: Authorized user logs into the system and navigates to Roles page
@@ -10,7 +10,7 @@ Feature: Listing and visibility of roles on the Roles page
       | MenuItem | BreadCrumb |
       | Roles    | Roles      |
 
-  @SmokeDemo
+  @Smoke @SmokeDemo
   Scenario: TC_018_001 List all roles on the Roles page
     Then the list of all roles should be visible on the Roles page
 
