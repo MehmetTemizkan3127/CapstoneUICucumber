@@ -42,7 +42,7 @@ mvn install
 
 Download the appropriate WebDriver for your browser (e.g., ChromeDriver) and place it in a directory included in your system's PATH.
 
-Run Tests:
+**Run Tests:**
 
 To execute tests using Cucumber:
 
