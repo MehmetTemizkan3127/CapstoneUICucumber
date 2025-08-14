@@ -1,12 +1,12 @@
-CapstoneUICucumber
+**CapstoneUICucumber**
 
 A Java-based UI automation framework utilizing Cucumber for Behavior-Driven Development (BDD) and Selenium WebDriver for browser interactions.
 
-📌 Project Overview
+📌 **Project Overview**
 
 CapstoneUICucumber is designed to facilitate automated UI testing using Cucumber's Gherkin syntax for writing human-readable test scenarios. The framework integrates with Selenium WebDriver to perform browser automation, enabling efficient and maintainable testing practices.
 
-🛠️ Technologies Used
+🛠️ **Technologies Used**
 
 Java: Primary programming language for test implementation.
 
@@ -17,7 +17,7 @@ Selenium WebDriver: For browser automation.
 Maven: For project dependency management and build automation.
 
 
-📁 Project Structure
+📁 **Project Structur**e
 CapstoneUICucumber/
 │
 ├── src/
@@ -30,7 +30,7 @@ CapstoneUICucumber/
 └── pom.xml                  # Maven project file
 
 
-⚙️ Setup & Installation
+⚙️ **Setup & Installation**
 
 Clone the repository:
 
@@ -45,7 +45,7 @@ Ensure you have Maven installed. Then, run:
 mvn install
 
 
-Configure WebDriver:
+**Configure WebDriver:**
 
 Download the appropriate WebDriver for your browser (e.g., ChromeDriver) and place it in a directory included in your system's PATH.
 
@@ -55,12 +55,12 @@ To execute tests using Cucumber:
 
 mvn test
 
-🧪 Writing Tests
+🧪** Writing Tests**
 
 Feature Files: Located in src/test/resources/features/, these files contain Gherkin syntax scenarios.
 
 Step Definitions: Implemented in Java classes within src/test/java/stepdefinitions/, mapping Gherkin steps to Selenium actions.
 
-🔧 Configuration
+🔧** Configuration**
 
 configuration.properties: Contains environment-specific settings such as base URLs and browser configurations.
