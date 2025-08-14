@@ -17,17 +17,9 @@ Selenium WebDriver: For browser automation.
 Maven: For project dependency management and build automation.
 
 
-📁 **Project Structur**e
-CapstoneUICucumber/
-│
-├── src/
-│   ├── main/java/           # Java source files
-│   └── test/java/           # Test source files
-│       └── stepdefinitions/ # Step definition classes
-│
-├── .gitignore               # Git ignore file
-├── configuration.properties # Configuration settings
-└── pom.xml                  # Maven project file
+📁 **Project Structure**
+
+<img width="358" height="419" alt="image" src="https://github.com/user-attachments/assets/88f4e2f0-9fc8-4bdf-9903-1290d2ea9f3a" />
 
 
 ⚙️ **Setup & Installation**
