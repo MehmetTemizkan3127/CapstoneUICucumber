@@ -48,12 +48,12 @@ To execute tests using Cucumber:
 
 mvn test
 
-🧪** Writing Tests**
+🧪 ** Writing Tests**
 
 Feature Files: Located in src/test/resources/features/, these files contain Gherkin syntax scenarios.
 
 Step Definitions: Implemented in Java classes within src/test/java/stepdefinitions/, mapping Gherkin steps to Selenium actions.
 
-🔧** Configuration**
+🔧 ** Configuration**
 
 configuration.properties: Contains environment-specific settings such as base URLs and browser configurations.
