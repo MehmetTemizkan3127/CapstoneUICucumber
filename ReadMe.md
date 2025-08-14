@@ -26,7 +26,7 @@ Maven: For project dependency management and build automation.
 
 Clone the repository:
 
-git clone https://github.com/fatmapostaci/CapstoneUICucumber.git
+git clone https://github.com/MehmetTemizkan3127/CapstoneUICucumber.git
 cd CapstoneUICucumber
 
 
