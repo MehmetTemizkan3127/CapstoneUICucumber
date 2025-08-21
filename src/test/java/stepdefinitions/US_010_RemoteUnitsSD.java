@@ -53,7 +53,7 @@ loginPage.clickSignIn();
     public void userVerifyTheRemoteUnitsPageMenu() throws InterruptedException {
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         waitForSeconds(3);
-        int expectedSize = 63;
+        int expectedSize = 65;
         int actualSize=remoteUnitsPage.displayRemotePagelist.size();
         System.out.println("actualSize = " + actualSize);
         Assert.assertEquals(actualSize,expectedSize);

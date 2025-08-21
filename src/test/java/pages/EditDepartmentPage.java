@@ -70,7 +70,6 @@ public class EditDepartmentPage {
         boolean flag = false;
         ReusableMethods.clickElement(pages.getDepartmentsPage().getDepartmentsButton());
         ReusableMethods.visibilityOfElementsByWebDriverWait(pages.getDepartmentsPage().getDepartmentsButton());
-        //wait.until(ExpectedConditions.visibilityOfAllElements(getDriver().findElements(pages.getDepartmentsPage().getDepartmentsButton())));
         List<WebElement> names = driver.findElements(pages.getDepartmentsPage().getAllDepartmentNames());
         for (WebElement nameElement : names) {
             if (nameElement.getText().equals(this.savedDepartmentName)) {

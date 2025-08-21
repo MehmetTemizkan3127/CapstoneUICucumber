@@ -1,4 +1,4 @@
-@EditDepartment
+@EditDepartment @AllDepartments
 Feature: Edit Department Feature
 #T****
   Background: User goes to homepage
