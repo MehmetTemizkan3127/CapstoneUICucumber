@@ -1,24 +1,21 @@
 package stepdefinitions;
 
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import pages.AllPages;
 import pages.NewRemoteUnitPage;
 import pages.RemoteUnitsPage;
 import utilities.ConfigReader;
 import utilities.Driver;
-import utilities.ReusableMethods;
 
 import static org.testng.AssertJUnit.assertEquals;
 import static utilities.ReusableMethods.waitForSeconds;
 
-public class US_11_NewRemote_Units_StepDefinition {
-    AllPages pages;
-NewRemoteUnitPage newAdd =new NewRemoteUnitPage();
+public class US_011_NewRemoteUnitsSD {
+    RemoteUnitsPage remoteUnitsPage=new RemoteUnitsPage();
+    NewRemoteUnitPage newAdd =new NewRemoteUnitPage();
+
 
 
 
@@ -46,7 +43,8 @@ NewRemoteUnitPage newAdd =new NewRemoteUnitPage();
     }
     @When("the user clicks the Save button")
     public void the_user_clicks_the_save_button() {
-        newAdd.SaveButton.click();
+        waitForSeconds(2);
+        remoteUnitsPage.SaveButton.click();
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
@@ -56,7 +54,7 @@ NewRemoteUnitPage newAdd =new NewRemoteUnitPage();
     public void the_user_verifies_that_the_newly_added_remote_unit_displayed_under_remote_units() {
 
 
-        waitForSeconds(3);
+      //  waitForSeconds(3);
         String actualText = newAdd.verifynewremoteunits.getText();
         System.out.println("actualText = " + actualText);
         String expectedDeptName = ConfigReader.getProperty("departmaname");
@@ -64,14 +62,14 @@ NewRemoteUnitPage newAdd =new NewRemoteUnitPage();
 
         Assert.assertTrue(actualText.contains(expectedDeptName),
                 "Beklenen metin bulunamadı: " + expectedDeptName);
-        waitForSeconds(1);
+
         newAdd.verifynewremoteunits.click();
-        waitForSeconds(1);
-        newAdd.editbutton.click();
-        waitForSeconds(1);
+        waitForSeconds(2);
         System.out.println("Driver.getDriver().getCurrentUrl() = " + Driver.getDriver().getCurrentUrl());
-        Driver.getDriver().navigate().refresh();
-        waitForSeconds(3);
+        //Driver.getDriver().navigate().refresh();
+
+
+
 
     }
 }

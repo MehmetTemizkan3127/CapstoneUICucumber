@@ -1,22 +1,20 @@
 package stepdefinitions;
 
-import io.cucumber.java.en.Given;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import pages.AllPages;
+import utilities.ConfigReader;
 
-public class UsersDisplaySD {
+public class US_015_UsersSD {
 
     AllPages pages = new AllPages();
+    public static int index = Integer.parseInt(ConfigReader.getProperty("indexOfUserList"));
 
-    @Given("User goes to usersPage")
-    public void userGoesToUsersPage() {
-        pages
-                .getUsersPage()
-                .openDropDownMenu()
-                .changeRoleToClaruswayCompany()
-                .goToUsersPage();
+    @When("User goes to userPage")
+    public void goToUserPage() {
+        pages.getDashboardPage().clickOnMenuItem("Users");
     }
-
     @Then("verify that  page opened")
     public void verifyThatPageOpened() {
         pages
@@ -58,4 +56,6 @@ public class UsersDisplaySD {
                 .getUsersPage()
                 .assertVisibilityOfStatusOfEachUser();
     }
+
+
 }

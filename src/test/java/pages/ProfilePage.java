@@ -17,7 +17,7 @@ public class ProfilePage extends ReusableMethods {
 
     private By changePasswordSuccessfulAlertProfile = By.xpath("//div[@class='toast-body']");
     private By changePasswordNotSuccessfulAlertProfile =
-            By.xpath("//div[@class='alert alert-danger alert-dismissible fade show mt-1']");
+            By.xpath("/html/body/div[2]/div/div/div/div/div[1]/div/div[3]");
 
     // METHODS
 
@@ -53,5 +53,15 @@ public class ProfilePage extends ReusableMethods {
         }
         return "";
     }
+
+    public String getNotChangePasswordAlertText() {
+        if (ReusableMethods.isDisplayed(changePasswordNotSuccessfulAlertProfile)) {
+            return ReusableMethods.getTextOfElement(changePasswordNotSuccessfulAlertProfile);
+        } else if (ReusableMethods.isDisplayed(changePasswordNotSuccessfulAlertProfile)) {
+            return ReusableMethods.getTextOfElement(changePasswordNotSuccessfulAlertProfile);
+        }
+        return "";
+    }
+
 }
 

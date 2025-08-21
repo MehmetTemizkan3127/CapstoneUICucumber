@@ -3,28 +3,19 @@ package stepdefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
 import org.testng.Assert;
-import pages.HomePage;
-import pages.LoginPage;
-import pages.RemoteUnitsPage;
-import pages.UsersPage;
+import pages.*;
 import utilities.ConfigReader;
 import utilities.Driver;
-import utilities.JavascriptUtils;
-import utilities.ReusableMethods;
-
-import java.util.List;
 
 import static utilities.ReusableMethods.waitForSeconds;
 
-public class US_10_Remote_Units_StepDefinition {
+public class US_010_RemoteUnitsSD {
     RemoteUnitsPage remoteUnitsPage = new RemoteUnitsPage();
     HomePage homePage=new HomePage();
     LoginPage loginPage=new LoginPage();
+    DashboardPage dashboardPage = new DashboardPage();
 
 
     @When("user clicks on Login button")
@@ -49,9 +40,11 @@ loginPage.clickSignIn();
     }
     @When("user clicks the Remote Units  menu")
     public void user_clicks_the_remote_units_menu() {
-        remoteUnitsPage.dropdown.click();
+       dashboardPage.clickMaximizeSideBar();
+       //remoteUnitsPage.dropdown.click();
         waitForSeconds(3);
-remoteUnitsPage.remoteunitsign.click();
+        dashboardPage.clickOnMenuItem("Remote Units");
+//remoteUnitsPage.remoteunitsign.click();
 
 
     }
@@ -60,7 +53,7 @@ remoteUnitsPage.remoteunitsign.click();
     public void userVerifyTheRemoteUnitsPageMenu() throws InterruptedException {
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         waitForSeconds(3);
-        int expectedSize = 35;
+        int expectedSize = 63;
         int actualSize=remoteUnitsPage.displayRemotePagelist.size();
         System.out.println("actualSize = " + actualSize);
         Assert.assertEquals(actualSize,expectedSize);

@@ -48,60 +48,18 @@ public class US_004_ProfileSD extends ReusableMethods {
         Assert.assertEquals(expectedMessage, actualMessage);
     }
 
+    @Then("profile the message {string} should be displayed")
+    public void profileTheMessageShouldBeDisplayed(String errorMessage) {
+
+        ReusableMethods.waitForSeconds(2); // kısa gecikme
+        String actualMessage = pages.getProfilePage().getNotChangePasswordAlertText();
+        Assert.assertEquals(errorMessage, actualMessage);
 
 
 
 
+    }
 
-
-
-
-
-//    @And("profile the user enters the email {string}")
-//    public void profileTheUserEntersTheEmail(String imail) {
-//        waitForVisibility(Driver.getDriver(), loginPage.username, 10);
-//        sendKeysMethod(loginPage.username, imail);
-//    }
-//
-//    @And("profile the user enters the password {string}")
-//    public void profileTheUserEntersThePassword(String sifre) {
-//        waitForVisibility(Driver.getDriver(), loginPage.password, 10);
-//        sendKeysMethod(loginPage.password, sifre);
-//    }
-//
-//    @And("profile the user clicks on the sign in button")
-//    public void profileTheUserClicksOnTheSignInButton() {
-//        clickElement(loginPage.signin);
-//    }
-//
-//    @Then("profile the user clicks on the Profile module in the left corner")
-//    public void profileTheUserClicksOnTheProfileModuleInTheLeftCorner() {
-//        clickElement(profilePage.profileButtonum);
-//    }
-//
-//    @And("profile the user should be on the Profile module")
-//    public void profileTheUserShouldBeOnTheProfileModule() {
-//        waitForVisibility(Driver.getDriver(), profilePage.profileButtonum, 10);
-//        assertTrue(profilePage.profileButtonum.isDisplayed());
-//    }
-//
-//
-//
-//
-//
-//
-//
-//
-//    @Then("profile the message {string} should be displayed")
-//    public void profileTheMessageShouldBeDisplayed(String error_message) {
-//        waitForVisibility(Driver.getDriver(), profilePage.changePasswordNotSuccessfulAlertProfile, 10);//negatif mesaj
-//        assertEquals(error_message, profilePage.changePasswordNotSuccessfulAlertProfile.getText());
-//        System.out.println("burasıından sonra ");
-//    }
-//    @And("the new password should be updated for subsequent login")
-//    public void theNewPasswordShouldBeUpdatedForSubsequentLogin() {
 
 }
-
-
 
