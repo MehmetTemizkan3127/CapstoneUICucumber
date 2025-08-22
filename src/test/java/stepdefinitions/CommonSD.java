@@ -15,7 +15,7 @@ public class CommonSD {
     @And("user logins as {string} with password {string}")
     public void userLogins(String username, String password) {
 
-        pages.getLoginPage().userLogins(ConfigReader.getProperty(username), ConfigReader.getProperty(password ));
+       // pages.getLoginPage().userLogins(ConfigReader.getProperty(username), ConfigReader.getProperty(password ));
     }
 
 

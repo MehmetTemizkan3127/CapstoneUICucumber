@@ -20,6 +20,7 @@ public class AllPages {
     private EditDepartmentPage editDepartmentPage;
     private DashboardPage dashboardPage;
     private ProfilePage profilePage;
+    private CompanyPage companyPage;
 
     public HomePage getHomePage() {
         if (homePage == null) {
@@ -147,6 +148,12 @@ public class AllPages {
         return profilePage;
     }
 
+    public CompanyPage getCompanyPage() {
+        if (companyPage == null){
+            companyPage = new CompanyPage();
+        }
+        return companyPage;
+    }
 
 
 }
