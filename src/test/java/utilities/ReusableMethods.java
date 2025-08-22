@@ -149,8 +149,7 @@ public class ReusableMethods {
 
     // Belirli bir elemente kaydırma yapar
     public static void scrollToElement(WebDriver driver, WebElement element) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", element);
+        
     }
 
     // Sayfanın en altına kaydırır
@@ -164,46 +163,5 @@ public class ReusableMethods {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollTo(0, 0);");
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
