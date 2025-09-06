@@ -6,15 +6,20 @@ A Java-based UI automation framework utilizing Cucumber for Behavior-Driven Deve
 
 CapstoneUICucumber is designed to facilitate automated UI testing using Cucumber's Gherkin syntax for writing human-readable test scenarios. The framework integrates with Selenium WebDriver to perform browser automation, enabling efficient and maintainable testing practices.
 
-🛠️ **Technologies Used**
+🛠️ **Technologies and Tools Used**
 
-Java: Primary programming language for test implementation.
+Languages & Tools: Java, Selenium WebDriver, Cucumber, TestNG, Maven, IntelliJ IDEA
+Reporting & Version Control: Allure Report, GitHub
+Design Pattern: Page Object Model (POM) + Step Definitions
+Reusable Classes: Common waits, reusable click/input methods, driver management, screenshot capturing
+Supported Browsers: Chrome, Firefox, Edge, Headless Chrome
 
-Cucumber: For writing and running BDD-style tests.
-
-Selenium WebDriver: For browser automation.
-
-Maven: For project dependency management and build automation.
+Implemented BDD (Behavior-Driven Development) with Gherkin scenarios.
+Integrated Allure Reports for detailed and visualized test reporting.
+Built a reusable Page Object and Step Definition structure to increase maintainability.
+Automated end-to-end user scenarios including login, navigation, and UI interactions.
+Enhanced test reporting with Allure annotations (@Feature, @Story, @Severity) for detailed analysis.
+Configured framework for CI/CD pipelines using Jenkins/GitHub Actions.
 
 
 📁 **Project Structure**
